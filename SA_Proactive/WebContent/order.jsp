@@ -105,14 +105,8 @@
 				<tr>
 					<td>1</td>
 					<td>2014/12/30</td>
-					<td>$30000</td>
+					<td>$75963</td>
 					<td><span class="order_span">未付款</span></td>
-				</tr>
-				<tr>
-					<td>1111</td>
-					<td>2000/1/1</td>
-					<td>$50000</td>
-					<td>已付款</td>
 				</tr>
 			</tbody>
 		</table>
