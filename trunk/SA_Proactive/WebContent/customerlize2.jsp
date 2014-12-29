@@ -132,35 +132,35 @@
 					</div>
 					<div class="col-md-12 cpu_select">
 						<span>顯示/繪圖卡</span> <select>
-							<option>Transcend DDR400 1G PC用</option>
-							<option>DDR2 800 2G PC用</option>
-							<option>Kingston DDR3 1333 2G PC用</option>
-							<option>美光 DDR4 2133 4G 288PIN記憶體</option>
-							<option>Kingston DDR3 1866 8G HyperX FURY超頻(藍)</option>
+							<option>GIGABYTE GV-R545-1GI</option>
+							<option>MSI R7750-1GD5</option>
+							<option>ASUS R7240-2GD3-L 顯示卡</option>
+							<option>GIGABYTE GV-N660OC-3GD顯示卡</option>
+							<option>艾維克 EVGA GTX970 4GB SC 顯示卡</option>
 						</select>
 					</div>
 					<div class="col-md-12 cpu_select">
 						<span>電源供應器</span> <select>
-							<option>Transcend DDR400 1G PC用</option>
-							<option>DDR2 800 2G PC用</option>
-							<option>Kingston DDR3 1333 2G PC用</option>
-							<option>美光 DDR4 2133 4G 288PIN記憶體</option>
-							<option>Kingston DDR3 1866 8G HyperX FURY超頻(藍)</option>
+							<option>COOLER MASTER 350W/12CM 電源供應器</option>
+							<option>GIGABYTE Hercules X530 電源供應器</option>
+							<option>iCute SPEED 400W 電源供應器</option>
+							<option>Seasonic G-450W/80+金牌 電源供應器</option>
+							<option>Seventeam ST-600PFL 80+/600W 電源供應器</option>
 						</select>
 					</div>
 					<div class="col-md-12 cpu_select">
 						<span>電腦機殼</span> <select>
-							<option>Transcend DDR400 1G PC用</option>
-							<option>DDR2 800 2G PC用</option>
-							<option>Kingston DDR3 1333 2G PC用</option>
-							<option>美光 DDR4 2133 4G 288PIN記憶體</option>
-							<option>Kingston DDR3 1866 8G HyperX FURY超頻(藍)</option>
+							<option>COOLER MASTER 693</option>
+							<option>GIGABYTE GZ-F1</option>
+							<option>金河田 8526BL</option>
+							<option>iCute 鋼鐵戰士</option>
+							<option>Thermaltake Chaser A31</option>
 						</select>
 					</div>
 					<div class="col-md-12 cpu_select">
 						<span>DVD燒錄器</span> <select>
-							<option>Transcend DDR400 1G PC用</option>
-							<option>DDR2 800 2G PC用</option>
+							<option>ASUS DRW-24D3ST</option>
+							<option>LITEON IHAS324</option>
 							<option>Kingston DDR3 1333 2G PC用</option>
 							<option>美光 DDR4 2133 4G 288PIN記憶體</option>
 							<option>Kingston DDR3 1866 8G HyperX FURY超頻(藍)</option>
@@ -168,8 +168,8 @@
 					</div>
 					<div class="col-md-12 cpu_select">
 						<span>CPU散熱風扇</span> <select>
-							<option>Transcend DDR400 1G PC用</option>
-							<option>DDR2 800 2G PC用</option>
+							<option>AOC usa CPT12-9525EA 超靜音風扇LGA775</option>
+							<option>COOLER MASTER Vortex 211P風扇LGA1156</option>
 							<option>Kingston DDR3 1333 2G PC用</option>
 							<option>美光 DDR4 2133 4G 288PIN記憶體</option>
 							<option>Kingston DDR3 1866 8G HyperX FURY超頻(藍)</option>

@@ -74,6 +74,13 @@
 		<caption>
 			<h3 class="cart_h3 cart_h3_chg">零件區</h3>
 		</caption>
+		<%
+				ProductDB productDB=new ProductDB();
+										List<ProductBean> allproduct = new ArrayList<ProductBean>();
+										allproduct=productDB.getProductListByMemberAccount(memberAccount);
+										
+										for(ProductBean productBean : allproduct){
+			%>
 		<table class="table table-hover cart_table">
 			<thead>
 				<tr>
@@ -84,14 +91,17 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href=""> <img src="img/cpu.jpg"
+					<td><a href=""> <img src="<%=productBean.getImage()%>"
 							class="cart_product" alt="">
-					</a> 我是商品1</td>
-					<td>3</td>
-					<td>$2000</td>
+					</a> <%=productBean.getProductName()%></td>
+					<td><%=productBean.getQuantity()%></td>
+					<td>$<%=productBean.getUnitPrice()%></td>
 				</tr>
 			</tbody>
 		</table>
+		<%
+				}//for
+			%>
 		<caption>
 			<h3 class="cart_h3">客製化組裝區</h3>
 		</caption>
@@ -105,17 +115,24 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href=""> <img src="img/cpu.jpg"
+					<td><a href=""> <img src="img/cusimg.jpg"
 							class="cart_product" alt="">
-					</a> 我是CPU</td>
-					<td>1</td>
-					<td>$2000</td>
+					</a> 我的組合1</td>
+					<td>2</td>
+					<td>$16888</td>
 				</tr>
 			</tbody>
 		</table>
 		<caption>
 			<h3 class="cart_h3">優惠組合區</h3>
 		</caption>
+		<%
+				CombinationDB combinationDB=new CombinationDB();
+										List<CombinationBean> allcombination = new ArrayList<CombinationBean>();
+										allcombination=combinationDB.getCombinationListByMemberAccount(memberAccount);
+										
+										for(CombinationBean combinationBean : allcombination){
+			%>
 		<table class="table table-hover cart_table">
 			<thead>
 				<tr>
@@ -126,18 +143,21 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href=""> <img src="img/cpu.jpg"
+					<td><a href=""> <img src="<%=combinationBean.getComImage()%>"
 							class="cart_product" alt="">
-					</a> 我是商品1</td>
-					<td>4</td>
-					<td>$2000</td>
+					</a> <%=combinationBean.getCombinationName()%></td>
+					<td><%=combinationBean.getQuantity()%></td>
+					<td>$<%=combinationBean.getTotalPrice()%></td>
 				</tr>
 			</tbody>
 		</table>
+		<%
+				}//for
+			%>
 
 		<div class="totalprice_div">
 			<p>
-				總金額: <span>$59075</span>
+				總金額: <span>$75963</span>
 			</p>
 		</div>
 
