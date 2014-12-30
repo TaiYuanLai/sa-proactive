@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="database.*"%>
+<%@ page import="bean.*"%>
+<%@ page import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,6 +18,9 @@
 
 </head>
 <body>
+	<%
+		if (session.getAttribute("memberAccount") != null) {
+	%>
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
 		role="navigation">
@@ -35,14 +41,31 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-left navcolor">
-				<li class="active"><a href="##">首頁</a></li>
-				<li><a href="##">買零件</a></li>
-				<li><a href="##">買優惠組合</a></li>
-				<li><a href="##">客製化組裝</a></li>
+				<li><a href="index.jsp">首頁</a></li>
+				<li><a href="product.jsp">買零件</a></li>
+				<li><a href="specialOffer.jsp">買優惠組合</a></li>
+				<li><a href="customerlize1.jsp">客製化組裝</a></li>
 			</ul>
+			<%
+				String memberAccount = session.getAttribute("memberAccount")
+							.toString();
+					String memberName = session.getAttribute("memberName")
+							.toString();
+					MemberBean memberBean = new MemberBean();
+					MemberDB memberDB = new MemberDB();
+					memberBean = memberDB.getMember(memberAccount);
+			%>
 			<ul class="nav navbar-nav navbar-right navcolor">
-				<li><a href="##">註冊</a></li>
-				<li><a href="##">登入</a></li>
+				<li class="active"><a href="cart.jsp"><span
+						class="glyphicon glyphicon-shopping-cart"></span>購物車</a></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"><%=session.getAttribute("memberName")%><b
+						class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="modiPassword.jsp">修改密碼</a></li>
+						<li><a href="order.jsp">訂單查詢</a></li>
+						<li><a href="LogoutServlet">登出</a></li>
+					</ul></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
@@ -54,7 +77,7 @@
 		</h2>
 		<p>
 		<h3>
-			<span class="span_pO">恭喜您已完成購買</span>
+			<span class="span_pO"><%=memberBean.getMemberName()%><br>恭喜您已完成購買!!</span>
 		</h3>
 		</p>
 		<footer>
@@ -66,7 +89,11 @@
 		</footer>
 	</div>
 
-
+	<%
+		}//if
+		else
+			response.sendRedirect("login.jsp");
+	%>
 
 
 
