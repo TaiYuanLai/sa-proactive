@@ -118,26 +118,26 @@
             <div class="leftColumn">
                 <nav>
                     <ul>
-                        <li><a href="#" class="current">中央處理器 CPU</a></li>
-                        <li><a href="#">主機板 MD</a></li>
-                        <li><a href="#">硬碟/SSD HD</a></li>
-                        <li><a href="#">記憶體 RAM</a></li>
-                        <li><a href="#">顯示/繪圖卡 VGA</a></li>
+                        <li><a href="#hot_cpu" class="current">中央處理器 CPU</a></li>
+                        <li><a href="#hot_md">主機板 MD</a></li>
+                        <li><a href="#hot_ssdhd">硬碟/SSD HD</a></li>
+                        <li><a href="#hot_ram">記憶體 RAM</a></li>
+                        <li><a href="#hot_vga">顯示/繪圖卡 VGA</a></li>
 
-                        <li><a href="#">電源供應器</a></li>
-                        <li><a href="#">電腦機殼</a></li>
-                        <li><a href="#">DVD燒錄器</a></li>
-                        <li><a href="#">CPU散熱風扇</a></li>
-                        <li><a href="#">液晶螢幕</a></li>
+                        <li><a href="#hot_power">電源供應器</a></li>
+                        <li><a href="#hot_box">電腦機殼</a></li>
+                        <li><a href="#hot_dvd">DVD燒錄器</a></li>
+                        <li><a href="#hot_fan">CPU散熱風扇</a></li>
+                        <li><a href="#hot_moniter">液晶螢幕</a></li>
 
                         
-                        <li><a href="#">鍵盤</a></li>
-                        <li><a href="#">滑鼠</a></li>
-                        <li><a href="#">喇叭</a></li>
-                        <li><a href="#">作業系統</a></li>
+                        <li><a href="#hot_keyboard">鍵盤</a></li>
+                        <li><a href="#hot_mouse">滑鼠</a></li>
+                        <li><a href="#hot_speaker">喇叭</a></li>
+                        <li><a href="#hot_os">作業系統</a></li>
 
-                        <li><a href="#">網路卡</a></li>
-                        <li><a href="#">I/O卡</a></li>
+                        <li><a href="#hot_webcard">網路卡</a></li>
+                        <li><a href="#hot_io">I/O卡</a></li>
                     </ul>
                 </nav>
             </div><!-- div.leftColume -->
@@ -145,7 +145,7 @@
             <div class="rightColumn">
 
                 <!-- 中央處理器 cpu -->
-                <div class="row">
+                <div class="row" id="hot_cpu">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>CPU</p>
@@ -192,7 +192,7 @@
                     </div>
                 </div>
                 <!-- 主機板 MD -->
-                <div class="row">
+                <div class="row" id="hot_md">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>MD</p>
@@ -239,7 +239,7 @@
                     </div>
                 </div>
                 <!-- 硬碟/SSD HD -->
-                <div class="row">
+                <div class="row" id="hot_ssdhd">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>HD</p>
@@ -286,7 +286,7 @@
                     </div>
                 </div>
                 <!-- 記憶體 RAM -->
-                <div class="row">
+                <div class="row" id="hot_ram">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>RAM</p>
@@ -333,7 +333,7 @@
                     </div>
                 </div>
                 <!-- 顯示/繪圖卡 VGA -->
-                <div class="row">
+                <div class="row" id="hot_vga">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>VGA</p>
@@ -380,7 +380,7 @@
                     </div>
                 </div>
                 <!-- 電源共應器 -->
-                <div class="row">
+                <div class="row" id="hot_power">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>電源</p>
@@ -427,7 +427,7 @@
                     </div>
                 </div>
                 <!-- 電腦機殼 -->
-                <div class="row">
+                <div class="row" id="hot_box">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>機殼</p>
@@ -474,7 +474,7 @@
                     </div>
                 </div>
                 <!-- DVD燒錄器 -->
-                <div class="row">
+                <div class="row" id="hot_dvd">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>DVD</p>
@@ -521,7 +521,7 @@
                     </div>
                 </div>
                 <!-- CPU散熱風扇 -->
-                <div class="row">
+                <div class="row" id="hot_fan">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>風扇</p>
@@ -568,7 +568,7 @@
                     </div>
                 </div>
                 <!-- 液晶螢幕 -->
-                <div class="row">
+                <div class="row" id="hot_moniter">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>螢幕</p>
@@ -615,7 +615,7 @@
                     </div>
                 </div>
                 <!-- 鍵盤 -->
-                <div class="row">
+                <div class="row" id="hot_keyboard">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>鍵盤</p>
@@ -662,7 +662,7 @@
                     </div>
                 </div>
                 <!-- 滑鼠 -->
-                <div class="row">
+                <div class="row" id="hot_mouse">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>滑鼠</p>
@@ -709,7 +709,7 @@
                     </div>
                 </div>
                 <!-- 喇叭 -->
-                <div class="row">
+                <div class="row" id="hot_speaker">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>喇叭</p>
@@ -756,7 +756,7 @@
                     </div>
                 </div>
                 <!-- 作業系統 -->
-                <div class="row">
+                <div class="row" id="hot_os">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>OS</p>
@@ -803,7 +803,7 @@
                     </div>
                 </div>
                 <!-- 網路卡 -->
-                <div class="row">
+                <div class="row" id="hot_webcard">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>網卡</p>
@@ -850,7 +850,7 @@
                     </div>
                 </div>
                 <!-- I/O卡 -->
-                <div class="row">
+                <div class="row" id="hot_io">
                     <div class="col-sm-12 col-md-3">
                         <div class="hot_div">
                             <p>I/O卡</p>
