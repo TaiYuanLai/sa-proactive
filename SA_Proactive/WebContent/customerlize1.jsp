@@ -49,7 +49,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html"> <span>PROACTIVE</span>
+				<a class="navbar-brand" href="index.jsp"> <span>PROACTIVE</span>
 				</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->

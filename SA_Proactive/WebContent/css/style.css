@@ -21,29 +21,118 @@ index.jsp-start
 .navchg .navbar-header img{
 	height: 50px;
 }
-/*header */
-header .jumbotron{
+.head{
+	background: url(../img/productbg.jpg) no-repeat;
+	background-size: cover;
+	height: 450px;
+	position: relative;
+}
+.head_content{
+	float: right;
+	width: 750px;
+	height: 750px;
+	/*border: 40px solid rgba(255,255,255,0.3);*/
+	border-radius: 375px;
 	text-align: center;
 	color: #FFFFFF;
+	position: absolute;
+	top: -50px;
+	left: 300px;
+	letter-spacing: 5px;
 }
-header .jumbotron h2{
-	text-shadow:2px 2px 2px #242424;
+.head_title{
+	font-size: 80px;
+	font-weight: bold;
+	margin-top: 150px;
+	margin-bottom: 30px;
+	letter-spacing: 5px;
 }
-header .headerbg{
-	background: url(../img/header3.jpg) repeat;
+.head_btn a:link,.head_btn a:visited,.head_btn a:active{
+	background: rgba(75,151,180,0.6);
+	border: 2px solid rgba(75,151,180,0.1);
+	width: 200px;
+	height: 60px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 10px 40px;
+	color: #FFFFFF;
+	font-size: 22px;
+	text-decoration: none;
 }
-header .headerbtn{
-	background: #06CE93;
-	border: solid 2px #FFFFFF;
+.head_btn a:hover{
+	border: 2px solid #29FAB6;
 }
-header .headerbtn:hover{
-	color: #383A30;
-	background: #FFFFFF;
-	border: solid 2px #EAEAEA;
+/*pageContainer*/
+.index_hot{
+	margin-top: 50px;
+	padding: 0 30px 10px 30px;
+	border-bottom: 2px solid #7C806C;
 }
-/*container*/
-.thumbnail img{
-	width: 50%;
+.pageContainer{ 
+	margin: 0 auto;
+}
+.pageContainer .banner{
+	width: 100%;
+	height: 100px;
+	margin: 20px 0;
+}
+.pageContainer .leftColumn{
+	width: 220px;
+	float: left;
+}
+.pageContainer .rightColumn{
+	width: 1080px;
+	float: left;
+	background: url(../images/divider);
+}
+/*leftColumn*/
+.leftColumn nav{
+	width: 200px;
+	border-radius: 8px;
+	text-align: center;
+}
+.leftColumn nav ul{
+	margin: 0px;
+	padding: 0px;
+}
+.leftColumn nav ul li{
+	list-style: none;/*清除項目符號點點*/
+	border-bottom: 1px solid #C1C4B9;
+}
+.leftColumn nav li a:link,
+.leftColumn nav li a:visited{
+	text-decoration:none;
+	color: #272822;
+	display:block;
+	padding:15px 0;
+	font-size: 14px;
+}
+.leftColumn nav ul li a:hover{
+	background:#272822; 
+	color:#FFFFFF; 
+	-o-transition: 0.6s; 
+	-webkit-transition: 0.6s; 
+	-moz-transition: 0.6s; 
+	transition: 0.6s;
+}
+
+.leftColumn nav ul li a.current{
+	color:#4B97B4; 
+	font-weight:bold;
+}
+.hot_div{
+	text-align: center;
+	width: 230px;
+	height: 220px;
+	background: #272822;
+	color: #FFFFFF;
+	margin: 40px 0 0 20px;
+	padding: 45px 10px;
+	font-size: 80px;
+	font-weight: bolder;
+}
+.rightColumn .productname{
+	height: 70px;
 }
 /**********
 end of index.jsp
@@ -301,7 +390,7 @@ specialOfferDetail.jsp
 **********/
 .detailbg{
 	background: url(../img/productbg.jpg);
-	background-size: cover;
+	background-size: contain;
 }
  .detailbg footer{
 	color: #FFFFFF;
@@ -316,6 +405,10 @@ specialOfferDetail.jsp
 	text-align: center;
 	margin: 20px 0;
 	padding: 10px 0;
+}
+.detailtitle p{
+	padding-left: 200px;
+	width: 1000px;
 }
 .detailimg img{
 	width: 100%;
@@ -337,6 +430,7 @@ specialOfferDetail.jsp
 	color: #FFFFFF;
 	border: 1px solid #dc5c43;
 	padding: 10px 105px;
+	margin-bottom: 5%;
 }
 .detailbtn1:hover{
 	opacity: 0.8;
@@ -371,7 +465,7 @@ customerlize.jsp
 }
 .cus_bg{
 	background: url(../img/productbg.jpg);
-	background-size: cover;
+	background-size: contain;
 }
 .cusstep{
 	background: rgba(39,40,34,0.8);
@@ -413,9 +507,12 @@ customerlize.jsp
 	padding: 70px 50px;
 }
 .cpu_select{
-	padding: 50px 0 0 90px;
+	padding: 50px 0 0 80px;
 }
 .cpu_select span{
+	display: block;
+	float: left;
+	width: 130px;
 	color: #3C3E35;
 	font-size: 20px;
 	font-weight: bold;
@@ -460,6 +557,9 @@ customerlize.jsp
 	color: #FFFFFF;
 	font-size: 30px;
 	font-weight: bold;
+}
+.cus_bg footer{
+	color: #FFFFFF;
 }
 /**********
 end of customerlize1.jsp
@@ -527,6 +627,9 @@ product.jsp
 }
 .productname:hover{
 	background: rgba(220,92,67,0.8);
+}
+.productbg footer{
+	color: #FFFFFF;
 }
 /**********
 end of product.jsp

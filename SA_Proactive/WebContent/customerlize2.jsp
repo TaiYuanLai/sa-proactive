@@ -102,7 +102,7 @@
 					</div>
 				</div>
 
-				<div class="cus2">
+				<div class="cus2 clearfix">
 					<div class="col-md-12 cpu_select">
 						<span>主機板</span> <select>
 							<option>ASROCK 960GC-GS FX</option>
