@@ -92,7 +92,7 @@
 			<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>商品購買STEP2
 		</h2>
 		<!-- BEGIN CONTACT FORM -->
-		<form id="sendForm" action="" method="post">
+		<form id="sendForm" action="TestServlet" method="post">
 			<table class="table">
 				<h3 class="cart_h3">填寫收件人資訊</h3>
 				<tr>
@@ -173,7 +173,7 @@
 			<!-- Footer -->
 			<p>
 				<!--<br> <a class="btn btn-danger btn_cart" href="payOrder.jsp">下一步</a>-->
-				<button type="submit" class="btn btn-danger btn_cart">下一步</button>
+				<input type="submit"class="btn btn-danger btn_cart" href="payOrder.jsp">
 			</p>
 		</form>
 		<!-- END CONTACT FORM -->
