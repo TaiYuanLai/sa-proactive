@@ -570,7 +570,7 @@ product.jsp
 **********/
 .productbg{
 	background: url(../img/productbg.jpg);
-	background-size: cover;
+	background-size: contain;
 }
 .productslogan{
 	text-align: center;

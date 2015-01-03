@@ -101,7 +101,7 @@
                 <h2>卻擁有比品牌電腦更高檔的配備嗎?</h2>
                 <br><br>
                 <div class="head_btn">
-                    <a class="" href="customerlize1.html">立即組裝我的電腦</a>
+                    <a class="" href="customerlize1.jsp">立即組裝我的電腦</a>
                 </div>
             </div>
         </div>
