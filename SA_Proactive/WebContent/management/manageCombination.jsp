@@ -41,8 +41,8 @@
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-left navcolor">
 				<li><a href="##">產品管理</a></li>
-				<li><a href="manageCombination.jsp">優惠組合管理</a></li>
-				<li><a href="##">熱銷資訊管理</a></li>
+				<li class="active"><a href="manageCombination.jsp">優惠組合管理</a></li>
+				<li><a href="manageHot.jsp">熱銷資訊管理</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right navcolor">
