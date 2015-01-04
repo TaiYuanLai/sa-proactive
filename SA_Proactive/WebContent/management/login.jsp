@@ -89,7 +89,7 @@
 	<%
 		}//if
 		else {
-			response.sendRedirect("manageCombination.jsp");
+			response.sendRedirect("manageProduct.jsp");
 		}
 	%>
 	<!-- jQuery -->

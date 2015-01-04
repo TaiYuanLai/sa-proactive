@@ -1,4 +1,4 @@
-body{
+﻿body{
 	font-family: "微軟正黑體","Central Gothic","Arial";
 }
 /**********
@@ -25,6 +25,7 @@ index.jsp-start
 header .jumbotron{
 	text-align: center;
 	color: #FFFFFF;
+	margin-bottom: 0; 
 }
 header .jumbotron h2{
 	text-shadow:2px 2px 2px #242424;
@@ -42,8 +43,21 @@ header .headerbtn:hover{
 	border: solid 2px #EAEAEA;
 }
 /*container*/
+/*.indexbg2{
+	background: url(../img/productbg.jpg);
+	padding: 20px auto;
+	position: fixed bottom; 
+}*/
+.index_content{
+	background: rgba(255,255,255,0.9);
+	border-radius: 10px;
+}
 .thumbnail img{
 	width: 50%;
+}
+.btncolor{
+	background: #FF962D;
+	border: #FF962D;
 }
 /**********
 end of index.jsp
@@ -51,12 +65,13 @@ end of index.jsp
 
 /*--login--*/
 .container_reg{
-	height: 100%;
+	height: 617px;
 	background-image: url(../img/desktop.jpg) ;
-	background-size: 100% 100%;
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	padding: 50px 0px 50px 0px;
+
 }
 .login_div{
 	margin: 0px auto 0px auto;
@@ -105,13 +120,359 @@ end of index.jsp
 	color: #272822;
 	border-width: 1.5px;
 	font-weight: bold;
-	border-radius: 0%;
-	border-color: #838673;
 }
 .btn_log:hover{
 	color: #F0F0EE;
 	background-color: #272822;
 }
+/*--register--*/
+.form-group_reg{
+	margin-top: 5px;
+	padding-left: 60px;
+}
+.logo_reg{
+	width: 100px;
+	height: 100px;
+	margin-bottom: 10px;
+	color: #272822;
+}
+.textbox_check{
+	background:url(../img/checkmark-icon.png)no-repeat;
+}
+.btn_reg{
+	margin-left: 60px;
+	background-color: #e4e4e4;
+	color: #272822;
+	border-width: 1.5px;
+	font-weight: bold;
+}
+.btn_reg:hover{
+	color: #F0F0EE;
+	background-color: #272822;
+}
+.footer_reg{
+	color: #FFFFFF;
+	margin: 100px 0px 0px 0px;
+
+}
+
+/*register2*/
+.form-group_reg2{
+	margin-top: 5px;
+	text-align: center;
+}
+.p_reg2{
+	font-size: 16px;
+	font-weight: bold;
+}
+.link_reg2{
+	font-size: 16px;
+	font-weight: bold;
+}
+/*register3*/
+.span_reg3{
+	font-size: 15px;
+	font-weight: normal;
+}
+/**********
+product.jsp
+**********/
+.product_nav{
+	margin: 20px 0 20px 0;
+}
+/**********
+end of product.jsp
+**********/
+/**********
+specialOffer.jsp
+**********/
+.offer{
+	margin: 20px 0 20px 0;
+	background: #FFFFFF;
+	border: 3px solid #3D3B4F;
+}
+.offer a:hover{
+	opacity: 0.6;
+}
+.offer_pic img{
+	float: left;
+	margin: 15px 15px 15px 0;
+	width: 150px;
+	height: 150px;
+	border-radius: 75px;
+}
+.offer_describe{
+	float: left;
+	width: 70%;
+	margin: 30px 0 0 0;
+	padding: 30px 0 20px 20px;
+	border-left: 2px dashed #3D3B4F;
+}
+.offer_price{
+	margin-top: 60px;
+	background: #FFFFFF;
+	border: 3px solid #3D3B4F;
+	float: left;
+	width: 10%;
+	padding: 5px 10px 5px 10px;
+}
+/**********
+end of product.jsp
+**********/
+
+/**********
+customerlize.jsp
+**********/
+.cus_bg{
+	background: url() no-repeat;
+}
+.cus_bg .col-md-8{
+	margin-left: 15%;
+}
+.cpu_btn{
+	margin: 30px 0 30px 0;
+	color: black;
+	height: 200px;
+	background: url("../img/cusbg1.png") no-repeat center;
+	background-size:200px 200px;
+	position: relative;
+}
+.cpu_btn:hover{
+	color: white;
+	height: 200px;
+	background: url("../img/cusbg2.png") no-repeat center;
+	background-size:200px 200px;
+}
+.cpu_p{
+	font-size: 40px;
+	position: absolute;
+	top: 70px;
+	left: 140px;
+}
+.cpu_p2{
+	font-size: 40px;
+	position: absolute;
+	top: 70px;
+	left: 133px;
+}
+.breadcrumb{
+	font-size: 20px;
+	color: #CECECE;
+	background: #FFFFFF;
+	border: 3px groove #FFFFFF;
+}
+.step_active{
+	color: black;
+}
+.cpu_select{
+	margin: 10px auto 200px auto;
+}
+.cpu_select_2{
+	margin: 10px auto 10px auto;
+}
+.cus_next{
+	position: relative;
+	float: right;
+}
+.cus_next span{
+	font-size: 36px;
+	position: absolute;
+	top: 48px;
+	left: 43px;
+}
+.cus_next_2{
+	position: relative;
+	float: right;
+}
+.cus_next_2 span{
+	font-size: 36px;
+	position: absolute;
+	top: 48px;
+	left: 60px;
+}
+/**********
+end of customerlize1.jsp
+**********/
+
+/**********
+order.jsp
+**********/
+.orderbg{
+	background: rgba(255,255,255,0.9);
+	height: 100%;
+	width: 1200px;
+	height: 500px;
+	overflow: scroll;
+}
+.orderhead{
+	text-align: center;
+	font-weight: bolder;
+	/*border-bottom: 3px solid #272822;*/
+	margin-bottom: 20px; 
+}
+.orderbg thead td{
+	/*border: 3px solid #272822 collapse;*/
+}
+.orderbg tbody tr{
+	border-top: 2px solid #272822;
+}
+.orderbg tbody tr:hover{
+	background: rgba(4,162,118,0.5);
+}
+.footer_order{
+	color: #FFFFFF;
+	margin: 30px 0px 0px 0px;
+}
+.orderbg tbody select{
+	border: 1px solid #272822;
+	background: rgba(255,255,255,0);
+}
+/**********
+end of order.jsp
+**********/
+/**********
+modiCombination.jsp
+**********/
+.detail{
+	background: rgba(255,255,255,0.9);
+	margin: 50px auto;
+}
+.detailtitle{
+	background: rgba(39,40,34,0.8);
+	color: #FFFFFF;
+	text-align: center;
+	margin: 20px 0;
+	padding: 10px 0;
+}
+.detailimg img{
+	width: 100%;
+	border-radius: 50%;
+	padding: 8%;
+}
+.detailcontent{
+	float: right;
+	padding: 50px 30px 0 0;
+}
+.detailcontent p{
+	background: #272822;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 24px;
+}
+.detailbtn1{
+	background: #dc5c43;
+	color: #FFFFFF;
+	border: 1px solid #dc5c43;
+	padding: 10px 105px;
+}
+.detailbtn1:hover{
+	opacity: 0.8;
+}
+.detailbtn2{
+	background: #6fa52d;
+	color: #FFFFFF;
+	border: 1px solid #6fa52d;
+	padding: 10px 105px;
+}
+.detailbtn2:hover{
+	opacity: 0.8;
+}
+.detailbtn1_1{
+	background: #ECA697;
+	color: #FFFFFF;
+	border: 1px solid #ECA697;
+	padding: 10px 98px;
+}
+.modi select{
+	margin-left: 100px;
+	width: 300px;
+}
+/**********
+end of modiCombination.jsp
+**********/
+/**********
+manageCombination.jsp
+**********/
+.productcontent{
+	background: rgba(255,255,255,0.9);
+	padding: 30px;
+}
+.nav-tabs{
+	margin: 0;
+	background: #272822;
+	border-bottom: 1px solid #272822;
+}
+.nav-tabs li a:link,.nav-tabs li a:visited{
+	color: #FFFFFF;
+}
+.nav-tabs>li>a{
+	margin: 0;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
+	margin: 0;
+	color: #FFFFFF;
+	background: #525447;
+	border: 1px solid #525447;
+	border-radius: 0;
+}
+.nav-tabs li a:hover{
+	margin: 0;
+	color: #FFFFFF;
+	background: #525447;
+	border: 1px solid #525447;
+	border-radius: 0;
+}
+/*product*/
+.product{
+	margin: 30px 0 0 0;
+	position: relative;
+}
+.product a:link,.product a:visited,.product a:active{
+	color: #FFFFFF;
+}
+.productimg img{
+	width: 100%;
+}
+.productname{
+	position: absolute;
+	bottom: 0;
+	background: rgba(39,40,34,0.8);
+	padding: 10px;
+	width: 100%;
+	height: 60px;
+}
+.productname:hover{
+	background: rgba(220,92,67,0.8);
+}
+.productbg footer{
+	color: #FFFFFF;
+}
+.addProduct{
+	background: #dc5c43;
+	color: #FFFFFF;
+	border: 1px solid #dc5c43;
+	margin: 30px auto; 
+	padding: 10px 105px;
+	width: 100%;
+}
+.addProduct:hover{
+	opacity: 0.8;
+}
+.addtxt{
+	color: #272822;
+}
+.addtxt1{
+	border: 1px solid #272822;
+	margin-left: 100px;
+	width: 300px;
+}
+.detailbtn1_re{
+	margin-left: 150px;
+}
+/**********
+end of manageCombination.jsp
+**********/
+
 /*hotProduct*/
 .hotProduct_div{
 	background: rgba(255,255,255,0.9);
