@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>優惠組合管理</title>
+<title>後台-優惠組合管理</title>
 <link rel="stylesheet" href="css/jquery.validate.css" media="screen" />
 <link rel="shortcut icon" href="img/logo3.jpg">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,7 +40,7 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-left navcolor">
-				<li><a href="##">產品管理</a></li>
+				<li><a href="manageProduct.jsp">產品管理</a></li>
 				<li class="active"><a href="manageCombination.jsp">優惠組合管理</a></li>
 				<li><a href="manageHot.jsp">熱銷資訊管理</a></li>
 			</ul>
