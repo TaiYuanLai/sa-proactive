@@ -76,10 +76,6 @@
 						<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
 						優惠組合管理
 					</h1>
-					<br> <a href="addCombination.jsp"><button type="button"
-							class="">
-							<span class="g"></span> 新增優惠組合
-						</button></a> <br>
 				</div>
 
 				<div class="col-lg-15 ">
@@ -89,7 +85,7 @@
 								<td><h4>組合編號</h4></td>
 								<td><h4>組合名稱</h4></td>
 								<td><h4>總金額</h4></td>
-								<td><h4>編輯/刪除</h4></td>
+								<td><h4>編輯</h4></td>
 							</tr>
 						</thead>
 						<tbody>
@@ -108,14 +104,10 @@
 								<td>
 									<h4><%=combinationBean.getTotalPrice()%></h4>
 								</td>
-								<td><input type="button" value="編輯"
-									onclick="location.href='modiCombination.jsp'"
-									style="width: 100px; height: 30px; font-size: 15px;"> <input
-									type="button" value="刪除"
-									style="width: 100px; height: 30px; font-size: 15px;"></td>
-								<!-- <td><a href="login.html">
-							 		<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							 	</td> -->
+								<td>
+									<input type="button" value="編輯"onclick="location.href='modiCombination.jsp'"
+									style="width: 100px; height: 30px; font-size: 15px;" class="modiCombi_btn">
+								</td>
 							</tr>
 							<%
 								}
