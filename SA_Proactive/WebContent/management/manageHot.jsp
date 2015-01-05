@@ -27,7 +27,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="manageCombination.jsp"> <span>PROACTIVE</span>後台管理系統
+			<a class="navbar-brand" href="manageProduct.jsp"> <span>PROACTIVE</span>後台管理系統
 			</a>
 		</div>
 
@@ -45,7 +45,7 @@
 					data-toggle="dropdown"><%=session.getAttribute("managerName")%><b
 						class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="##">訂單管理</a></li>
+						<li><a href="manageOrder.jsp">訂單管理</a></li>
 						<li><a href="../MLogoutServlet">登出</a></li>
 					</ul></li>
 			</ul>

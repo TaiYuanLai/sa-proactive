@@ -7,8 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<title>後台-優惠組合管理</title>
+<title>後台-訂單管理</title>
 <link rel="stylesheet" href="css/jquery.validate.css" media="screen" />
 <link rel="shortcut icon" href="img/logo3.jpg">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +17,7 @@
 <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-	<%
+<%
 		if (session.getAttribute("managerAccount") != null) {
 	%>
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
@@ -33,15 +32,15 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="manageProduct.jsp"> <span>PROACTIVE</span>後台管理系統
+			<a class="navbar-brand" href="login.jsp"> <span>PROACTIVE</span>後台管理系統
 			</a>
 		</div>
-
+		
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-left navcolor">
 				<li><a href="manageProduct.jsp">產品管理</a></li>
-				<li class="active"><a href="manageCombination.jsp">優惠組合管理</a></li>
+				<li><a href="manageCombination.jsp">優惠組合管理</a></li>
 				<li><a href="manageHot.jsp">熱銷資訊管理</a></li>
 			</ul>
 
@@ -57,14 +56,10 @@
 			</ul>
 		</div>
 
+
 	</div>
 	<!-- /.container --> </nav>
 
-	<%
-		List<CombinationBean> combinationList = new ArrayList<CombinationBean>();
-			CombinationDB combinationDB=new CombinationDB();
-			combinationList=combinationDB.getCombinationList();
-	%>
 
 	<div class="container_reg">
 
@@ -74,59 +69,77 @@
 				<div class="col-lg-12 orderhead">
 					<h1>
 						<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-						優惠組合管理
+						訂單管理
 					</h1>
-					<br> <a href="addCombination.jsp"><button type="button"
-							class="">
-							<span class="g"></span> 新增優惠組合
-						</button></a> <br>
 				</div>
-
-				<div class="col-lg-15 ">
+				<div class="col-lg-12">
 					<table class="table table-hover cart_table">
 						<thead>
 							<tr>
-								<td><h4>組合編號</h4></td>
-								<td><h4>組合名稱</h4></td>
-								<td><h4>總金額</h4></td>
-								<td><h4>編輯/刪除</h4></td>
+								<td>訂單編號</td>
+								<td>會員帳號</td>
+								<td>下單日期</td>
+								<td>總金額</td>
+								<td>訂單狀態</td>
+								<td>地址</td>
+								<td>聯絡電話</td>
+								<td>付款方式</td>
 							</tr>
 						</thead>
 						<tbody>
-
-							<%
-								for(CombinationBean combinationBean:combinationList){
-							%>
 							<tr>
-								<td>
-									<h4><%=combinationBean.getCombinationID()%></h4>
-								</td>
-								<td>
-									<h4><%=combinationBean.getCombinationName()%></h4>
-								</td>
-
-								<td>
-									<h4><%=combinationBean.getTotalPrice()%></h4>
-								</td>
-								<td><input type="button" value="編輯"
-									onclick="location.href='modiCombination.jsp'"
-									style="width: 100px; height: 30px; font-size: 15px;"> <input
-									type="button" value="刪除"
-									style="width: 100px; height: 30px; font-size: 15px;"></td>
+								<td>1</td>
+								<td>123@gmail.com</td>
+								<td>2014/12/5</td>
+								<td>$14500</td>
+								<td><select name="" id="">
+										<option value="">未付款</option>
+										<option value="">已付款</option>
+								</select></td>
+								<td>基隆市仁二路208號 02-24285117</td>
+								<td>02-25289906</td>
+								<td>貨到付款</td>
 								<!-- <td><a href="login.html">
 							 		<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
 							 	</td> -->
 							</tr>
-							<%
-								}
-							%>
-
+							<tr>
+								<td>1</td>
+								<td>123@gmail.com</td>
+								<td>2014/12/5</td>
+								<td>$14500</td>
+								<td><select name="" id="">
+										<option value="">未付款</option>
+										<option value="">已付款</option>
+								</select></td>
+								<td>基隆市仁二路208號 02-24285117</td>
+								<td>02-25289906</td>
+								<td>貨到付款</td>
+								<!-- <td><a href="login.html">
+							 		<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+							 	</td> -->
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>123@gmail.com</td>
+								<td>2014/12/5</td>
+								<td>$14500</td>
+								<td><select name="" id="">
+										<option value="">未付款</option>
+										<option value="">已付款</option>
+								</select></td>
+								<td>基隆市仁二路208號 02-24285117</td>
+								<td>02-25289906</td>
+								<td>貨到付款</td>
+								<!-- <td><a href="login.html">
+							 		<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+							 	</td> -->
+							</tr>
 						</tbody>
 					</table>
 				</div>
 
 			</div>
-
 		</div>
 
 		<div class="container">
@@ -139,13 +152,13 @@
 			</footer>
 		</div>
 	</div>
-
+	
 	<%
 		}//if
 		else
 			response.sendRedirect("login.jsp");
 	%>
-
+	
 	<!-- jQuery -->
 	<script src="js/jquery.js"></script>
 
