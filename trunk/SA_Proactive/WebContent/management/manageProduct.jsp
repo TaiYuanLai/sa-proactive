@@ -127,93 +127,24 @@
 		                    <!-- 中央處理器 cpu -->
 		                    <div class="tab-pane active" id="tab1">
 		                        <div class="row">
-
-		                            
-		                            <div class="col-sm-6 col-md-3">
-		                                <div class="product">
-		                                    <a href="modiProduct.jsp">
-		                                        <div class="productimg">
-		                                            <img src="img/cpu.jpg" alt="">
-		                                        </div>
-		                                        <div class="productname">
-		                                            <p>Intel Pentium G3258</p>
-		                                        </div>
-		                                    </a>
-		                                </div>
-		                            </div>
-		                            <div class="col-sm-6 col-md-3">
+		                        	
+		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
 		                                    <a href="">
 		                                        <div class="productimg">
 		                                            <img src="img/cpu.jpg" alt="">
 		                                        </div>
-		                                        <div class="productname">
-		                                            <p>Intel Pentium G3258</p>
+		                                        <div class="productname clearfix">
+		                                            <p>Intel Pentium G3258
+		                                            <a href="" class="icon_trash product_trash">
+											 			<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+											 		</a>
+											 		</p>
 		                                        </div>
 		                                    </a>
 		                                </div>
 		                            </div>
-		                            <div class="col-sm-6 col-md-3">
-		                                <div class="product">
-		                                    <a href="">
-		                                        <div class="productimg">
-		                                            <img src="img/cpu.jpg" alt="">
-		                                        </div>
-		                                        <div class="productname">
-		                                            <p>Intel Pentium G3258</p>
-		                                        </div>
-		                                    </a>
-		                                </div>
-		                            </div>
-		                            <div class="col-sm-6 col-md-3">
-		                                <div class="product">
-		                                    <a href="">
-		                                        <div class="productimg">
-		                                            <img src="img/cpu.jpg" alt="">
-		                                        </div>
-		                                        <div class="productname">
-		                                            <p>Intel Pentium G3258</p>
-		                                        </div>
-		                                    </a>
-		                                </div>
-		                            </div>
-		                            <div class="col-sm-6 col-md-3">
-		                                <div class="product">
-		                                    <a href="">
-		                                        <div class="productimg">
-		                                            <img src="img/cpu.jpg" alt="">
-		                                        </div>
-		                                        <div class="productname">
-		                                            <p>Intel Pentium G3258</p>
-		                                        </div>
-		                                    </a>
-		                                </div>
-		                            </div>
-		                            <div class="col-sm-6 col-md-3">
-		                                <div class="product">
-		                                    <a href="">
-		                                        <div class="productimg">
-		                                            <img src="img/cpu.jpg" alt="">
-		                                        </div>
-		                                        <div class="productname">
-		                                            <p>Intel Pentium G3258</p>
-		                                        </div>
-		                                    </a>
-		                                </div>
-		                            </div>
-		                            <div class="col-sm-6 col-md-3">
-		                                <div class="product">
-		                                    <a href="">
-		                                        <div class="productimg">
-		                                            <img src="img/cpu.jpg" alt="">
-		                                        </div>
-		                                        <div class="productname">
-		                                            <p>Intel Pentium G3258</p>
-		                                        </div>
-		                                    </a>
-		                                </div>
-		                            </div>
-
+		                        	
 		                        </div>
 		                    </div>
 		                    <!-- end of 中央處理器 cpu -->
