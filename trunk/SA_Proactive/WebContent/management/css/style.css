@@ -323,7 +323,6 @@ order.jsp
 	color: #FFFFFF;
 	margin: 30px 0px 0px 0px;
 }
-<<<<<<< .mine
 .modiCombi_btn{
 	background: rgba(255,255,255,0.1);
 	border: 1px solid #272822;
@@ -332,12 +331,10 @@ order.jsp
 	background: rgba(255,255,205,0.5);
 	border: 1px solid #272822;
 }
-=======
 .orderbg tbody select{
 	border: 1px solid #272822;
 	background: rgba(255,255,255,0);
 }
->>>>>>> .r10
 /**********
 end of order.jsp
 **********/
