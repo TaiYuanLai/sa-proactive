@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="database.*"%>
+<%@ page import="bean.*"%>
+<%@ page import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,7 +17,7 @@
 	<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<%
+	<%
 		if (session.getAttribute("managerAccount") != null) {
 	%>
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
@@ -35,40 +38,43 @@
 			</div>
 			
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-left navcolor">
-				<li class="active"><a href="manageProduct.jsp">產品管理</a></li>
-				<li><a href="manageCombination.jsp">優惠組合管理</a></li>
-				<li><a href="manageHot.jsp">熱銷資訊管理</a></li>
-			</ul>
-			
-			<ul class="nav navbar-nav navbar-right navcolor">
+				<ul class="nav navbar-nav navbar-left navcolor">
+					<li class="active"><a href="manageProduct.jsp">產品管理</a></li>
+					<li><a href="manageCombination.jsp">優惠組合管理</a></li>
+					<li><a href="manageHot.jsp">熱銷資訊管理</a></li>
+				</ul>
 				
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"><%=session.getAttribute("managerName")%><b
-						class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="manageOrder.jsp">訂單管理</a></li>
-						<li><a href="../MLogoutServlet">登出</a></li>
-					</ul></li>
-				
-			</ul>
-		</div>
+				<ul class="nav navbar-nav navbar-right navcolor">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=session.getAttribute("managerName")%><b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="manageOrder.jsp">訂單管理</a></li>
+							<li><a href="../MLogoutServlet">登出</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 			
 			
 		</div>
 		<!-- /.container -->
 	</nav>
+	
+	
+	<%
+		List<ProductBean> productList = new ArrayList<ProductBean>();
+		ProductDB productDB=new ProductDB();
+		productList=productDB.getProductList();
+	%>
 
 
 	<div class="container_reg">
-
-
 		<div class="container">
 			<div class="col-lg-12 orderbg">
 				<input class="addProduct" type="button" value="新增產品" onclick="location.href='addProduct.jsp'">
 				<!-- Page Content -->
 		        <div class="container productcontent">
-
+					<span style="color: #4B97B4; display: block; padding: 5px;">*點選商品進行修改，點擊垃圾桶刪除</span>
 		            <div class="tabbable"> <!-- Only required for left/right tabs -->
 		                <!-- 商品nav -->
 		                <ul class="nav nav-tabs">
@@ -128,72 +134,505 @@
 		                    <div class="tab-pane active" id="tab1">
 		                        <div class="row">
 		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("中央處理器")){
+									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
+<<<<<<< .mine
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+=======
 		                                    <a href="modiProduct.jsp">
+>>>>>>> .r17
 		                                        <div class="productimg">
-		                                            <img src="img/cpu.jpg" alt="">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
 		                                        <div class="productname clearfix">
-		                                            <p>Intel Pentium G3258
-		                                            <a href="" class="icon_trash product_trash">
-											 			<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-											 		</a>
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
 											 		</p>
 		                                        </div>
 		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
 		                                </div>
 		                            </div>
+		                        	<%
+										}
+											}
+									%>
 		                        	
 		                        </div>
 		                    </div>
 		                    <!-- end of 中央處理器 cpu -->
 		                    <!-- 主機板 MD -->
 		                    <div class="tab-pane" id="tab2">
-		                        <p>Howdy, I'm in Section 2.</p>
+		                        <div class="row">
+		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("主機板")){
+									%>
+		                        	<div class="col-sm-6 col-md-3">
+		                                <div class="product">
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                        <div class="productimg">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
+		                                        </div>
+		                                        <div class="productname clearfix">
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
+											 		</p>
+		                                        </div>
+		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+		                                </div>
+		                            </div>
+		                        	<%
+										}
+											}
+									%>
+		                        	
+		                        </div>
 		                    </div>
 		                    <!-- end of 主機板 MD -->
 		                    <div class="tab-pane" id="tab3">
-		                        <p>I'm in Section 3</p>
+		                        <div class="row">
+		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("硬碟/SSD")){
+									%>
+		                        	<div class="col-sm-6 col-md-3">
+		                                <div class="product">
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                        <div class="productimg">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
+		                                        </div>
+		                                        <div class="productname clearfix">
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
+											 		</p>
+		                                        </div>
+		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+		                                </div>
+		                            </div>
+		                        	<%
+										}
+											}
+									%>
+		                        	
+		                        </div>
 		                    </div>
 		                    <div class="tab-pane" id="tab4">
-		                        <p>Howdy, I'm in Section 4</p>
+		                        <div class="row">
+		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("記憶體")){
+									%>
+		                        	<div class="col-sm-6 col-md-3">
+		                                <div class="product">
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                        <div class="productimg">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
+		                                        </div>
+		                                        <div class="productname clearfix">
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
+											 		</p>
+		                                        </div>
+		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+		                                </div>
+		                            </div>
+		                        	<%
+										}
+											}
+									%>
+		                        	
+		                        </div>
 		                    </div>
 		                    <div class="tab-pane" id="tab5">
-		                        <p>I'm in Section 5</p>
+		                        <div class="row">
+		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("顯示/繪圖卡")){
+									%>
+		                        	<div class="col-sm-6 col-md-3">
+		                                <div class="product">
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                        <div class="productimg">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
+		                                        </div>
+		                                        <div class="productname clearfix">
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
+											 		</p>
+		                                        </div>
+		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+		                                </div>
+		                            </div>
+		                        	<%
+										}
+											}
+									%>
+		                        	
+		                        </div>
 		                    </div>
 		                    <div class="tab-pane" id="tab6">
-		                        <p>Howdy, I'm in Section 6</p>
+		                        <div class="row">
+		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("電源供應器")){
+									%>
+		                        	<div class="col-sm-6 col-md-3">
+		                                <div class="product">
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                        <div class="productimg">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
+		                                        </div>
+		                                        <div class="productname clearfix">
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
+											 		</p>
+		                                        </div>
+		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+		                                </div>
+		                            </div>
+		                        	<%
+										}
+											}
+									%>
+		                        	
+		                        </div>
 		                    </div>
 		                    <div class="tab-pane" id="tab7">
-		                        <p>I'm in Section 7</p>
+		                        <div class="row">
+		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("電腦機殼")){
+									%>
+		                        	<div class="col-sm-6 col-md-3">
+		                                <div class="product">
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                        <div class="productimg">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
+		                                        </div>
+		                                        <div class="productname clearfix">
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
+											 		</p>
+		                                        </div>
+		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+		                                </div>
+		                            </div>
+		                        	<%
+										}
+											}
+									%>
+		                        	
+		                        </div>
 		                    </div>
 		                    <div class="tab-pane" id="tab8">
-		                        <p>Howdy, I'm in Section 8</p>
+		                        <div class="row">
+		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("DVD燒錄器")){
+									%>
+		                        	<div class="col-sm-6 col-md-3">
+		                                <div class="product">
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                        <div class="productimg">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
+		                                        </div>
+		                                        <div class="productname clearfix">
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
+											 		</p>
+		                                        </div>
+		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+		                                </div>
+		                            </div>
+		                        	<%
+										}
+											}
+									%>
+		                        	
+		                        </div>
 		                    </div>
 		                    <div class="tab-pane" id="tab9">
-		                        <p>I'm in Section 9</p>
+		                        <div class="row">
+		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("CPU散熱風扇")){
+									%>
+		                        	<div class="col-sm-6 col-md-3">
+		                                <div class="product">
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                        <div class="productimg">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
+		                                        </div>
+		                                        <div class="productname clearfix">
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
+											 		</p>
+		                                        </div>
+		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+		                                </div>
+		                            </div>
+		                        	<%
+										}
+											}
+									%>
+		                        	
+		                        </div>
 		                    </div>
 		                    <div class="tab-pane" id="tab10">
-		                        <p>Howdy, I'm in Section 10</p>
+		                        <div class="row">
+		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("液晶螢幕")){
+									%>
+		                        	<div class="col-sm-6 col-md-3">
+		                                <div class="product">
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                        <div class="productimg">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
+		                                        </div>
+		                                        <div class="productname clearfix">
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
+											 		</p>
+		                                        </div>
+		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+		                                </div>
+		                            </div>
+		                        	<%
+										}
+											}
+									%>
+		                        	
+		                        </div>
 		                    </div>
 		                    <div class="tab-pane" id="tab11">
-		                        <p>I'm in Section 11</p>
+		                        <div class="row">
+		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("鍵盤")){
+									%>
+		                        	<div class="col-sm-6 col-md-3">
+		                                <div class="product">
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                        <div class="productimg">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
+		                                        </div>
+		                                        <div class="productname clearfix">
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
+											 		</p>
+		                                        </div>
+		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+		                                </div>
+		                            </div>
+		                        	<%
+										}
+											}
+									%>
+		                        	
+		                        </div>
 		                    </div>
 		                    <div class="tab-pane" id="tab12">
-		                        <p>Howdy, I'm in Section 12</p>
+		                        <div class="row">
+		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("滑鼠")){
+									%>
+		                        	<div class="col-sm-6 col-md-3">
+		                                <div class="product">
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                        <div class="productimg">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
+		                                        </div>
+		                                        <div class="productname clearfix">
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
+											 		</p>
+		                                        </div>
+		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+		                                </div>
+		                            </div>
+		                        	<%
+										}
+											}
+									%>
+		                        	
+		                        </div>
 		                    </div>
 		                    <div class="tab-pane" id="tab13">
-		                        <p>I'm in Section 13</p>
+		                        <div class="row">
+		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("喇叭")){
+									%>
+		                        	<div class="col-sm-6 col-md-3">
+		                                <div class="product">
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                        <div class="productimg">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
+		                                        </div>
+		                                        <div class="productname clearfix">
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
+											 		</p>
+		                                        </div>
+		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+		                                </div>
+		                            </div>
+		                        	<%
+										}
+											}
+									%>
+		                        	
+		                        </div>
 		                    </div>
 		                    <div class="tab-pane" id="tab14">
-		                        <p>Howdy, I'm in Section 14</p>
+		                        <div class="row">
+		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("作業系統")){
+									%>
+		                        	<div class="col-sm-6 col-md-3">
+		                                <div class="product">
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                        <div class="productimg">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
+		                                        </div>
+		                                        <div class="productname clearfix">
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
+											 		</p>
+		                                        </div>
+		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+		                                </div>
+		                            </div>
+		                        	<%
+										}
+											}
+									%>
+		                        	
+		                        </div>
 		                    </div>
 		                    <div class="tab-pane" id="tab15">
-		                        <p>I'm in Section 15</p>
+		                        <div class="row">
+		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("網路卡")){
+									%>
+		                        	<div class="col-sm-6 col-md-3">
+		                                <div class="product">
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                        <div class="productimg">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
+		                                        </div>
+		                                        <div class="productname clearfix">
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
+											 		</p>
+		                                        </div>
+		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+		                                </div>
+		                            </div>
+		                        	<%
+										}
+											}
+									%>
+		                        	
+		                        </div>
 		                    </div>
 		                    <div class="tab-pane" id="tab16">
-		                        <p>Howdy, I'm in Section 16</p>
+		                        <div class="row">
+		                        	
+			                        <%
+									for(ProductBean productBean : productList){//簡化下方
+										if(productBean.getProductType().equals("I/O")){
+									%>
+		                        	<div class="col-sm-6 col-md-3">
+		                                <div class="product">
+		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                        <div class="productimg">
+		                                            <img src="<%=productBean.getImage()%>" alt="">
+		                                        </div>
+		                                        <div class="productname clearfix">
+		                                            <p>
+			                                            <%=productBean.getProductName()%>
+											 		</p>
+		                                        </div>
+		                                    </a>
+		                                    <button type="button" class="icon_trash product_trash_1" onclick="doDelete1('<%=productBean.getProductID()%>')">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+		                                </div>
+		                            </div>
+		                        	<%
+										}
+											}
+									%>
+		                        	
+		                        </div>
 		                    </div>
 		                </div>
 		            </div>
@@ -213,6 +652,12 @@
 		</div>
 	</div>
 	
+	
+	<form action="../MDelProductServlet" method="post" id="delForm1">
+		<input type="hidden" name="productID" id="productID">
+	</form>
+	
+	
 	<%
 		}//if
 		else
@@ -229,5 +674,16 @@
 	<script>
 	$('.dropdown-toggle').dropdown();
 	</script>
+	
+	<script type="text/javascript">		
+		function doDelete1(productID) {
+			var r = confirm("是否刪除?");
+			if (r == true) {
+				$("#productID").val(productID);
+				$("#delForm1").submit();
+			}
+		}
+	</script>
+	
 </body>
 </html>
