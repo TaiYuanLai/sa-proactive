@@ -147,9 +147,9 @@
                             <select id="intel">
                             <%
 								for(ProductBean productBean : productList){//簡化下方
-									if(productBean.getProductBrand().equals("INTEL")){
+									if(productBean.getProductType().equals("中央處理器")&productBean.getProductBrand().equals("INTEL")){
 							%>
-                                <option>
+                                <option value="<%=productBean.getProductID()%>">
                                 <%=productBean.getProductName()%>
                                 ($<%=productBean.getUnitPrice()%>)
                                 </option>
@@ -162,9 +162,9 @@
                             <select id="amd">
                             <%
 								for(ProductBean productBean : productList){//簡化下方
-									if(productBean.getProductBrand().equals("AMD")){
+									if(productBean.getProductType().equals("中央處理器")&productBean.getProductBrand().equals("AMD")){
 							%>
-                                 <option>
+                                 <option value="<%=productBean.getProductID()%>">
                                 <%=productBean.getProductName()%>
                                 ($<%=productBean.getUnitPrice()%>)
                                 </option>
