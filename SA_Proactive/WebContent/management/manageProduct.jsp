@@ -130,7 +130,7 @@
 		                        	
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="">
+		                                    <a href="modiProduct.jsp">
 		                                        <div class="productimg">
 		                                            <img src="img/cpu.jpg" alt="">
 		                                        </div>

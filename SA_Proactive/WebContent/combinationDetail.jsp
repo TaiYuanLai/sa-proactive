@@ -7,12 +7,15 @@
 <html>
 <head>
 <%
-	String memberAccount = session.getAttribute("memberAccount") == null? "":(String) session.getAttribute("memberAccount");
-	String combinationID = request.getParameter("ID");
-	CombinationDB combintionDB = new CombinationDB();
-	CombinationBean combinationBean = combintionDB.getCombination(combinationID);
-	CombinationDetailDB combinationDetailDB=new CombinationDetailDB();
-	String msg = "";
+		String memberAccount = session.getAttribute("memberAccount") == null? "":(String) session.getAttribute("memberAccount");
+		String combinationID = request.getParameter("ID");
+		CombinationDB combintionDB = new CombinationDB();
+		CombinationBean combinationBean = combintionDB.getCombination(combinationID);
+		CombinationDetailBean combinationDetailBean= new CombinationDetailBean();
+		List<CombinationDetailBean> combinationDetailList = new ArrayList<CombinationDetailBean>();
+		CombinationDetailDB combinationDetailDB=new CombinationDetailDB();
+		String msg = "";
+		combinationDetailList=combinationDetailDB.getCombinationDetailList("");
 %>
 
 
@@ -123,43 +126,25 @@
 					<div class="col-md-6 detailcontent">
 						<P>組合明細</P>
 						<table class="table table-hover cart_table">
+						<%	for(CombinationDetailBean combinationDetialBean : combinationDetailList){
+								if(combinationDetialBean.getCombinationID().equals(combinationID)){ 
+						%>
 							<tr>
-								<td>中央處理器</td>
-								<td>ASROCK960GC-GS FX</td>
+								<td>
+									<%=combinationDetialBean.getProductType()%>
+								</td>
+								<td>
+								<a href="productDetail.jsp?ID=<%=combinationDetialBean.getProductID()%>">
+							        <%=combinationDetialBean.getProductName() %>
+							        </a>
+								</td>
 							</tr>
 							<tr>
-								<td>主機板</td>
-								<td>ASROCK 960GC-GS FX</td>
-							</tr>
-							<tr>
-								<td>硬碟</td>
-								<td>INTEL Core I3-4130</td>
-							</tr>
-							<tr>
-								<td>記憶體</td>
-								<td>ASROCK 960GC-GS FX</td>
-							</tr>
-							<tr>
-								<td>顯示/繪圖卡</td>
-								<td>INTEL Core I3-4130</td>
-							</tr>
-							<tr>
-								<td>電源供應器</td>
-								<td>ASROCK 960GC-GS FX</td>
-							</tr>
-							<tr>
-								<td>電腦機殼</td>
-								<td>INTEL Core I3-4130</td>
-							</tr>
-							<tr>
-								<td>DVD燒錄器</td>
-								<td>ASROCK 960GC-GS FX</td>
-							</tr>
-							<tr>
-								<td>CPU散熱風扇</td>
-								<td>ASROCK 960GC-GS FX</td>
-							</tr>
-							<tr>
+							<% 	
+						}
+						}										
+						
+						%>
 								<td>總價</td>
 								<td>$<%=combinationBean.getTotalPrice()%></td>
 							</tr>

@@ -15,24 +15,24 @@ public class CombinationDetailDB {
 	private ResultSet rs = null ;
 	private PreparedStatement smt = null ;
 	
-	public List<CombinationDetailBean> getCombinationDetail(String productID) throws Exception{
-		String sql = "SELECT a.*,c.ProductName FROM combination_detail a JOIN combination b ON a.CombinationID = b.CombinationID JOIN product c ON a.ProductID = c.ProductID WHERE a.CombinationID = ?";
+	public List<CombinationDetailBean> getCombinationDetailList(String productID) throws Exception{
+		List<CombinationDetailBean> combinationDetailList= new ArrayList<CombinationDetailBean>();
+		String sql = "SELECT combination.CombinationID, product.ProductType, product.ProductName, product.ProductID FROM combination_detail JOIN product ON combination_detail.ProductID=product.ProductID JOIN Combination  ON combination.CombinationID=combination_detail.CombinationID ;" ;
 		conn = db.makeConnection();
 		smt = conn.prepareStatement(sql);
-		smt.setString(1, productID);
 		rs = smt.executeQuery();
-		List<CombinationDetailBean> combinationDetail= new ArrayList<CombinationDetailBean>();
 		while(rs.next()) {
 			CombinationDetailBean combinationDetailBean = new CombinationDetailBean();
 			combinationDetailBean.setCombinationID(rs.getString("CombinationID"));
 			combinationDetailBean.setProductID(rs.getString("ProductID"));
 			combinationDetailBean.setProductName(rs.getString("ProductName"));
-			combinationDetail.add(combinationDetailBean);
+			combinationDetailBean.setProductType(rs.getString("ProductType"));
+			combinationDetailList.add(combinationDetailBean);
 		}
 		rs.close();
 		smt.close();
 		conn.close();
-		return combinationDetail;
+		return combinationDetailList;
 	}
 
 }
