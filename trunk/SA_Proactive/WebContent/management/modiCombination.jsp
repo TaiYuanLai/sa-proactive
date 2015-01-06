@@ -18,6 +18,14 @@
 <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+<%
+	String memberAccount = session.getAttribute("memberAccount") == null? "":(String) session.getAttribute("memberAccount");
+	String combinationID = request.getParameter("ID");
+	CombinationDB combintionDB = new CombinationDB();
+	CombinationBean combinationBean = combintionDB.getCombination(combinationID);
+	CombinationDetailDB combinationDetailDB=new CombinationDetailDB();
+	String msg = "";
+%>
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
 		role="navigation">
 	<div class="container">
@@ -67,13 +75,14 @@
 					<div class="detail">
 						<div class="row">
 							<div class="col-md-12 detailtitle">
-								<h2>優惠組合A</h2>
-								<p>組合敘述組合敘述組合敘述組合敘述組合敘述組合敘述組合敘述組合敘述組合敘述</p>
+								 <h2><input type="text" id="combinationName" name="combinationName" class="col-md-12 detailtitle" maxlength="30" value="<%=combinationBean.getCombinationName()%>">
+								</h2>
+								<p><textarea id="combinationDescription" name="combinationDescription" class="col-md-12 detailtitle"><%=combinationBean.getCombinationDescription()%></textarea></p>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6 detailimg">
-								<img src="img/cusbg.jpg" alt="">
+								<img src="<%=combinationBean.getComImage()%>" alt="">
 							</div>
 							<div class="col-md-6 detailcontent">
 								<P>組合明細</P>

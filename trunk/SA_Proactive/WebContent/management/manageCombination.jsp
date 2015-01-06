@@ -105,7 +105,7 @@
 									<h4><%=combinationBean.getTotalPrice()%></h4>
 								</td>
 								<td>
-									<input type="button" value="編輯"onclick="location.href='modiCombination.jsp'"
+									<input type="button" value="編輯"onclick="location.href='modiCombination.jsp?ID=<%=combinationBean.getCombinationID()%>'"
 									style="width: 100px; height: 30px; font-size: 15px;" class="modiCombi_btn">
 								</td>
 							</tr>

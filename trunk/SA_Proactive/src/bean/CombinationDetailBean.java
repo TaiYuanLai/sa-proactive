@@ -4,8 +4,10 @@ public class CombinationDetailBean {
 	/*-----database-----*/
 	private String ProductID;
 	private String CombinationID;
+	private String ProductType;
 	/*-----other-----*/
 	private String ProductName;
+	
 	
 	public String getProductID() {
 		return ProductID;
@@ -24,6 +26,12 @@ public class CombinationDetailBean {
 	}
 	public void setProductName(String productName) {
 		ProductName = productName;
+	}
+	public String getProductType() {
+		return ProductType;
+	}
+	public void setProductType(String productType) {
+		ProductType = productType;
 	}
 	
 
