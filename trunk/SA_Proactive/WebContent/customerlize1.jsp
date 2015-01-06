@@ -82,6 +82,12 @@
 			<!-- /.navbar-collapse -->
 		</div>
 		<!-- /.container --> </nav>
+		
+		<%
+			List<ProductBean> productList = new ArrayList<ProductBean>();
+				ProductDB productDB=new ProductDB();
+				productList=productDB.getProductList();
+		%>
 
 		<div class="container productslogan">
             <h2>想要花一樣的經費,卻擁有比品牌電腦更高檔的配備嗎?
@@ -109,14 +115,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="cuscpu cuscpu1">
-                                        <a href="#">
+                                        <a href="#" id="intel_cpu">
                                             <p>intel</p>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="cuscpu cuscpu2">
-                                        <a href="#">
+                                        <a href="#" id="amd_cpu">
                                             <p>AMD</p>
                                         </a>
                                     </div>
@@ -138,12 +144,34 @@
                         </div>
                         <div class="col-md-12 cpu_select">
                             <span>中央處理器</span>
-                            <select>
-                                <option>INTEL Core I3-4130</option>
-                                <option>INTEL Core I7-4770K</option>
-                                <option>INTEL Pentium G3420</option>
-                                <option>INTEL Celeron G1840</option>
-                                <option>INTEL Celeron G1850</option>
+                            <select id="intel">
+                            <%
+								for(ProductBean productBean : productList){//簡化下方
+									if(productBean.getProductBrand().equals("INTEL")){
+							%>
+                                <option>
+                                <%=productBean.getProductName()%>
+                                ($<%=productBean.getUnitPrice()%>)
+                                </option>
+                                 <%
+								}
+									}
+							%>
+                            </select>
+                            
+                            <select id="amd">
+                            <%
+								for(ProductBean productBean : productList){//簡化下方
+									if(productBean.getProductBrand().equals("AMD")){
+							%>
+                                 <option>
+                                <%=productBean.getProductName()%>
+                                ($<%=productBean.getUnitPrice()%>)
+                                </option>
+                                 <%
+								}
+									}
+							%>
                             </select>
                         </div>
                     </div>
@@ -191,6 +219,28 @@
 	<script>
 	$('.dropdown-toggle').dropdown()
 	</script>
+	
+	<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		$('#intel').hide();
+		$('#amd').hide();
+		$('#intel_cpu').click(function(){
+			$('#intel').fadeToggle();
+			$('#amd').hide();
+					
+		});
+		$('#amd_cpu').click(function(){
+			$('#amd').fadeToggle();
+			$('#intel').hide();
+					
+		});
+	});
+	
+	
+	</script>
+	
 
 </body>
 
