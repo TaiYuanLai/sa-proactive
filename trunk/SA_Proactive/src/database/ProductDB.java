@@ -165,5 +165,15 @@ public class ProductDB {
 		conn.close();
 		return allproduct;
 	}
+	
+	public void delProduct(String productID) throws Exception{
+		String sql = "DELETE FROM product WHERE ProductID=?";
+		conn = db.makeConnection();
+		smt=conn.prepareStatement(sql);
+		smt.setString(1,productID);
+		smt.execute();
+		smt.close();
+		conn.close();
+	}
 
 }

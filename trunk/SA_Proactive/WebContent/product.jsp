@@ -130,11 +130,10 @@
 					<!-- 中央處理器 cpu -->
 					<div class="tab-pane active" id="tab1">
 						<div class="row">
-						<%
+							<%
 								for(ProductBean productBean : productList){//簡化下方
 									if(productBean.getProductType().equals("中央處理器")){
 							%>
-
 							<div class="col-sm-6 col-md-3">
 								<div class="product">
 									<a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">

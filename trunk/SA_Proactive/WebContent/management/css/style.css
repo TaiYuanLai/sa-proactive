@@ -504,6 +504,18 @@ end of manageCombination.jsp
 	padding: 10px 15px;
 	background: #272822;
 }
+.product_trash_1{
+	float: right;
+	display: block;
+	padding: 10px 10px;
+	background: rgba(39,40,34,0.6);
+	color: white;
+	border: 0;
+	border-radius: 2px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
 .product_trash:hover{
 	opacity: 0.8;
 }

@@ -29,13 +29,14 @@
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<img src="img/logo3.jpg" class="navlogo">
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.jsp"> <span>PROACTIVE</span>
+			<a class="navbar-brand" href="index.jsp">
+				<span>PROACTIVE</span>
 			</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -49,22 +50,20 @@
 			</ul>
 			<%
 				String memberAccount = session.getAttribute("memberAccount") == null?"":(String)session.getAttribute("memberAccount");
-										String memberName = session.getAttribute("memberName").toString();
-										MemberBean memberBean = new MemberBean();
-										MemberDB memberDB = new MemberDB();
-										memberBean = memberDB.getMember(memberAccount);
+				String memberName = session.getAttribute("memberName").toString();
+				MemberBean memberBean = new MemberBean();
+				MemberDB memberDB = new MemberDB();
+				memberBean = memberDB.getMember(memberAccount);
 			%>
 			<ul class="nav navbar-nav navbar-right navcolor">
-				<li class="active"><a href="cart.jsp"><span
-						class="glyphicon glyphicon-shopping-cart"></span>購物車</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"><%=session.getAttribute("memberName")%><b
-						class="caret"></b></a>
+				<li class="active"><a href="cart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span>購物車</a></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"data-toggle="dropdown"><%=session.getAttribute("memberName")%><b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="modiPassword.jsp">修改密碼</a></li>
 						<li><a href="order.jsp">訂單查詢</a></li>
 						<li><a href="LogoutServlet">登出</a></li>
-					</ul></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
@@ -80,10 +79,10 @@
 			</caption>
 			<%
 				ProductDB productDB=new ProductDB();
-										List<ProductBean> allproduct = new ArrayList<ProductBean>();
-										allproduct=productDB.getProductListByMemberAccount(memberAccount);
+				List<ProductBean> allproduct = new ArrayList<ProductBean>();
+				allproduct=productDB.getProductListByMemberAccount(memberAccount);
 										
-										for(ProductBean productBean : allproduct){
+				for(ProductBean productBean : allproduct){
 			%>
 			<table class="table table-hover cart_table">
 				<thead>
@@ -159,10 +158,10 @@
 			</caption>
 			<%
 				CombinationDB combinationDB=new CombinationDB();
-										List<CombinationBean> allcombination = new ArrayList<CombinationBean>();
-										allcombination=combinationDB.getCombinationListByMemberAccount(memberAccount);
+				List<CombinationBean> allcombination = new ArrayList<CombinationBean>();
+				allcombination=combinationDB.getCombinationListByMemberAccount(memberAccount);
 										
-										for(CombinationBean combinationBean : allcombination){
+				for(CombinationBean combinationBean : allcombination){
 			%>
 			<table class="table table-hover cart_table">
 				<thead>
@@ -250,13 +249,13 @@
 	<script type="text/javascript">
 	
 		function doDelete1(productID, memberAccount) {
-		var r = confirm("是否刪除?");
-		if (r == true) {
-			$("#productID").val(productID);
-			$("#memberAccount").val(memberAccount);
-			$("#delForm1").submit();
+			var r = confirm("是否刪除?");
+			if (r == true) {
+				$("#productID").val(productID);
+				$("#memberAccount").val(memberAccount);
+				$("#delForm1").submit();
+			}
 		}
-	}
 		
 		function doDelete(combinationID, memberAccount) {
 			var r = confirm("是否刪除?");
@@ -281,12 +280,6 @@
 				count.val(val);
 		});
 	</script>
-
-
-
-
-
-
 
 </body>
 </html>
