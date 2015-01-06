@@ -48,8 +48,7 @@ public class CombinationDB {
 		if (rs.next()) {
 			combinationBean.setCombinationID(combinationID);
 			combinationBean.setCombinationName(rs.getString("CombinationName"));
-			combinationBean.setCombinationDescription(rs
-					.getString("CombinationDescription"));
+			combinationBean.setCombinationDescription(rs.getString("CombinationDescription"));
 			combinationBean.setTotalPrice(rs.getInt("TotalPrice"));
 			combinationBean.setComImage(rs.getString("ComImage"));
 		}
@@ -90,8 +89,7 @@ public class CombinationDB {
 			CombinationBean combinationBean = new CombinationBean();
 			combinationBean.setCombinationID(rs.getString("CombinationID"));
 			combinationBean.setCombinationName(rs.getString("CombinationName"));
-			combinationBean.setCombinationDescription(rs
-					.getString("CombinationDescription"));
+			combinationBean.setCombinationDescription(rs.getString("CombinationDescription"));
 			combinationBean.setTotalPrice(rs.getInt("TotalPrice"));
 			combinationBean.setComImage(rs.getString("ComImage"));
 			combinationBean.setQuantity(rs.getInt("Quantity"));

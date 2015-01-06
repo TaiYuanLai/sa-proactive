@@ -11,6 +11,7 @@
 	String combinationID = request.getParameter("ID");
 	CombinationDB combintionDB = new CombinationDB();
 	CombinationBean combinationBean = combintionDB.getCombination(combinationID);
+	CombinationDetailDB combinationDetailDB=new CombinationDetailDB();
 	String msg = "";
 %>
 
