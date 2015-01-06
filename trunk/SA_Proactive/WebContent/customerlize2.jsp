@@ -113,7 +113,7 @@
 						<select>
 						<%
 								for(ProductBean productBean : productList){//簡化下方
-									if(productBean.getProductType().equals("中央處理器")){
+									if(productBean.getProductType().equals("主機板")){
 							%>
 							<option>
 							<%=productBean.getProductName()%>
