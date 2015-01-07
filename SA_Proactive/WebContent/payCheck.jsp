@@ -44,7 +44,8 @@
 				<li><a href="specialOffer.jsp">買優惠組合</a></li>
 				<li><a href="customerlize1.jsp">客製化組裝</a></li>
 			</ul>
-			<%
+			<%	
+				int totalPrice=0;
 				String memberAccount = session.getAttribute("memberAccount").toString();
 				String memberName = session.getAttribute("memberName").toString();
 				MemberBean memberBean = new MemberBean();
@@ -96,6 +97,7 @@
 					</a> <%=productBean.getProductName()%></td>
 					<td><%=productBean.getQuantity()%></td>
 					<td>$<%=productBean.getUnitPrice()%></td>
+					<%totalPrice+=productBean.getQuantity()*productBean.getUnitPrice();%>
 				</tr>
 			</tbody>
 		</table>
@@ -148,6 +150,8 @@
 					</a> <%=combinationBean.getCombinationName()%></td>
 					<td><%=combinationBean.getQuantity()%></td>
 					<td>$<%=combinationBean.getTotalPrice()%></td>
+					<%totalPrice+=combinationBean.getQuantity()*combinationBean.getTotalPrice(); %>
+					
 				</tr>
 			</tbody>
 		</table>
@@ -157,7 +161,7 @@
 
 		<div class="totalprice_div">
 			<p>
-				總金額: <span>$</span>
+				總金額: <span>$<%=totalPrice %></span>
 			</p>
 		</div>
 
