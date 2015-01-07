@@ -23,8 +23,15 @@
 	String combinationID = request.getParameter("ID");
 	CombinationDB combintionDB = new CombinationDB();
 	CombinationBean combinationBean = combintionDB.getCombination(combinationID);
+	CombinationDetailBean combinationDetailBean= new CombinationDetailBean();
+	List<CombinationDetailBean> combinationDetailList = new ArrayList<CombinationDetailBean>();
 	CombinationDetailDB combinationDetailDB=new CombinationDetailDB();
 	String msg = "";
+	combinationDetailList=combinationDetailDB.getCombinationDetailList("");
+	ProductDB productDB=new ProductDB();
+	List<ProductBean> productList = new ArrayList<ProductBean>();
+	productList=productDB.getProductList();
+	
 %>
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
 		role="navigation">
@@ -87,78 +94,43 @@
 							<div class="col-md-6 detailcontent">
 								<P>組合明細</P>
 								<table class="table table-hover cart_table">
-									<tr>
-										<td>中央處理器</td>
-										<td><select name="" id="">
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-										</select></td>
-									</tr>
-									<tr>
-										<td>主機板</td>
-										<td><select name="" id="">
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-										</select></td>
-									</tr>
-									<tr>
-										<td>硬碟</td>
-										<td><select name="" id="">
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-										</select></td>
-									</tr>
-									<tr>
-										<td>記憶體</td>
-										<td><select name="" id="">
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-										</select></td>
-									</tr>
-									<tr>
-										<td>顯示/繪圖卡</td>
-										<td><select name="" id="">
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-										</select></td>
-									</tr>
-									<tr>
-										<td>電源供應器</td>
-										<td><select name="" id="">
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-										</select></td>
-									</tr>
-									<tr>
-										<td>電腦機殼</td>
-										<td><select name="" id="">
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-										</select></td>
-									</tr>
-									<tr>
-										<td>DVD燒錄器</td>
-										<td><select name="" id="">
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-										</select></td>
-									</tr>
-									<tr>
-										<td>CPU散熱風扇</td>
-										<td><select name="" id="">
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-												<option value="">INTEL Core I3-4130</option>
-										</select></td>
-									</tr>
+							<%	for(CombinationDetailBean combinationDetialBean : combinationDetailList){
+									if(combinationDetialBean.getCombinationID().equals(combinationID)){ 
+							%>
+							<tr>
+								<td>
+									<%=combinationDetialBean.getProductType()%>
+								</td>
+								<td>
+									<select>
+								<%
+									for(ProductBean productBean : productList){	
+										if(combinationDetialBean.getProductType().equals(productBean.getProductType())){	
+											if(productBean.getProductName().equals(combinationDetialBean.getProductName())){
+								%>
+										<option selected>
+									 		<%=combinationDetialBean.getProductName() %>
+									 	</option>
+									<%
+										}
+									else{
+									%> 	
+									<option>
+									 		<%=productBean.getProductName() %>
+									 </option>
+									 <%
+									 } 
+										}
+									}
+									 %>
+									 </select>
+								</td>
+							</tr>
+							<%
+									}
+								}
+							%>
+									
 								</table>
 								<input class="detailbtn1 detailbtn1_re" type="button" value="修改">
 							</div>
