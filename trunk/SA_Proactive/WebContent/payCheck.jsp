@@ -157,7 +157,7 @@
 
 		<div class="totalprice_div">
 			<p>
-				總金額: <span>$75963</span>
+				總金額: <span>$</span>
 			</p>
 		</div>
 
