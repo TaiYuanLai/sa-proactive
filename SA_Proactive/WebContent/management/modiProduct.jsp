@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="database.*"%>
+<%@ page import="bean.*"%>
+<%@ page import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,8 +16,14 @@
     <link href="css/modern-business.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
-<body>
 <%
+	String productID = request.getParameter("ID");
+	ProductDB productDB = new ProductDB();
+	ProductBean productBean = productDB.getProduct(productID);
+	String msg = "";
+%>
+<body>
+	<%
 		if (session.getAttribute("managerAccount") != null) {
 	%>
    <nav class="navbar navbar-inverse navbar-fixed-top navchg"
@@ -23,15 +32,13 @@
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<img src="img/logo3.jpg" class="navlogo">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#bs-example-navbar-collapse-1">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="login.jsp"> <span>PROACTIVE</span>後台管理系統
-				</a>
+				<a class="navbar-brand" href="login.jsp"> <span>PROACTIVE</span>後台管理系統</a>
 			</div>
             
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -42,15 +49,13 @@
 			</ul>
 			
 			<ul class="nav navbar-nav navbar-right navcolor">
-				
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"><%=session.getAttribute("managerName")%><b
-						class="caret"></b></a>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=session.getAttribute("managerName")%><b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="manageOrder.jsp">訂單管理</a></li>
 						<li><a href="../MLogoutServlet">登出</a></li>
-					</ul></li>
-				
+					</ul>
+				</li>
 			</ul>
 		</div>
             
@@ -69,103 +74,602 @@
                     <div class="row">
                         <div class="col-md-12 detailtitle">
                             <h2>
-                                INTEL Core I3-4130
+                                <input type="text" class="addtxt" value="<%=productBean.getProductName()%>">
                             </h2>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 detailimg">
-                            <img src="img/cusbg.jpg" alt="">
+                            <img src="<%=productBean.getImage()%>" alt="">
                         </div>
                         <div class="col-md-6 detailcontent">
                             <P>產品明細</P>
-                            <table class="table table-hover cart_table">
-                                <tr>
-                                    <td>
-                                        廠牌
-                                    </td>
-                                    <td>
-                                        <select name="" id="">
-                                            <option value="">INTEL Core I3-4130</option>
-                                            <option value="">INTEL Core I3-4130</option>
-                                            <option value="">INTEL Core I3-4130</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Clock
-                                    </td>
-                                    <td>
-                                        <select name="" id="">
-                                            <option value="">INTEL Core I3-4130</option>
-                                            <option value="">INTEL Core I3-4130</option>
-                                            <option value="">INTEL Core I3-4130</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        ProcessorSocket
-                                    </td>
-                                    <td>
-                                        <select name="" id="">
-                                            <option value="">INTEL Core I3-4130</option>
-                                            <option value="">INTEL Core I3-4130</option>
-                                            <option value="">INTEL Core I3-4130</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        核心數
-                                    </td>
-                                    <td>
-                                        <select name="" id="">
-                                            <option value="">INTEL Core I3-4130</option>
-                                            <option value="">INTEL Core I3-4130</option>
-                                            <option value="">INTEL Core I3-4130</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Cache
-                                    </td>
-                                    <td>
-                                        <select name="" id="">
-                                            <option value="">INTEL Core I3-4130</option>
-                                            <option value="">INTEL Core I3-4130</option>
-                                            <option value="">INTEL Core I3-4130</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        單價
-                                    </td>
-                                    <td>
-                                        <select name="" id="">
-                                            <option value="">INTEL Core I3-4130</option>
-                                            <option value="">INTEL Core I3-4130</option>
-                                            <option value="">INTEL Core I3-4130</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        保固期
-                                    </td>
-                                    <td>
-                                        <select name="" id="">
-                                            <option value="">INTEL Core I3-4130</option>
-                                            <option value="">INTEL Core I3-4130</option>
-                                            <option value="">INTEL Core I3-4130</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                            </table>
-                            <input class="detailbtn1 detailbtn1_re" type="button" value="修改">
+                            <!-- 中央處理器 -->
+							<%
+								if (productBean.getProductType().equals("中央處理器")) {
+							%>
+							<table class="table table-hover cart_table">
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+								</tr>
+								<tr>
+									<td>Clock</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getClock()%>"></td>
+								</tr>
+								<tr>
+									<td>ProcessorSocket</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProcessorSocket()%>"></td>
+								</tr>
+								<tr>
+									<td>核心數</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getSpecifications()%>"></td>
+								</tr>
+								<tr>
+									<td>Cache</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getCache()%>"></td>
+								</tr>
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+								</tr>
+								<tr>
+									<td>保固期</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWarranty()%>"></td>
+								</tr>
+							</table>
+							<%
+								}
+							%>
+								
+							<!-- 主機板 -->
+							<%
+								if (productBean.getProductType().equals("主機板")) {
+							%>
+	
+							<table class="table table-hover cart_table">
+	
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+								</tr>
+								<tr>
+									<td>Chipset</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getChipset()%>"></td>
+								</tr>
+								<tr>
+									<td>ProcessorSocket</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProcessorSocket()%>"></td>
+								</tr>
+								<tr>
+									<td>MemorySlot</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getMemorySlot()%>"></td>
+								</tr>
+								<tr>
+									<td>DriveSpecifications</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getDriveSpecifications()%>"></td>
+								</tr>
+								<tr>
+									<td>ExpansionSlot</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getExpansionSlot()%>"></td>
+								</tr>
+								<tr>
+									<td>大小</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getSize()%>"></td>
+								</tr>
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+								</tr>
+								<tr>
+									<td>保固</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWarranty()%>"></td>
+								</tr>
+							</table>
+							<%
+								}
+							%>
+							<!-- 硬碟/SSD -->
+							<%
+								if (productBean.getProductType().equals("硬碟/SSD")) {
+							%>
+							<table class="table table-hover cart_table">
+	
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+								</tr>
+								<tr>
+									<td>DriveSpecifications</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getDriveSpecifications()%>"></td>
+								</tr>
+								<tr>
+									<td>Specifications</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getSpecifications()%>"></td>
+								</tr>
+								<tr>
+									<td>WRSpeed</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWRSpeed()%>"></td>
+								</tr>
+								<tr>
+									<td>Speed</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getSpeed()%>"></td>
+								</tr>
+	
+								<tr>
+									<td>記憶體大小</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getMemorySize()%>"></td>
+								</tr>
+								<tr>
+									<td>大小</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getSize()%>"></td>
+								</tr>
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+								</tr>
+								<tr>
+									<td>保固</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWarranty()%>"></td>
+								</tr>
+							</table>
+							<%
+								}
+							%>
+	
+	
+							<!-- 記憶體 -->
+							<%
+								if (productBean.getProductType().equals("記憶體")) {
+							%>
+	
+							<table class="table table-hover cart_table">
+	
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+								</tr>
+								<tr>
+									<td>Clock</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getClock()%>"></td>
+								</tr>
+								<tr>
+									<td>MemorySlot</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getMemorySlot()%>"></td>
+								</tr>
+								<tr>
+									<td>Pinnumber</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getPinNumber()%>"></td>
+								</tr>
+								<tr>
+									<td>MemorySize</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getMemorySize()%>"></td>
+								</tr>
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+								</tr>
+	
+								<tr>
+									<td>保固</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWarranty()%>"></td>
+								</tr>
+							</table>
+							<%
+								}
+							%>
+							<!-- 顯示/繪圖卡-->
+							<%
+								if (productBean.getProductType().equals("顯示/繪圖卡")) {
+							%>
+							<table class="table table-hover cart_table">
+	
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+								</tr>
+								<tr>
+									<td>Chipset</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getChipset()%>"></td>
+								</tr>
+								<tr>
+									<td>MemorySlot</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getMemorySlot()%>"></td>
+								</tr>
+								<tr>
+									<td>ExpansionSlot</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getExpansionSlot()%>"></td>
+								</tr>
+								<tr>
+									<td>CPU</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getGPU()%>"></td>
+								</tr>
+								<tr>
+									<td>記憶體大小</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getMemorySize()%>"></td>
+								</tr>
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+								</tr>
+								<tr>
+									<td>保固</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWarranty()%>"></td>
+								</tr>
+							</table>
+							<%
+								}
+							%>
+							<!-- 電源供應器-->
+							<%
+								if (productBean.getProductType().equals("電源供應器")) {
+							%>
+							<table class="table table-hover cart_table">
+	
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+								</tr>
+								<tr>
+									<td>ExpansionSlot</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getExpansionSlot()%>"></td>
+								</tr>
+								<tr>
+									<td>大小</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getSize()%>"></td>
+								</tr>
+								<tr>
+									<td>Wattage</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWattage()%>"></td>
+								</tr>
+	
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+								</tr>
+								<tr>
+									<td>保固</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWarranty()%>"></td>
+								</tr>
+							</table>
+							<%
+								}
+							%>
+							<!-- 電腦機殼-->
+							<%
+								if (productBean.getProductType().equals("電腦機殼")) {
+							%>
+							<table class="table table-hover cart_table">
+	
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+								</tr>
+								<tr>
+									<td>Specifications</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getSpecifications()%>"></td>
+								</tr>
+								<tr>
+									<td>ExpansionSlot</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getExpansionSlot()%>"></td>
+								</tr>
+								<tr>
+									<td>顏色</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getColor()%>"></td>
+								</tr>
+								<tr>
+									<td>大小</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getSize()%>"></td>
+								</tr>
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+								</tr>
+	
+							</table>
+							<%
+								}
+							%>
+							<!-- DVD燒錄器-->
+							<%
+								if (productBean.getProductType().equals("DVD燒錄器")) {
+							%>
+	
+							<table class="table table-hover cart_table">
+	
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+								</tr>
+								<tr>
+									<td>DriveSpecifications</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getDriveSpecifications()%>"></td>
+								</tr>
+								<tr>
+									<td>Specifications</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getSpecifications()%>"></td>
+								</tr>
+								<tr>
+									<td>顏色</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getColor()%>"></td>
+								</tr>
+	
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+								</tr>
+								<tr>
+									<td>保固</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWarranty()%>"></td>
+								</tr>
+							</table>
+							<%
+								}
+							%>
+	
+							<!-- CPU散熱風扇  -->
+							<%
+								if (productBean.getProductType().equals("CPU散熱風扇")) {
+							%>
+	
+	
+							<table class="table table-hover cart_table">
+	
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+								</tr>
+								<tr>
+									<td>CPUSlot</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getCPUSlot()%>"></td>
+								</tr>
+								<tr>
+									<td>Speed</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getSpeed()%>"></td>
+								</tr>
+								<tr>
+									<td>Noise</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getNoise()%>"></td>
+								</tr>
+	
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+								</tr>
+	
+							</table>
+	
+							<%
+								}
+							%>
+	
+							<!-- 液晶螢幕  -->
+							<%
+								if (productBean.getProductType().equals("液晶螢幕")) {
+							%>
+	
+	
+							<table class="table table-hover cart_table">
+	
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+								</tr>
+								<tr>
+									<td>顏色</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getColor()%>"></td>
+								</tr>
+								<tr>
+									<td>大小</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getSize()%>"></td>
+								</tr>
+	
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+								</tr>
+								<tr>
+									<td>保固</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWarranty()%>"></td>
+								</tr>
+							</table>
+							<%
+								}
+							%>
+	
+							<!-- 鍵盤  -->
+							<%
+								if (productBean.getProductType().equals("鍵盤")) {
+							%>
+	
+	
+							<table class="table table-hover cart_table">
+	
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+								</tr>
+								<tr>
+									<td>Specifications</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getSpecifications()%>"></td>
+								</tr>
+								<tr>
+									<td>顏色</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getColor()%>"></td>
+								</tr>
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+								</tr>
+	
+								<tr>
+									<td>保固</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWarranty()%>"></td>
+								</tr>
+							</table>
+							<%
+								}
+							%>
+	
+							<!-- 滑鼠  -->
+							<%
+								if (productBean.getProductType().equals("滑鼠")) {
+							%>
+	
+	
+							<table class="table table-hover cart_table">
+	
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+								</tr>
+								<tr>
+									<td>Specifications</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getSpecifications()%>"></td>
+								</tr>
+								<tr>
+									<td>顏色</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getColor()%>"></td>
+								</tr>
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+								</tr>
+	
+								<tr>
+									<td>保固</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWarranty()%>"></td>
+								</tr>
+							</table>
+							<%
+								}
+							%>
+	
+							<!-- 喇叭  -->
+							<%
+								if (productBean.getProductType().equals("喇叭")) {
+							%>
+	
+	
+							<table class="table table-hover cart_table">
+	
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+								</tr>
+								<tr>
+									<td>Specifications</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getSpecifications()%>"></td>
+								</tr>
+								<tr>
+									<td>顏色</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getColor()%>"></td>
+								</tr>
+								<tr>
+									<td>Wattage</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWattage()%>"></td>
+								</tr>
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+								</tr>
+	
+								<tr>
+									<td>保固</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWarranty()%>"></td>
+								</tr>
+							</table>
+							<%
+								}
+							%>
+							<!-- 作業系統  -->
+							<%
+								if (productBean.getProductType().equals("作業系統")) {
+							%>
+	
+	
+							<table class="table table-hover cart_table">
+	
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+								</tr>
+	
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+								</tr>
+	
+	
+							</table>
+							<%
+								}
+							%>
+							<!-- 網路卡 -->
+							<%
+								if (productBean.getProductType().equals("網路卡")) {
+							%>
+	
+							<table class="table table-hover cart_table">
+	
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+								</tr>
+								<tr>
+									<td>Specifications</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getSpecifications()%>"></td>
+								</tr>
+								<tr>
+									<td>EpansionSlot</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getExpansionSlot()%>"></td>
+								</tr>
+	
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+								</tr>
+	
+								<tr>
+									<td>保固</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWarranty()%>"></td>
+								</tr>
+							</table>
+							<%
+								}
+							%>
+							
+							<!-- I/O -->
+							<%
+								if (productBean.getProductType().equals("I/O")) {
+							%>
+							<table class="table table-hover cart_table">
+	
+								<tr>
+									<td>廠牌</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand() %>"></td>
+								</tr>
+	
+								<tr>
+									<td>EpansionSlot</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getExpansionSlot() %>"></td>
+								</tr>
+	
+								<tr>
+									<td>單價</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice() %>"></td>
+								</tr>
+	
+								<tr>
+									<td>保固</td>
+									<td><input type="text" class="addtxt1" value="<%=productBean.getWarranty() %>"></td>
+								</tr>
+							</table>
+							<%
+								}
+							
+							%>
+                            <input class="detailbtn1 detailbtn1_re" type="button" value="確定修改">
                         </div>
                     </div>
                 </div>

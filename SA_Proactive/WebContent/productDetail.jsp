@@ -105,7 +105,6 @@
 				<div class="row">
 					<div class="col-md-12 detailtitle">
 						<h2><%=productBean.getProductName()%></h2>
-
 					</div>
 				</div>
 				<div class="row">
@@ -119,7 +118,6 @@
 							if (productBean.getProductType().equals("中央處理器")) {
 						%>
 						<table class="table table-hover cart_table">
-
 							<tr>
 								<td>廠牌</td>
 								<td><%=productBean.getProductBrand()%></td>
