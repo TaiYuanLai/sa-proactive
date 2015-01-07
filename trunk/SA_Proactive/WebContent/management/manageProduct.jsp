@@ -140,7 +140,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
@@ -173,7 +173,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
@@ -205,7 +205,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
@@ -236,7 +236,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
@@ -267,7 +267,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
@@ -298,7 +298,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
@@ -329,7 +329,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
@@ -360,7 +360,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
@@ -391,7 +391,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
@@ -422,7 +422,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
@@ -453,7 +453,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
@@ -484,7 +484,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
@@ -515,7 +515,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
@@ -546,7 +546,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
@@ -577,7 +577,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
@@ -608,7 +608,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
+		                                    <a href="modiProduct.jsp?ID=<%=productBean.getProductID()%>">
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>

@@ -134,4 +134,14 @@
     <servlet-name>MDelProductServlet</servlet-name>
     <url-pattern>/MDelProductServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ModiProductServlet</display-name>
+    <servlet-name>ModiProductServlet</servlet-name>
+    <servlet-class>servlet.ModiProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModiProductServlet</servlet-name>
+    <url-pattern>/ModiProductServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
