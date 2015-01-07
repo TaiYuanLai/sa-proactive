@@ -142,7 +142,7 @@
 							<input type="text" class="cart_quantity" value="1">
 							<button type="button" class="glyphicon glyphicon-plus plus" aria-hidden="true"></button>
 						</td>
-						<td>$16888</td>
+						<td></td>
 						<td>
 							<button type="button" class="icon_trash plus" onclick="">
 								<span class="glyphicon glyphicon-trash"></span>

@@ -3,7 +3,7 @@ package bean;
 public class ShoppingListCustomerlizeBean {
 	/*-----database-----*/
 	private int OrderID;
-	private String CusID;
+	private int CusID;
 	private int UnitPrice;
 	private int Quantity;
 	/*-----other-----*/
@@ -13,10 +13,10 @@ public class ShoppingListCustomerlizeBean {
 	public void setOrderID(int orderID) {
 		OrderID = orderID;
 	}
-	public String getCusID() {
+	public int getCusID() {
 		return CusID;
 	}
-	public void setCusID(String cusID) {
+	public void setCusID(int cusID) {
 		CusID = cusID;
 	}
 	public int getUnitPrice() {
