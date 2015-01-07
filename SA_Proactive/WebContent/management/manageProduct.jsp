@@ -140,11 +140,7 @@
 									%>
 		                        	<div class="col-sm-6 col-md-3">
 		                                <div class="product">
-<<<<<<< .mine
 		                                    <a href="productDetail.jsp?ID=<%=productBean.getProductID()%>">
-=======
-		                                    <a href="modiProduct.jsp">
->>>>>>> .r17
 		                                        <div class="productimg">
 		                                            <img src="<%=productBean.getImage()%>" alt="">
 		                                        </div>
