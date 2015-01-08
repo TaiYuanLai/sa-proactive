@@ -19,6 +19,7 @@
 
 </head>
 <body>
+
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
 		role="navigation">
@@ -44,13 +45,13 @@
 				<li><a href="specialOffer.jsp">買優惠組合</a></li>
 				<li><a href="customerlize1.jsp">客製化組裝</a></li>
 			</ul>
-			<%	
+			<%
 				int totalPrice=0;
-				String memberAccount = session.getAttribute("memberAccount").toString();
-				String memberName = session.getAttribute("memberName").toString();
-				MemberBean memberBean = new MemberBean();
-				MemberDB memberDB = new MemberDB();
-				memberBean = memberDB.getMember(memberAccount);
+						String memberAccount = session.getAttribute("memberAccount").toString();
+						String memberName = session.getAttribute("memberName").toString();
+						MemberBean memberBean = new MemberBean();
+						MemberDB memberDB = new MemberDB();
+						memberBean = memberDB.getMember(memberAccount);
 			%>
 			<ul class="nav navbar-nav navbar-right navcolor">
 				<li class="active"><a href="cart.jsp"><span
@@ -76,12 +77,12 @@
 			<h3 class="cart_h3 cart_h3_chg">零件區</h3>
 		</caption>
 		<%
-				ProductDB productDB=new ProductDB();
-										List<ProductBean> allproduct = new ArrayList<ProductBean>();
-										allproduct=productDB.getProductListByMemberAccount(memberAccount);
+			ProductDB productDB=new ProductDB();
+			List<ProductBean> allproduct = new ArrayList<ProductBean>();
+			allproduct=productDB.getProductListByMemberAccount(memberAccount);
 										
-										for(ProductBean productBean : allproduct){
-			%>
+				for(ProductBean productBean : allproduct){
+		%>
 		<table class="table table-hover cart_table">
 			<thead>
 				<tr>
@@ -97,13 +98,15 @@
 					</a> <%=productBean.getProductName()%></td>
 					<td><%=productBean.getQuantity()%></td>
 					<td>$<%=productBean.getUnitPrice()%></td>
-					<%totalPrice+=productBean.getQuantity()*productBean.getUnitPrice();%>
+					<%
+						totalPrice+=productBean.getQuantity()*productBean.getUnitPrice();
+					%>
 				</tr>
 			</tbody>
 		</table>
 		<%
-				}//for
-			%>
+			}//for
+		%>
 		<caption>
 			<h3 class="cart_h3">客製化組裝區</h3>
 		</caption>
@@ -129,12 +132,12 @@
 			<h3 class="cart_h3">優惠組合區</h3>
 		</caption>
 		<%
-				CombinationDB combinationDB=new CombinationDB();
+			CombinationDB combinationDB=new CombinationDB();
 										List<CombinationBean> allcombination = new ArrayList<CombinationBean>();
 										allcombination=combinationDB.getCombinationListByMemberAccount(memberAccount);
 										
 										for(CombinationBean combinationBean : allcombination){
-			%>
+		%>
 		<table class="table table-hover cart_table">
 			<thead>
 				<tr>
@@ -145,28 +148,33 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href=""> <img src="<%=combinationBean.getComImage()%>"
-							class="cart_product" alt="">
+					<td><a href=""> <img
+							src="<%=combinationBean.getComImage()%>" class="cart_product"
+							alt="">
 					</a> <%=combinationBean.getCombinationName()%></td>
 					<td><%=combinationBean.getQuantity()%></td>
 					<td>$<%=combinationBean.getTotalPrice()%></td>
-					<%totalPrice+=combinationBean.getQuantity()*combinationBean.getTotalPrice(); %>
-					
+					<%
+						totalPrice+=combinationBean.getQuantity()*combinationBean.getTotalPrice();
+					%>
+
 				</tr>
 			</tbody>
 		</table>
 		<%
-				}//for
-			%>
+			}//for
+		%>
 
 		<div class="totalprice_div">
 			<p>
-				總金額: <span>$<%=totalPrice %></span>
+				總金額: <span>$<%=totalPrice%></span>
 			</p>
 		</div>
 
 		<p>
+		
 			<!--   <button class="btn btn-primary btn_cart" type="button">上一步</button> -->
+			<input class="btn btn-primary btn_cart" type="button" value="上一步" onclick="location.href='cart.jsp'">
 			<a class="btn btn-danger btn_cart" href="payInfo.jsp">下一步</a>
 		</p>
 		<footer>
@@ -194,10 +202,13 @@
 	<!-- Script to Activate the Carousel -->
 	<script>
 		$('.dropdown-toggle').dropdown()
-		$('.carousel').carousel({
-			interval : 5000
-		//changes the speed
-		})
+	</script>
+
+	<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+	<script type="text/javascript">
+	
+	
+	
 	</script>
 
 
