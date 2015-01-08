@@ -55,6 +55,7 @@
 				MemberDB memberDB = new MemberDB();
 				memberBean = memberDB.getMember(memberAccount);
 			%>
+			
 			<ul class="nav navbar-nav navbar-right navcolor">
 				<li class="active"><a href="cart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span>購物車</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"data-toggle="dropdown"><%=session.getAttribute("memberName")%><b class="caret"></b></a>
@@ -73,8 +74,8 @@
 		<h2 class="cart_h2">
 			<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Cart
 		</h2>
-		<form action="">
-			<caption>
+
+		<form method="post" action="ModiQuantityServlet">
 				<h3 class="cart_h3 cart_h3_chg">零件區</h3>
 			</caption>
 			<%
@@ -83,7 +84,9 @@
 				allproduct=productDB.getProductListByMemberAccount(memberAccount);
 										
 				for(ProductBean productBean : allproduct){
-			%>
+				%>
+				
+			<input type="hidden" name="productID" value="<%=productBean.getProductID()%>">
 			<table class="table table-hover cart_table">
 				<thead>
 					<tr>
@@ -102,7 +105,7 @@
 							</a></td>
 						<td>
 							<button type="button" class="glyphicon glyphicon-minus plus" aria-hidden="true"></button>
-							<input type="text" class="cart_quantity" value=<%=productBean.getQuantity()%>>
+							<input type="text" class="cart_quantity" name="productQuantity" value=<%=productBean.getQuantity()%>>
 							<button type="button" class="glyphicon glyphicon-plus plus" aria-hidden="true"></button>
 						</td>
 						<td>$<%=productBean.getUnitPrice()%></td>
@@ -163,6 +166,7 @@
 										
 				for(CombinationBean combinationBean : allcombination){
 			%>
+			<input type="hidden" name="combinationID" value="<%=combinationBean.getCombinationID()%>">
 			<table class="table table-hover cart_table">
 				<thead>
 					<tr>
@@ -182,7 +186,7 @@
 
 						<td>
 							<button type="button" class="glyphicon glyphicon-minus plus" aria-hidden="true"></button>
-							<input type="text" class="cart_quantity" value=<%=combinationBean.getQuantity()%>>
+							<input type="text" class="cart_quantity" name="combinationQuantity" value=<%=combinationBean.getQuantity()%>>
 							<button type="button" class="glyphicon glyphicon-plus plus" aria-hidden="true"></button>
 						</td>
 
@@ -199,8 +203,8 @@
 				}//for
 			%>
 			<p>
-				<a class="btn btn-primary btn_cart" href="product.jsp">繼續挑選</a> <a
-					class="btn btn-danger btn_cart" href="payCheck.jsp">下一步</a>
+				<a class="btn btn-primary btn_cart" href="product.jsp">繼續挑選</a> 
+				<button type="submit" class="btn btn-danger btn_cart">下一步</button>
 			</p>
 		</form>
 		<footer>

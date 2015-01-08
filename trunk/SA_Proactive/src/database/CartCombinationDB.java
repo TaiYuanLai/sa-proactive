@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import bean.CartBean;
 import bean.CartCombinationBean;
 import bean.CombinationBean;
 import shared.JDBCUtil;
@@ -57,6 +58,19 @@ public class CartCombinationDB {
 		smt.close();
 		conn.close();
 	}
+	
+	public void modiQuantityCombination(CartCombinationBean cartCombinationBean) throws Exception {
+		String sql = "UPDATE cart_combination SET Quantity =? WHERE MemberAccount = ? AND CombinationID = ?";
+		conn = db.makeConnection();
+		smt = conn.prepareStatement(sql);
+		smt.setInt(1, cartCombinationBean.getQuantity());
+		smt.setString(2, cartCombinationBean.getMemberAccount());
+		smt.setString(3, cartCombinationBean.getCombinationID());
+		smt.execute();
+		smt.close();
+		conn.close();
+	}
+
 	
 	
 

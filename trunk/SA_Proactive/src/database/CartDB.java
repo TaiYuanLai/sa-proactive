@@ -11,20 +11,20 @@ import shared.JDBCUtil;
 
 public class CartDB {
 	JDBCUtil db = new JDBCUtil();
-	private Connection conn = null ;
-	private ResultSet rs = null ;
-	private PreparedStatement smt = null ;
-	
-	public void addCart(CartBean cartBean)throws Exception{
+	private Connection conn = null;
+	private ResultSet rs = null;
+	private PreparedStatement smt = null;
+
+	public void addCart(CartBean cartBean) throws Exception {
 		String sql = "INSERT INTO cart (MemberAccount,ProductID,Quantity) VALUES (?,?,1)";
 		conn = db.makeConnection();
-		smt=conn.prepareStatement(sql);
-		smt.setString(1,cartBean.getMemberAccount());
-		smt.setString(2,cartBean.getProductID());
+		smt = conn.prepareStatement(sql);
+		smt.setString(1, cartBean.getMemberAccount());
+		smt.setString(2, cartBean.getProductID());
 
 		smt.execute();
 		smt.close();
-		conn.close();	
+		conn.close();
 	}
 
 	public List<CartBean> getCartList() throws Exception {
@@ -45,17 +45,29 @@ public class CartDB {
 		conn.close();
 		return cartList;
 	}
-	
-	public void delCart(String memberAccount, String productID) throws Exception{
+
+	public void delCart(String memberAccount, String productID)
+			throws Exception {
 		String sql = "DELETE FROM cart WHERE MemberAccount=? AND ProductID=?";
 		conn = db.makeConnection();
-		smt=conn.prepareStatement(sql);
-		smt.setString(1,memberAccount);
-		smt.setString(2,productID);
+		smt = conn.prepareStatement(sql);
+		smt.setString(1, memberAccount);
+		smt.setString(2, productID);
 		smt.execute();
 		smt.close();
 		conn.close();
 	}
-	
-	
+
+	public void modiQuantityProduct(CartBean cartBean) throws Exception {
+		String sql = "UPDATE cart SET Quantity =? WHERE MemberAccount = ? AND ProductID = ?";
+		conn = db.makeConnection();
+		smt = conn.prepareStatement(sql);
+		smt.setInt(1, cartBean.getQuantity());
+		smt.setString(2, cartBean.getMemberAccount());
+		smt.setString(3, cartBean.getProductID());
+		smt.execute();
+		smt.close();
+		conn.close();
+	}
+
 }
