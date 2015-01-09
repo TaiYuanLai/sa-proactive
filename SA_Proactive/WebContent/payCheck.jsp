@@ -19,7 +19,9 @@
 
 </head>
 <body>
-
+<%
+		if (session.getAttribute("memberAccount") != null) {
+	%>
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
 		role="navigation">
@@ -46,7 +48,7 @@
 				<li><a href="customerlize1.jsp">客製化組裝</a></li>
 			</ul>
 			<%
-				int totalPrice=0;
+						int totalPrice=0;
 						String memberAccount = session.getAttribute("memberAccount").toString();
 						String memberName = session.getAttribute("memberName").toString();
 						MemberBean memberBean = new MemberBean();
@@ -74,6 +76,7 @@
 			<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>商品購買STEP1
 		</h2>
 		<caption>
+			<form method="post" action="AddPriceServlet">
 			<h3 class="cart_h3 cart_h3_chg">零件區</h3>
 		</caption>
 		<%
@@ -168,6 +171,7 @@
 		<div class="totalprice_div">
 			<p>
 				總金額: <span>$<%=totalPrice%></span>
+				<input type="hidden" value="<%=totalPrice%>" name="totalPrice">
 			</p>
 		</div>
 
@@ -175,8 +179,9 @@
 		
 			<!--   <button class="btn btn-primary btn_cart" type="button">上一步</button> -->
 			<input class="btn btn-primary btn_cart" type="button" value="上一步" onclick="location.href='cart.jsp'">
-			<a class="btn btn-danger btn_cart" href="payInfo.jsp">下一步</a>
+			<button type="submit" class="btn btn-danger btn_cart">下一步</button>
 		</p>
+		</form>
 		<footer>
 		<div class="row">
 			<div class="col-lg-12">
@@ -185,13 +190,13 @@
 		</div>
 		</footer>
 	</div>
-
-
-
-
-
-
-
+	
+	<%
+		}//if
+		else
+			response.sendRedirect("login.jsp");
+	%>
+	
 
 	<!-- jQuery -->
 	<script src="js/jquery.js"></script>

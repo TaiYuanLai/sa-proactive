@@ -14,61 +14,75 @@ import bean.CartCombinationBean;
 import database.CartCombinationDB;
 import database.CartDB;
 
-public class ModiQuantityServlet extends HttpServlet{
-	
+public class ModiQuantityServlet extends HttpServlet {
+
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		HttpSession session = req.getSession();
-		
-		ArrayList<CartBean> cartBeanList=new ArrayList<CartBean>();
-		ArrayList<CartCombinationBean> cartCombinationBeanList=new ArrayList<CartCombinationBean>();
-		
-		String memberAccount = (String)session.getAttribute("memberAccount");
+		CartDB cartDB = new CartDB();
+		CartCombinationDB cartCombinationDB = new CartCombinationDB();
 
-		String productID[]=req.getParameterValues("productID");
-		String productQuantity[]=req.getParameterValues("productQuantity");
-		
-		String combinationID[]=req.getParameterValues("combinationID");
-		String combinationQuantity[]=req.getParameterValues("combinationQuantity");
-	
+		ArrayList<CartBean> cartBeanList = new ArrayList<CartBean>();
+		ArrayList<CartCombinationBean> cartCombinationBeanList = new ArrayList<CartCombinationBean>();
+		String memberAccount = (String) session.getAttribute("memberAccount");
+		if (req.getParameterValues("productID") != null) {
+			String productID[] = req.getParameterValues("productID");
+			String productQuantity[] = req.getParameterValues("productQuantity");
 
-		
-			for(int i=0;i<productID.length;i++){
-				CartBean cartBean=new CartBean();
-				cartBean.setProductID(productID[i]);
-				cartBean.setMemberAccount(memberAccount);
-				cartBean.setQuantity(Integer.parseInt(productQuantity[i]));
-				cartBeanList.add(cartBean);
+			if (productID.length > 0) {
+				for (int i = 0; i < productID.length; i++) {
+					CartBean cartBean = new CartBean();
+					cartBean.setProductID(productID[i]);
+					cartBean.setMemberAccount(memberAccount);
+					cartBean.setQuantity(Integer.parseInt(productQuantity[i]));
+					cartBeanList.add(cartBean);
+				}
 			}
-			
-			for(int i=0;i<combinationID.length;i++){
-				CartCombinationBean cartCombinationBean=new CartCombinationBean();
-				cartCombinationBean.setCombinationID(combinationID[i]);
-				cartCombinationBean.setMemberAccount(memberAccount);
-				cartCombinationBean.setQuantity(Integer.parseInt(combinationQuantity[i]));
-				cartCombinationBeanList.add(cartCombinationBean);
+
+			try {
+				if (cartBeanList.size() > 0) {
+					for (int i = 0; i < cartBeanList.size(); i++) {
+						cartDB.modiQuantityProduct(cartBeanList.get(i));
+					}
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		
-		
-		CartDB cartDB=new CartDB();
-		CartCombinationDB cartCombinationDB=new CartCombinationDB();
-		try {
-			for(int i=0;i<cartBeanList.size();i++){
-				cartDB.modiQuantityProduct(cartBeanList.get(i));
-			}
-			for(int i=0;i<cartCombinationBeanList.size();i++){
-				cartCombinationDB.modiQuantityCombination(cartCombinationBeanList.get(i));
-			}
-			
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+
+		if (req.getParameterValues("combinationID") != null) {
+			String combinationID[] = req.getParameterValues("combinationID");
+			String combinationQuantity[] = req.getParameterValues("combinationQuantity");
+
+			if (combinationID.length > 0) {
+				for (int i = 0; i < combinationID.length; i++) {
+					CartCombinationBean cartCombinationBean = new CartCombinationBean();
+					cartCombinationBean.setCombinationID(combinationID[i]);
+					cartCombinationBean.setMemberAccount(memberAccount);
+					cartCombinationBean.setQuantity(Integer.parseInt(combinationQuantity[i]));
+					cartCombinationBeanList.add(cartCombinationBean);
+				}
+			}
+
+			try {
+
+				if (cartCombinationBeanList.size() > 0) {
+					for (int i = 0; i < cartCombinationBeanList.size(); i++) {
+						cartCombinationDB.modiQuantityCombination(cartCombinationBeanList.get(i));
+					}
+
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+
 		resp.sendRedirect("payCheck.jsp");
-		
-		
+
 	}
 
 }

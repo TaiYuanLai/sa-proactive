@@ -11,6 +11,7 @@
 		String combinationID = request.getParameter("ID");
 		CombinationDB combintionDB = new CombinationDB();
 		CombinationBean combinationBean = combintionDB.getCombination(combinationID);
+		
 		CombinationDetailBean combinationDetailBean= new CombinationDetailBean();
 		List<CombinationDetailBean> combinationDetailList = new ArrayList<CombinationDetailBean>();
 		CombinationDetailDB combinationDetailDB=new CombinationDetailDB();

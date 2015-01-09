@@ -32,6 +32,7 @@
     <![endif]-->
 
 </head>
+
 <body>
 	<%
 		if (session.getAttribute("memberAccount") != null) {
@@ -61,11 +62,9 @@
 				<li><a href="specialOffer.jsp">買優惠組合</a></li>
 				<li><a href="customerlize1.jsp">客製化組裝</a></li>
 			</ul>
-			<%
-				String memberAccount = session.getAttribute("memberAccount")
-							.toString();
-					String memberName = session.getAttribute("memberName")
-							.toString();
+			<%		
+					String memberAccount = session.getAttribute("memberAccount").toString();
+					String memberName = session.getAttribute("memberName").toString();
 					MemberBean memberBean = new MemberBean();
 					MemberDB memberDB = new MemberDB();
 					memberBean = memberDB.getMember(memberAccount);
@@ -86,13 +85,15 @@
 		<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container --> </nav>
+	
+	
 
 	<div class="container">
 		<h2 class="cart_h2">
 			<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>商品購買STEP2
 		</h2>
 		<!-- BEGIN CONTACT FORM -->
-		<form id="sendForm" action="TestServlet" method="post">
+		<form id="sendForm" action="AddOrderServlet" method="post">
 			<table class="table">
 				<h3 class="cart_h3">填寫收件人資訊</h3>
 				<tr>
@@ -104,13 +105,11 @@
 					</td>
 				</tr>
 				<tr>
-					<td><label>電話:</label> <input type="text"
-						placeholder="09******" id="orderPhone" name="orderPhone">
+					<td><label>電話:</label> <input type="text" placeholder="09******" id="orderPhone" name="orderPhone">
 					</td>
 				</tr>
 				<tr>
-					<td><label>地址:</label> <input type="text"
-						placeholder="*市*區*路*巷*弄*號*樓" id="orderAddress" name="orderAddress">
+					<td><label>地址:</label> <input type="text" placeholder="*市*區*路*巷*弄*號*樓" id="orderAddress" name="orderAddress">
 					</td>
 				</tr>
 			</table>
@@ -118,62 +117,28 @@
 				<h3 class="cart_h3">付款方式</h3>
 				<tr>
 					<td><label for="">取貨前預付</label></td>
-					<td><label class="radio"> <input type="radio"
-							name="Payway" id="Payway1" checked> 代碼繳費FamiPort
+					<td><label class="radio"> <input type="radio" name="payway" id="payway1" value="代碼繳費FamiPort"> 代碼繳費FamiPort
 					</label></td>
-					<td><label class="radio"> <input type="radio"
-							name="Payway" id="Payway2"> 代碼繳費Ibon
+					<td><label class="radio"> <input type="radio" name="payway" id="payway2" value="代碼繳費Ibon"> 代碼繳費Ibon
 					</label></td>
 				</tr>
 				<tr>
 					<td><label for="">貨到後付款</label></td>
-					<td><label class="radio"> <input type="radio"
-							name="Payway" id="Payway3"> 到店取貨付現
+					<td><label class="radio"> <input type="radio" name="payway" id="payway3" value="到店取貨付現"> 到店取貨付現
 					</label></td>
-					<td><label class="radio"> <input type="radio"
-							name="Payway" id="Payway4"> 宅配貨到付款
+					<td><label class="radio"> <input type="radio" name="payway" id="payway4" value="宅配貨到付款"> 宅配貨到付款
 					</label></td>
 				</tr>
 			</table>
 			<input type="checkbox" name="check"> <a href="#myModal"
-				role="button" class="btn_pop" data-toggle="modal">已閱讀消費者服務條款<span
+				role="button" class="btn_pop" data-toggle="modal" onclick="provision()" >已閱讀消費者服務條款<span
 				id="msg1"></span></a>
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-				aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-hidden="true">×</button>
-							<h4 class="modal-title" id="myModalLabel">消費者服務條款</h4>
-						</div>
-						<div class="modal-body">proactive proactive proactive
-							proactive proactive proactive proactive proactive proactive
-							proactive proactive proactive proactive proactive proactive
-							proactive proactive proactive proactive proactive proactive
-							proactive proactive proactive proactive proactive proactive
-							proactive proactive proactive proactive proactive proactive
-							proactive proactive proactive proactive proactive proactive
-							proactive proactive proactive proactive proactive proactive
-							proactive proactive proactive proactive proactive proactive
-							proactive proactive proactive proactive proactive proactive
-							proactive proactive proactive proactive proactive proactive
-							proactive proactive proactive proactive proactive proactive
-							proactive proactive proactive</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-primary"
-								data-dismiss="modal">閱讀完畢</button>
-						</div>
-					</div>
-					<!-- /.modal-content -->
-				</div>
-				<!-- /.modal-dialog -->
-			</div>
+			
 			<!-- /.modal -->
 			<!-- Footer -->
 			<p>
 				<!--<br> <a class="btn btn-danger btn_cart" href="payOrder.jsp">下一步</a>-->
-				<input type="submit"class="btn btn-danger btn_cart" href="payOrder.jsp">
+				<input type="submit"class="btn btn-danger btn_cart">
 			</p>
 		</form>
 		<!-- END CONTACT FORM -->
@@ -210,8 +175,17 @@
 	<script type="text/javascript" src="js/additional-methods.js"></script>
 	<script type="text/javascript" src="js/messages_zh_TW.js"></script>
 	<script type="text/javascript">
+	
+		function provision(){
+			alert("proactiveproactiveproactiveproactiveproactiveproactive\nproactiveproactiveproactiveproactiveproactiveproactive");
+			
+		}
+	
+	
+		
 		$(function() {
 			$("#sendForm").validate({
+				
 				rules : {
 					orderPhone : "required",
 					orderAddress : "required",
@@ -232,10 +206,7 @@
 			});
 			$('.dropdown-toggle').dropdown();
 
-			$('.btn_pop').on('click', function() {
-				$('#myModal').modal();
-
-			});
+			
 		});
 	</script>
 
