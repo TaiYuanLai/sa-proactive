@@ -70,6 +70,26 @@ public class CartCombinationDB {
 		smt.close();
 		conn.close();
 	}
+	
+	public List<CartCombinationBean> getCartCombinationListbyMemberAccount(String memberAccount) throws Exception {
+		List<CartCombinationBean> cartCombinationBeanList = new ArrayList<CartCombinationBean>();
+		String sql = "SELECT a.*,b.TotalPrice FROM cart_combination a JOIN combination b ON a.CombinationID=b.CombinationID WHERE MemberAccount=?";
+		conn = db.makeConnection();
+		smt = conn.prepareStatement(sql);
+		smt.setString(1, memberAccount);
+		rs = smt.executeQuery();
+		while (rs.next()) {
+			CartCombinationBean cartCombinationBean = new CartCombinationBean();
+			cartCombinationBean.setCombinationID(rs.getString("CombinationID"));
+			cartCombinationBean.setQuantity(rs.getInt("Quantity"));
+			cartCombinationBean.setUnitPrice(rs.getInt("TotalPrice"));
+			cartCombinationBeanList.add(cartCombinationBean);
+		}
+		rs.close();
+		smt.close();
+		conn.close();
+		return cartCombinationBeanList;
+	}
 
 	
 	

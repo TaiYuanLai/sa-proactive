@@ -5,6 +5,8 @@ package database;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import shared.JDBCUtil;
 import bean.OrderBean;
@@ -47,5 +49,33 @@ public class OrderDB {
 		conn.close();
 		return size;
 	}
+	
+	public List<OrderBean> getOrderList() throws Exception {
+		List<OrderBean> orderList = new ArrayList<OrderBean>();
+		String sql = "SELECT * FROM `order`";
+		conn = db.makeConnection();
+		smt = conn.prepareStatement(sql);
+		rs = smt.executeQuery();
+		while (rs.next()) {
+			OrderBean orderBean = new OrderBean();
+			orderBean.setOrderID(rs.getInt("OrderID"));
+			orderBean.setMemberAccount(rs.getString("MemberAccount"));
+			orderBean.setOrderDate(rs.getString("OrderDate"));
+			orderBean.setTotalPrice(rs.getInt("TotalPrice"));
+			orderBean.setOrderState(rs.getInt("OrderState"));
+			orderBean.setOrderAddress(rs.getString("OrderAddress"));
+			orderBean.setOrderPhone(rs.getString("OrderPhone"));
+			orderBean.setPayway(rs.getString("Payway"));
+			orderList.add(orderBean);
+		}
+		rs.close();
+		smt.close();
+		conn.close();
+		return orderList;
+	}
+	
+	
+	
+	
 
 }

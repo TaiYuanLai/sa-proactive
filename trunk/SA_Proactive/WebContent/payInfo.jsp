@@ -132,6 +132,7 @@
 					<td><label class="radio"> <input type="radio" name="payway" id="payway4" value="宅配貨到付款"> 宅配貨到付款
 					</label></td>
 				</tr>
+				<span id="msg2"></span>
 			</table>
 			<input type="checkbox" name="check"> <a href="#myModal"
 				role="button" class="btn_pop" data-toggle="modal" onclick="provision()" >已閱讀消費者服務條款<span
@@ -196,17 +197,23 @@
 				rules : {
 					orderPhone : "required",
 					orderAddress : "required",
-					check : "required"
+					check : "required",
+					payway: "required"
 				},
 				messages : {
 					orderPhone : "請輸入電話!",
 					orderAddress : "請輸入地址!",
-					check : "請確認!"
+					check : "請確認!",
+					payway:"請選擇付款方式!"
 				},
 				errorPlacement : function(error, element) {
 					if (element.attr('name') == "check") {
 						$("#msg1").append(error);
-					} else
+					}
+					else if(element.attr('name') == "payway"){
+						$("#msg2").append(error);
+					}
+					else 
 						error.insertAfter(element);
 				}
 

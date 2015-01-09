@@ -6,6 +6,7 @@ public class CartCombinationBean {
 	String MemberAccount;
 	int Quantity;
 	/*-----other-----*/
+	private int UnitPrice;
 	public String getCombinationID() {
 		return CombinationID;
 	}
@@ -23,6 +24,12 @@ public class CartCombinationBean {
 	}
 	public void setQuantity(int quantity) {
 		Quantity = quantity;
+	}
+	public int getUnitPrice() {
+		return UnitPrice;
+	}
+	public void setUnitPrice(int unitPrice) {
+		UnitPrice = unitPrice;
 	}
 	
 
