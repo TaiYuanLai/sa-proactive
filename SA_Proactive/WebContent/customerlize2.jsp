@@ -92,178 +92,166 @@
 
 
 		<!-- Page Content -->
-		<div class="container cus_content">
+		<form action="AddOtherServlet" method="post">
+			<div class="container cus_content">
 
-			<div class="row">
-				<!-- Step3 -->
-				<div class="col-md-12">
-					<div class="row">
-						<div class="col-md-12 cusstep">
-							<div class="cus_step text-center">
-								<span>Step1 選擇CPU廠牌 / </span> <span>Step2 選擇CPU型號 / </span> <span
-									class="cus_step_1">Step3 選擇其他組裝零件</span>
+				<div class="row">
+					<!-- Step3 -->
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-12 cusstep">
+								<div class="cus_step text-center">
+									<span>Step1 選擇CPU廠牌 / </span> <span>Step2 選擇CPU型號 / </span> <span
+										class="cus_step_1">Step3 選擇其他組裝零件</span>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="cus2 clearfix">
-					<div class="col-md-12 cpu_select">
-						<span>主機板</span> 
-						<select>
-						<%
-								for(ProductBean productBean : productList){//簡化下方
+					<div class="cus2 clearfix">
+						<div class="col-md-12 cpu_select">
+							<span>主機板</span> <select name="BoardID">
+								<%
+									for(ProductBean productBean : productList){//簡化下方
 									if(productBean.getProductType().equals("主機板")){
-							%>
-							<option>
-							<%=productBean.getProductName()%>
-							($<%=productBean.getUnitPrice()%>)
-							</option>
-							<%
-								}
+								%>
+								<option value="<%=productBean.getProductID()%>">
+									<%=productBean.getProductName()%> ($<%=productBean.getUnitPrice()%>)
+								</option>
+								<%
 									}
-							%>
-						</select>
-					</div>
-					<div class="col-md-12 cpu_select">
-						<span>硬碟/SSD</span> 
-						
-						<select>
-						<%
-								for(ProductBean productBean : productList){//簡化下方
-									if(productBean.getProductType().equals("硬碟/SSD")){
-							%>
-							<option>
-							<%=productBean.getProductName()%>
-							($<%=productBean.getUnitPrice()%>)
-							</option>
-							<%
-								}
+																					}
+								%>
+							</select>
+						</div>
+						<div class="col-md-12 cpu_select">
+							<span>硬碟/SSD</span> <select name="SSDID">
+								<%
+									for(ProductBean productBean : productList){//簡化下方
+															if(productBean.getProductType().equals("硬碟/SSD")){
+								%>
+								<option value="<%=productBean.getProductID()%>">
+									<%=productBean.getProductName()%> ($<%=productBean.getUnitPrice()%>)
+								</option>
+								<%
 									}
-							%>
-						</select>
-						
-					</div>
-					<div class="col-md-12 cpu_select">
-						<span>記憶體</span> 
-						<select>
-						<%
-								for(ProductBean productBean : productList){//簡化下方
+																					}
+								%>
+							</select>
+
+						</div>
+						<div class="col-md-12 cpu_select">
+							<span>記憶體</span> <select name="MemoryID">
+								<%
+									for(ProductBean productBean : productList){//簡化下方
 									if(productBean.getProductType().equals("記憶體")){
-							%>
-							<option>
-							<%=productBean.getProductName()%>
-							($<%=productBean.getUnitPrice()%>)
-							</option>
-							<%
-								}
+								%>
+								<option value="<%=productBean.getProductID()%>">
+									<%=productBean.getProductName()%> ($<%=productBean.getUnitPrice()%>)
+								</option>
+								<%
 									}
-							%>
-						</select>
-					</div>
-					<div class="col-md-12 cpu_select">
-						<span>顯示/繪圖卡</span> <select>
-						<%
-								for(ProductBean productBean : productList){//簡化下方
-									if(productBean.getProductType().equals("顯示/繪圖卡")){
-							%>
-							<option>
-							<%=productBean.getProductName()%>
-							($<%=productBean.getUnitPrice()%>)
-							</option>
-							<%
-								}
+																					}
+								%>
+							</select>
+						</div>
+						<div class="col-md-12 cpu_select">
+							<span>顯示/繪圖卡</span> <select name="DisplayCardID">
+								<%
+									for(ProductBean productBean : productList){//簡化下方
+															if(productBean.getProductType().equals("顯示/繪圖卡")){
+								%>
+								<option value="<%=productBean.getProductID()%>">
+									<%=productBean.getProductName()%> ($<%=productBean.getUnitPrice()%>)
+								</option>
+								<%
 									}
-							%>
-						</select>
-					</div>
-					<div class="col-md-12 cpu_select">
-						<span>電源供應器</span> 
-						<select>
-						<%
-								for(ProductBean productBean : productList){//簡化下方
+																					}
+								%>
+							</select>
+						</div>
+						<div class="col-md-12 cpu_select">
+							<span>電源供應器</span> <select name="PowerID">
+								<%
+									for(ProductBean productBean : productList){//簡化下方
 									if(productBean.getProductType().equals("電源供應器")){
-							%>
-							<option>
-							<%=productBean.getProductName()%>
-							($<%=productBean.getUnitPrice()%>)
-							</option>
-							<%
-								}
+								%>
+								<option value="<%=productBean.getProductID()%>">
+									<%=productBean.getProductName()%> ($<%=productBean.getUnitPrice()%>)
+								</option>
+								<%
 									}
-							%>
+																					}
+								%>
+
+							</select>
+						</div>
+						<div class="col-md-12 cpu_select">
+							<span>電腦機殼</span> <select name="CaseID">
+								<%
+									for(ProductBean productBean : productList){//簡化下方
+																					if(productBean.getProductType().equals("電腦機殼")){
+								%>
+								<option value="<%=productBean.getProductID()%>">
+									<%=productBean.getProductName()%> ($<%=productBean.getUnitPrice()%>)
+								</option>
+								<%
+									}
+																					}
+								%>
+							</select>
+						</div>
+						<div class="col-md-12 cpu_select">
+							<span>DVD燒錄器</span> <select name="DVDID">
+								<%
+									for(ProductBean productBean : productList){//簡化下方
+															if(productBean.getProductType().equals("DVD燒錄器")){
+								%>
+								<option value="<%=productBean.getProductID()%>">
+									<%=productBean.getProductName()%> ($<%=productBean.getUnitPrice()%>)
+								</option>
+								<%
+									}
+																					}
+								%>
+							</select>
+
+						</div>
+						<div class="col-md-12 cpu_select">
+							<span>CPU散熱風扇</span> <select name="FanID">
+								<%
+									for(ProductBean productBean : productList){//簡化下方
+																					if(productBean.getProductType().equals("CPU散熱風扇")){
+								%>
+								<option value="<%=productBean.getProductID()%>">
+
+									<%=productBean.getProductName()%> ($<%=productBean.getUnitPrice()%>)
+								</option>
+								<%
+									}
+																					}
+								%>
+
+							</select>
 							
-						</select>
+						</div>
+						<input type="checkbox" name="check" id="check">是否組裝($400)
 					</div>
-					<div class="col-md-12 cpu_select">
-						<span>電腦機殼</span> 
-						<select>
-						<%
-								for(ProductBean productBean : productList){//簡化下方
-									if(productBean.getProductType().equals("電腦機殼")){
-							%>
-							<option>
-							<%=productBean.getProductName()%>
-							($<%=productBean.getUnitPrice()%>)
-							</option>
-							<%
-								}
-									}
-							%>
-						</select>
-					</div>
-					<div class="col-md-12 cpu_select">
-						<span>DVD燒錄器</span> 
-						
-						<select>
-							<%
-								for(ProductBean productBean : productList){//簡化下方
-									if(productBean.getProductType().equals("DVD燒錄器")){
-							%>
-							<option>
-							<%=productBean.getProductName()%>
-							($<%=productBean.getUnitPrice()%>)
-							</option>
-							<%
-								}
-									}
-							%>
-						</select>
-						
-					</div>
-					<div class="col-md-12 cpu_select">
-						<span>CPU散熱風扇</span> 
-						<select>
-						<%
-								for(ProductBean productBean : productList){//簡化下方
-									if(productBean.getProductType().equals("CPU散熱風扇")){
-							%>
-							<option>
-							<%=productBean.getProductName()%>
-							($<%=productBean.getUnitPrice()%>)
-							</option>
-							<%
-								}
-									}
-							%>
-							
-						</select>
-					</div>
+					<!-- Step3 -->
 				</div>
-				<!-- Step3 -->
+                
+				<input type="submit" class="col-md-2 cus_next" value="完成" />
+				<!-- 				<div class="col-md-2 cus_next2"> -->
+				<!-- 					<a href="customerlizeDetail.jsp"> -->
+				<!-- 						<p>完成</p> -->
+				<!-- 					</a> -->
+				<!-- 				</div> -->
+
+
+
 			</div>
-
-
-			<div class="col-md-2 cus_next2">
-				<a href="customerlizeDetail.jsp">
-					<p>完成</p>
-				</a>
-			</div>
-
-
-
-		</div>
-
+		</form>
+		<!-- Page Content -->
 		<!-- Footer -->
 		<div class="container">
 			<hr>
