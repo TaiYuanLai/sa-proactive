@@ -34,6 +34,7 @@
 		if (session.getAttribute("memberAccount") != null) {
 	%>
 	<!-- Navigation -->
+	<div class="productbg">
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
 		role="navigation">
 	<div class="container">
@@ -87,10 +88,12 @@
 	</div>
 	<!-- /.container --> </nav>
 
-	<div class="container">
+	<div class="container productslogan">
 		<h2 class="cart_h2">
 			<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>歷史訂單
 		</h2>
+		</div>
+		<div class="container productcontent">
 		<!-- <caption><h3 class="cart_h3 cart_h3_chg"></h3></caption> -->
 		<table class="table table-hover cart_table">
 			<thead>
@@ -110,6 +113,16 @@
 				</tr>
 			</tbody>
 		</table>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		
+		<div class="container">
 		<hr>
 		<footer>
 		<div class="row">
@@ -119,6 +132,8 @@
 		</div>
 		</footer>
 	</div>
+	</div>
+	
 	<%
 		}//if
 		else

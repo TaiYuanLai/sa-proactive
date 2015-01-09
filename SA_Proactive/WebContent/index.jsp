@@ -900,17 +900,17 @@
             </div><!-- div.rightColume -->
         </div><!-- div.pageContainer -->
 
-		<hr>
 		<div class="container">
-    		<footer>
-        		<div class="row">
-        			<div class="col-lg-12">
-        				<p class="text-right">Copyright &copy; 2014 PROACTIVE</p>
-        			</div>
-        		</div>
-    		</footer>
-        </div>
-        
+			<hr>
+			<footer>
+			<div class="row">
+				<div class="col-lg-12">
+					<p class="text-right">Copyright &copy; 2014 PROACTIVE</p>
+				</div>
+			</div>
+			</footer>
+		</div>
+
 	</div>
 	<!-- /.container -->
 

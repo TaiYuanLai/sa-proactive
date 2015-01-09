@@ -21,6 +21,7 @@
 	<%
 		if (session.getAttribute("memberAccount") != null) {
 	%>
+	<div class="productbg">
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
 		role="navigation">
@@ -34,7 +35,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.html"> <span>PROACTIVE</span>
+			<a class="navbar-brand" href="index.jsp"> <span>PROACTIVE</span>
 			</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -71,15 +72,36 @@
 		<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container --> </nav>
-	<div class="container">
+	<div class="container productslogan">
 		<h2 class="cart_h2">
 			<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>商品購買STEP3
 		</h2>
-		<p>
-		<h3>
+		</div>
+		<div class="container productcontent">
+		<table align="center" >
+		<tr>
+		<td>
+		<h2>
 			<span class="span_pO"><%=memberBean.getMemberName()%><br>恭喜您已完成購買!!</span>
-		</h3>
-		</p>
+		</h2>
+		</td>
+		</tr>
+	
+	</table>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+		
+			<input class="btn btn-primary btn_cart" type="button" value="回到首頁" onclick="location.href='index.jsp'">
+			<input class="btn btn-danger btn_cart" type="button" value="訂單查詢" onclick="location.href='order.jsp'">
+			</div>
+		<div class="container">
+		<hr>
 		<footer>
 		<div class="row">
 			<div class="col-lg-12">
@@ -87,6 +109,7 @@
 			</div>
 		</div>
 		</footer>
+	</div>
 	</div>
 
 	<%
