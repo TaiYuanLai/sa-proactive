@@ -17,7 +17,7 @@
 <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<%
+	<%
 		if (session.getAttribute("managerAccount") != null) {
 	%>
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
@@ -35,7 +35,7 @@
 			<a class="navbar-brand" href="login.jsp"> <span>PROACTIVE</span>後台管理系統
 			</a>
 		</div>
-		
+
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-left navcolor">
@@ -59,8 +59,11 @@
 
 	</div>
 	<!-- /.container --> </nav>
-
-
+	<%
+		List<OrderBean> orderList = new ArrayList<OrderBean>();
+		OrderDB orderDB=new OrderDB();
+		orderList=orderDB.getOrderList();
+	%>
 	<div class="container_reg">
 
 
@@ -87,54 +90,26 @@
 							</tr>
 						</thead>
 						<tbody>
+							<%
+								for(OrderBean orderBean : orderList){//簡化下方
+							%>
 							<tr>
-								<td>1</td>
-								<td>123@gmail.com</td>
-								<td>2014/12/5</td>
-								<td>$14500</td>
+								<td><%=orderBean.getOrderID()%></td>
+								<td><%=orderBean.getMemberAccount()%></td>
+								<td><%=orderBean.getOrderDate()%></td>
+								<td>$<%=orderBean.getTotalPrice()%></td>
 								<td><select name="" id="">
-										<option value="">未付款</option>
-										<option value="">已付款</option>
+										<option value="0"<%=orderBean.getOrderState()==0?"selected":""%>>未付款</option>
+										<option value="1"<%=orderBean.getOrderState()==1?"selected":""%>>已付款</option>
 								</select></td>
-								<td>基隆市仁二路208號 02-24285117</td>
-								<td>02-25289906</td>
-								<td>貨到付款</td>
-								<!-- <td><a href="login.html">
-							 		<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							 	</td> -->
+								<td><%=orderBean.getOrderAddress()%></td>
+								<td><%=orderBean.getOrderPhone()%></td>
+								<td><%=orderBean.getPayway()%></td>
 							</tr>
-							<tr>
-								<td>1</td>
-								<td>123@gmail.com</td>
-								<td>2014/12/5</td>
-								<td>$14500</td>
-								<td><select name="" id="">
-										<option value="">未付款</option>
-										<option value="">已付款</option>
-								</select></td>
-								<td>基隆市仁二路208號 02-24285117</td>
-								<td>02-25289906</td>
-								<td>貨到付款</td>
-								<!-- <td><a href="login.html">
-							 		<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							 	</td> -->
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>123@gmail.com</td>
-								<td>2014/12/5</td>
-								<td>$14500</td>
-								<td><select name="" id="">
-										<option value="">未付款</option>
-										<option value="">已付款</option>
-								</select></td>
-								<td>基隆市仁二路208號 02-24285117</td>
-								<td>02-25289906</td>
-								<td>貨到付款</td>
-								<!-- <td><a href="login.html">
-							 		<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							 	</td> -->
-							</tr>
+							<%
+								}
+							%>
+
 						</tbody>
 					</table>
 				</div>
@@ -152,13 +127,13 @@
 			</footer>
 		</div>
 	</div>
-	
+
 	<%
 		}//if
-		else
-			response.sendRedirect("login.jsp");
+			else
+		response.sendRedirect("login.jsp");
 	%>
-	
+
 	<!-- jQuery -->
 	<script src="js/jquery.js"></script>
 
@@ -167,7 +142,7 @@
 
 	<!-- Script to Activate the Carousel -->
 	<script>
-	$('.dropdown-toggle').dropdown();
+		$('.dropdown-toggle').dropdown();
 	</script>
 
 </body>

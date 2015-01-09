@@ -6,6 +6,8 @@ public class CartBean {
 	private String ProductID;
 	private int Quantity;
 	/*-----other-----*/
+	private int UnitPrice;
+	
 	public String getMemberAccount() {
 		return MemberAccount;
 	}
@@ -24,6 +26,12 @@ public class CartBean {
 	}
 	public void setQuantity(int quantity) {
 		Quantity = quantity;
+	}
+	public int getUnitPrice() {
+		return UnitPrice;
+	}
+	public void setUnitPrice(int unitPrice) {
+		UnitPrice = unitPrice;
 	}
 	
 }

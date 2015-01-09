@@ -82,7 +82,7 @@
 		<tr>
 		<td>
 		<h2>
-			<span class="span_pO"><%=memberBean.getMemberName()%><br>恭喜您已完成購買!!</span>
+			<span class="span_pO"><%=memberBean.getMemberName()%><br><br>恭喜您已完成購買!!</span>
 		</h2>
 		</td>
 		</tr>

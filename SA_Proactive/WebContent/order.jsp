@@ -61,32 +61,32 @@
 			</ul>
 			<%
 				String memberAccount = session.getAttribute("memberAccount").toString();
-					String memberName = session.getAttribute("memberName").toString();
-					MemberBean memberBean = new MemberBean();
-					MemberDB memberDB = new MemberDB();
-					memberBean = memberDB.getMember(memberAccount);
+								String memberName = session.getAttribute("memberName").toString();
+								MemberBean memberBean = new MemberBean();
+								MemberDB memberDB = new MemberDB();
+								memberBean = memberDB.getMember(memberAccount);
 			%>
 			<ul class="nav navbar-nav navbar-right navcolor">
-				<li><a href="cart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span>購物車</a></li>
-				<li class="dropdown active">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=session.getAttribute("memberName")%><b class="caret"></b></a>
-                       <ul class="dropdown-menu">
-                           <li>
-                               <a href="modiPassword.jsp">修改密碼</a>
-                           </li>
-                           <li>
-                                <a href="order.jsp">訂單查詢</a>
-                           </li>
-                           <li>
-                               <a href="LogoutServlet">登出</a>
-                           </li>
-                       </ul>
-				</li>
+				<li><a href="cart.jsp"><span
+						class="glyphicon glyphicon-shopping-cart"></span>購物車</a></li>
+				<li class="dropdown active"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"><%=session.getAttribute("memberName")%><b
+						class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="modiPassword.jsp">修改密碼</a></li>
+						<li><a href="order.jsp">訂單查詢</a></li>
+						<li><a href="LogoutServlet">登出</a></li>
+					</ul></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container --> </nav>
+	<%
+		List<OrderBean> orderList = new ArrayList<OrderBean>();
+			OrderDB orderDB=new OrderDB();
+			orderList=orderDB.getOrderList();
+	%>
 
 	<div class="container productslogan">
 		<h2 class="cart_h2">
@@ -105,12 +105,31 @@
 				</tr>
 			</thead>
 			<tbody>
+				<%
+					for(OrderBean orderBean : orderList){//簡化下方
+				%>
 				<tr>
-					<td>1</td>
-					<td>2014/12/30</td>
-					<td>$75963</td>
+					<td><%=orderBean.getOrderID()%></td>
+					<td><%=orderBean.getOrderDate()%></td>
+					<td>$<%=orderBean.getTotalPrice()%></td>
+					<%
+						if(orderBean.getOrderState()==0){
+					%>
 					<td><span class="order_span">未付款</span></td>
+					<%
+						}
+						if(orderBean.getOrderState()==1){
+					%>
+					<td><span class="order_span">已付款</span></td>
+
+					<%
+						}
+					%>
+
 				</tr>
+				<%
+					}
+				%>
 			</tbody>
 		</table>
 		</div>
@@ -136,8 +155,8 @@
 	
 	<%
 		}//if
-		else
-			response.sendRedirect("login.jsp");
+			else
+		response.sendRedirect("login.jsp");
 	%>
 
 	<!-- jQuery -->
@@ -147,9 +166,9 @@
 	<script src="js/bootstrap.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
-	
+
 	<script>
-	$('.dropdown-toggle').dropdown()
+		$('.dropdown-toggle').dropdown()
 	</script>
 </body>
 </html>

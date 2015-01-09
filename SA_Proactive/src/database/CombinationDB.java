@@ -75,8 +75,7 @@ public class CombinationDB {
 		return result;
 	}
 
-	public List<CombinationBean> getCombinationListByMemberAccount(
-			String memberAccount) throws Exception {
+	public List<CombinationBean> getCombinationListByMemberAccount(String memberAccount) throws Exception {
 		String sql = "SELECT * FROM combination a JOIN cart_combination b ON a.CombinationID = b.CombinationID "
 				+ "WHERE b.MemberAccount = ?";
 		conn = db.makeConnection();
