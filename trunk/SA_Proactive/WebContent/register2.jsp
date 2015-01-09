@@ -15,6 +15,7 @@
 
 </head>
 <body>
+<div class="productbg">
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
 		role="navigation">
 	<div class="container">
@@ -47,29 +48,30 @@
 		<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container --> </nav>
-	<div class="container_reg">
+	<div class="container productslogan">
 		<div class="login_div">
 			<form class="form-horizontal" role="form" action="" method="">
 				<img src="img/1.png" class="logo_reg" alt="Proactive">
 				<div class="form-group form-group_reg2">
 					<p class="p_reg2">
-						歡迎您加入Proactive會員,<br> 我們已寄發一封驗證信<br> 請您至註冊之信箱,收信並啟用帳號.
+						<font color="black"><br>Welcome to here!<br>歡迎您加入Proactive會員,<br> 我們已寄發一封驗證信<br> 請您至註冊之信箱,收信並啟用帳號.</font>
 					</p>
 					<a href="" class="alert-link link_reg2">重發驗證信</a>
 				</div>
 			</form>
 		</div>
 		<div class="container">
-			<footer class="footer_reg">
-			<div class="row">
-				<div class="col-lg-12">
-					<p class="text-right">Copyright &copy; 2014 PROACTIVE</p>
-				</div>
+	
+		<footer>
+		<div class="row">
+			<div class="col-lg-12">
+				<p class="text-right">Copyright &copy; 2014 PROACTIVE</p>
 			</div>
-			</footer>
 		</div>
+		</footer>
 	</div>
-
+	</div>
+</div>
 
 
 
