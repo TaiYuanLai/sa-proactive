@@ -114,6 +114,28 @@
     <url-pattern>/ModiQuantityServlet</url-pattern>
   </servlet-mapping>
   
+   <servlet>
+    <description></description>
+    <display-name>AddOrderServlet</display-name>
+    <servlet-name>AddOrderServlet</servlet-name>
+    <servlet-class>servlet.AddOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddOrderServlet</servlet-name>
+    <url-pattern>/AddOrderServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>AddPriceServlet</display-name>
+    <servlet-name>AddPriceServlet</servlet-name>
+    <servlet-class>servlet.AddPriceServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddPriceServlet</servlet-name>
+    <url-pattern>/AddPriceServlet</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <description></description>
     <display-name>AddCPUServlet</display-name>
