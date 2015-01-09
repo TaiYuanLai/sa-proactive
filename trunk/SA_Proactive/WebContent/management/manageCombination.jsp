@@ -67,8 +67,6 @@
 	%>
 
 	<div class="container_reg">
-
-
 		<div class="container">
 			<div class="col-lg-12 orderbg">
 				<div class="col-lg-12 orderhead">

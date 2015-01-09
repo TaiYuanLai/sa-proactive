@@ -22,6 +22,7 @@
 <%
 		if (session.getAttribute("memberAccount") != null) {
 	%>
+	<div class="productbg">
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
 		role="navigation">
@@ -71,10 +72,16 @@
 		<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container --> </nav>
-	<div class="container">
+		
+		
+		<div class="container productslogan">
 		<h2 class="cart_h2">
 			<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>商品購買STEP1
 		</h2>
+		</div>
+	<div class="container productcontent">
+	
+		
 		<caption>
 			<form method="post" action="AddPriceServlet">
 			<h3 class="cart_h3 cart_h3_chg">零件區</h3>
@@ -182,6 +189,9 @@
 			<button type="submit" class="btn btn-danger btn_cart">下一步</button>
 		</p>
 		</form>
+		</div>
+		<div class="container">
+		<hr>
 		<footer>
 		<div class="row">
 			<div class="col-lg-12">
@@ -190,7 +200,7 @@
 		</div>
 		</footer>
 	</div>
-	
+	</div>
 	<%
 		}//if
 		else

@@ -22,6 +22,7 @@
 	<%
 		if(session.getAttribute("memberAccount") != null){
 	%>
+	<div class="productbg">
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
 		role="navigation">
@@ -70,11 +71,12 @@
 		<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container --> </nav>
-	<div class="container">
+	<div class="container productslogan">
 		<h2 class="cart_h2">
 			<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Cart
 		</h2>
-
+		</div>
+<div class="container productcontent">
 		<form method="post" action="ModiQuantityServlet">
 				<h3 class="cart_h3 cart_h3_chg">零件區</h3>
 			</caption>
@@ -207,6 +209,9 @@
 				<button type="submit" class="btn btn-danger btn_cart">下一步</button>
 			</p>
 		</form>
+		</div>
+		<div class="container">
+		<hr>
 		<footer>
 		<div class="row">
 			<div class="col-lg-12">
@@ -215,7 +220,7 @@
 		</div>
 		</footer>
 	</div>
-	
+	</div>
 	<form action="DelCartServlet" method="post" id="delForm1">
 		<input type="hidden" name="productID" id="productID">
 		<input type="hidden" name="memberAccount" id="memberAccount">

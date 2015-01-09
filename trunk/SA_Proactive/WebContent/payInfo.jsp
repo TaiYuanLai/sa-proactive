@@ -37,6 +37,7 @@
 	<%
 		if (session.getAttribute("memberAccount") != null) {
 	%>
+	<div class="productbg">
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
 		role="navigation">
@@ -88,10 +89,12 @@
 	
 	
 
-	<div class="container">
+	<div class="container productslogan">
 		<h2 class="cart_h2">
 			<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>商品購買STEP2
 		</h2>
+		</div>
+		<div class="container productcontent">
 		<!-- BEGIN CONTACT FORM -->
 		<form id="sendForm" action="AddOrderServlet" method="post">
 			<table class="table">
@@ -142,6 +145,9 @@
 			</p>
 		</form>
 		<!-- END CONTACT FORM -->
+		</div>
+		<div class="container">
+		<hr>
 		<footer>
 		<div class="row">
 			<div class="col-lg-12">
@@ -149,6 +155,7 @@
 			</div>
 		</div>
 		</footer>
+	</div>
 	</div>
 	<%
 		}//if

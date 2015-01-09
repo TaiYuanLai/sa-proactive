@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 			resp.sendRedirect("index.jsp");
 		} else {
 			HttpSession session = req.getSession();
-			session.setAttribute("errorMsg", "帳號或密碼輸入錯誤，請重新輸入或點選忘記密碼!");
+			session.setAttribute("errorMsg", "�K�X���~��@@");
 			resp.sendRedirect("login.jsp");
 		}
 	}

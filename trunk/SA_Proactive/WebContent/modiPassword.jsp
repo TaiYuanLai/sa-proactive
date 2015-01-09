@@ -22,6 +22,7 @@
 	<%
 		if (session.getAttribute("memberAccount") != null) {
 	%>
+	<div class="productbg">
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
 		role="navigation">
 	<div class="container">
@@ -60,25 +61,25 @@
 		<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container --> </nav>
-	<div class="container_reg">
+	<div class="container productslogan">
 		<div class="login_div">
 			<form id="modiForm" class="form-horizontal" role="form">
 				<img src="img/1.png" class="logo_log" alt="Proactive">
 				<div class="form-group form-group_reg">
-					<label for="inputName3" class="col-sm-2 control-label label_log">OldPwd</label>
+					<label for="inputName3" class="col-sm-2 control-label label_log"><font color="black">OldPwd</font></label>
 					<div class="col-sm-10">
 						<input type="password" class="form-control textbox_pwd textbox_log" id="oldPassword" name="oldPassword" placeholder="OldPwd" maxlength="20">
 					</div>
 				</div>
 				<div class="form-group form-group_reg">
-					<label for="inputEmail3" class="col-sm-2 control-label label_log">NewPwd</label>
+					<label for="inputEmail3" class="col-sm-2 control-label label_log"><font color="black">NewPwd</font></label>
 					<div class="col-sm-10">
 						<input type="password" class="form-control textbox_pwd textbox_log" id="password1" name="password1" placeholder="NewPwd" maxlength="20">
 					</div>
 				</div>
 				<div class="form-group form-group_reg">
 					<label for="inputPassword3"
-						class="col-sm-2 control-label label_log">Confirm</label>
+						class="col-sm-2 control-label label_log"><font color="black">Confirm</font></label>
 					<div class="col-sm-10">
 						<input type="password" class="form-control textbox_check textbox_log" id="password2" name="password2" placeholder="Confirm" maxlength="20">
 					</div>
@@ -100,7 +101,7 @@
 			</footer>
 		</div>
 	</div>
-
+</div>
 	<%
 		}//if
 		else
