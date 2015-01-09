@@ -19,6 +19,7 @@
 	<%
 		if (session.getAttribute("memberAccount") == null) {
 	%>
+	<div class="productbg">
 	<nav class="navbar navbar-inverse navbar-fixed-top navchg"
 		role="navigation">
 	<div class="container">
@@ -51,7 +52,7 @@
 		<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container --> </nav>
-	<div class="container_reg">
+	<div class="container productslogan">
 		<div class="login_div">
 
 			<!-- BEGIN CONTACT FORM -->
@@ -59,14 +60,14 @@
 				action="AddMemberServlet" method="post">
 				<img src="img/1.png" class="logo_reg" alt="Proactive">
 				<div class="form-group form-group_reg">
-					<label for="inputName3" class="col-sm-2 control-label label_log">Name</label>
+					<label for="inputName3" class="col-sm-2 control-label label_log"><font color="black">Name</font></label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control textbox_name textbox_log"
 							id="memberName" name="memberName" placeholder="Name">
 					</div>
 				</div>
 				<div class="form-group form-group_reg">
-					<label for="inputEmail3" class="col-sm-2 control-label label_log">Email</label>
+					<label for="inputEmail3" class="col-sm-2 control-label label_log"><font color="black">Email</font></label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control textbox_email textbox_log"
 							id="memberAccount" name="memberAccount" placeholder="Email">
@@ -74,7 +75,7 @@
 				</div>
 				<div class="form-group form-group_reg">
 					<label for="inputPassword3"
-						class="col-sm-2 control-label label_log">Password</label>
+						class="col-sm-2 control-label label_log"><font color="black">Password</font></label>
 					<div class="col-sm-10">
 						<input type="password"
 							class="form-control textbox_pwd textbox_log" id="memberPassword"
@@ -83,7 +84,7 @@
 				</div>
 				<div class="form-group form-group_reg">
 					<label for="inputPassword3"
-						class="col-sm-2 control-label label_log">Confirm</label>
+						class="col-sm-2 control-label label_log"><font color="black">Confirm</font></label>
 					<div class="col-sm-10">
 						<input type="password"
 							class="form-control textbox_check textbox_log"
@@ -100,15 +101,17 @@
 			<!-- END CONTACT FORM -->
 		</div>
 		<div class="container">
-			<footer class="footer_reg">
-			<div class="row">
-				<div class="col-lg-12">
-					<p class="text-right">Copyright &copy; 2014 PROACTIVE</p>
-				</div>
+	
+		<footer>
+		<div class="row">
+			<div class="col-lg-12">
+				<p class="text-right">Copyright &copy; 2014 PROACTIVE</p>
 			</div>
-			</footer>
 		</div>
+		</footer>
 	</div>
+	</div>
+</div>
 
 	<%
 		}//if
