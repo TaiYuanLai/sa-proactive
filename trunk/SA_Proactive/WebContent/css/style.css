@@ -651,3 +651,8 @@ end of product.jsp
 /**********
 end of product.jsp
 **********/
+.productcontent table tr[data-href] {
+    cursor: pointer;
+}
+
+

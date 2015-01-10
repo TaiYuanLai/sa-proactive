@@ -95,7 +95,9 @@
 		</div>
 		<div class="container productcontent">
 			<!-- <caption><h3 class="cart_h3 cart_h3_chg"></h3></caption> -->
-			<table class="table table-hover cart_table">
+			
+			
+			<table class="table table-hover cart_table" >
 				<%
 					if(orderList.size()==0){
 				%>
@@ -105,6 +107,7 @@
 					} else{
 				%>
 				<thead>
+				
 					<tr>
 						<td>訂單編號</td>
 						<td>日期</td>
@@ -116,7 +119,8 @@
 					<%
 						for(OrderBean orderBean : orderList){//簡化下方
 					%>
-					<tr>
+				
+					<tr data-href="orderHistory.jsp">
 						<td><%=orderBean.getOrderID()%></td>
 						<td><%=orderBean.getOrderDate()%></td>
 						<td>$<%=orderBean.getTotalPrice()%></td>
@@ -135,12 +139,15 @@
 						%>
 
 					</tr>
+					
 					<%
 						}
 							}
 					%>
+					
 				</tbody>
 			</table>
+			
 		</div>
 		<br> <br> <br> <br> <br> <br>
 
@@ -172,7 +179,14 @@
 
 
 	<script>
-		$('.dropdown-toggle').dropdown()
+		$('.dropdown-toggle').dropdown()</script>
+		<script>
+		$(document).ready(function(){
+    $('table tr').click(function(){
+        window.location = $(this).data('href');
+        return false;
+    });
+});
 	</script>
 </body>
 </html>

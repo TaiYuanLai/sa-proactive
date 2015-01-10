@@ -108,11 +108,11 @@
 					</td>
 				</tr>
 				<tr>
-					<td><label>電話:</label> <input type="text" placeholder="09******" id="orderPhone" name="orderPhone">
+					<td><label>電話:</label> <input type="text" placeholder="09******" id="orderPhone" name="orderPhone" onkeyup="value=this.value.replace(/\D+/g,'')" >
 					</td>
 				</tr>
 				<tr>
-					<td><label>地址:</label> <input type="text" placeholder="*市*區*路*巷*弄*號*樓" id="orderAddress" name="orderAddress">
+					<td><label>地址:</label> <input name="orderAddress" type="text" id="rderAddress" placeholder="  範例：台北市信義區信義路五段150巷431弄23號三樓" size="64">                                                       
 					</td>
 				</tr>
 			</table>
@@ -185,26 +185,25 @@
 	<script type="text/javascript">
 	
 		function provision(){
-			alert("proactiveproactiveproactiveproactiveproactiveproactive\nproactiveproactiveproactiveproactiveproactiveproactive");
+			alert("1.Proactive公司係依據本服務條款提供Proactive服務 (以下簡稱「本服務」)。當會員完成Proactive之會員註冊手續、或開始使用本服務時，即表示已閱讀、瞭解並同意接受本服務條款之所有內容，並完全接受本服務現有與未來衍生的服務項目及內容。Proactive公司有權於任何時間修改或變更本服務條款之內容，修改後的服務條款內容將公佈網站上，Proactive將不會個別通知會員，建議會員隨時注意該等修改或變更。會員於任何修改或變更後繼續使用本服務時，視為會員已閱讀、瞭解並同意接受該等修改或變更。若不同意上述的服務條款修訂或更新方式，或不接受本服務條款的其他任一約定，會員應立即停止使用本服務。2.若會員為未滿二十歲之未成年人，應於會員的家長（或監護人）閱讀、瞭解並同意本約定書之所有內容及其後修改變更後，方得註冊為會員、使用或繼續使用本服務。當會員使用或繼續使用Proactive時，即推定會員的家長（或監護人）已閱讀、瞭解並同意接受本約定書之所有內容及其後修改變更。3.會員及Proactive雙方同意使用本服務之所有內容包括意思表示等，以電子文件作為表示方式。");
 			
 		}
-	
-	
+		
 		
 		$(function() {
 			$("#sendForm").validate({
 				
 				rules : {
 					orderPhone : "required",
-					orderAddress : "required",
-					check : "required",
-					payway: "required"
+					orderAddress: "require",
+					payway: "required",
+					check: "required"
 				},
 				messages : {
 					orderPhone : "請輸入電話!",
-					orderAddress : "請輸入地址!",
-					check : "請確認!",
-					payway:"請選擇付款方式!"
+					orderAddress: "請輸入完整的地址!",
+					payway:"請選擇付款方式!",
+					check: "請確認已閱讀!"
 				},
 				errorPlacement : function(error, element) {
 					if (element.attr('name') == "check") {
