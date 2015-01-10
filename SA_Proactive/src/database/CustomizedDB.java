@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import shared.JDBCUtil;
-import bean.CombinationBean;
+
 import bean.CustomizedBean;
+
+
 
 public class CustomizedDB {
 	JDBCUtil db = new JDBCUtil();
@@ -56,6 +58,7 @@ public class CustomizedDB {
 			customizedBean.setCusID(rs.getInt("CusID"));
 			customizedBean.setMemberAccount(rs.getString("MemberAccount"));
 			customizedBean.setCPU(rs.getString("CPU"));
+			customizedBean.setMD(rs.getString("MD"));
 			customizedBean.setHD(rs.getString("HD"));
 			customizedBean.setMemory(rs.getString("Memory"));
 			customizedBean.setVga(rs.getString("Vga"));
@@ -98,12 +101,13 @@ public class CustomizedDB {
 		smt = conn.prepareStatement(sql);
 		smt.setString(1, memberAccount);
 		rs = smt.executeQuery();
-		List<CustomizedBean> allcombination = new ArrayList<CustomizedBean>();
+		List<CustomizedBean> allcustomized = new ArrayList<CustomizedBean>();
 		while (rs.next()) {
 			CustomizedBean customizedBean = new CustomizedBean();
 			customizedBean.setCusID(rs.getInt("CusID"));
 			customizedBean.setMemberAccount(rs.getString("MemberAccount"));
 			customizedBean.setCPU(rs.getString("CPU"));
+			customizedBean.setMD(rs.getString("MD"));
 			customizedBean.setHD(rs.getString("HD"));
 			customizedBean.setMemory(rs.getString("Memory"));
 			customizedBean.setVga(rs.getString("Vga"));
@@ -113,12 +117,53 @@ public class CustomizedDB {
 			customizedBean.setFan(rs.getString("Fan"));
 			customizedBean.setCharge(rs.getInt("Charge"));
 			customizedBean.setTotalPrice(rs.getInt("TotalPrice"));
-			allcombination.add(customizedBean);
+			customizedBean.setQuantity(rs.getInt("Quantity"));
+			allcustomized.add(customizedBean);
 		}
 		rs.close();
 		smt.close();
 		conn.close();
-		return allcombination;
+		return allcustomized;
 	}
+		
+		public void addCustomized(CustomizedBean customizedBean) throws Exception {
+			String sql = "INSERT INTO `customized`(CusID,MemberAccount,CPU,MD,HD,Memory,Vga,Power,Box,DVD,Fan,Charge,TotalPrice)" 
+					 +"VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+			conn = db.makeConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setInt(1, customizedBean.getCusID());
+			smt.setString(2, customizedBean.getMemberAccount());
+			smt.setString(3, customizedBean.getCPU());
+			smt.setString(4, customizedBean.getMD());
+			smt.setString(5, customizedBean.getHD());
+			smt.setString(6, customizedBean.getMemory());
+			smt.setString(7, customizedBean.getVga());
+			smt.setString(8, customizedBean.getPower());
+			smt.setString(9, customizedBean.getBox());
+			smt.setString(10, customizedBean.getDVD());
+			smt.setString(11, customizedBean.getFan());
+			smt.setInt(12, customizedBean.getCharge());
+			smt.setInt(13, customizedBean.getTotalPrice());
+			smt.execute();
+			smt.close();
+			conn.close();
+		}
+		
+		
+		public int getCusID() throws Exception{
+			String sql = "SELECT IFNULL(MAX(CusID),0)+1 AS size FROM `customized`";
+			conn = db.makeConnection();
+			smt = conn.prepareStatement(sql);
+			rs = smt.executeQuery();
+			int size = 0;
+			if(rs.next()) {
+				size = rs.getInt("size");
+			}
+			rs.close();
+			smt.close();
+			conn.close();
+			return size;
+		}
 
 }

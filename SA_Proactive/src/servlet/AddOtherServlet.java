@@ -17,6 +17,8 @@ public class AddOtherServlet extends HttpServlet{
 			throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 	int check =400;
+	
+	
 	String BoardID = req.getParameter("BoardID");
 	String SSDID = req.getParameter("SSDID");
 	String MemoryID = req.getParameter("MemoryID");

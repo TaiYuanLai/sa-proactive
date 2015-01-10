@@ -125,6 +125,13 @@
 			<caption>
 				<h3 class="cart_h3">客製化組裝區</h3>
 			</caption>
+			<%
+				CustomizedDB customizedDB=new CustomizedDB();
+				List<CustomizedBean> allcustomized = new ArrayList<CustomizedBean>();
+				allcustomized=customizedDB.getCustomizedListByMemberAccount(memberAccount);
+										
+				for(CustomizedBean customizedBean : allcustomized){
+				%>
 			<table class="table table-hover cart_table">
 				<thead>
 					<tr>
@@ -137,19 +144,20 @@
 				<tbody>
 					<tr>
 						<td>
-							<a href="customerlizeDetail.jsp">
+							<a href="customerlizeDetail.jsp?ID=<%=customizedBean.getCusID()%>">
 					 			<img src="img/cusimg.jpg" class="cart_product" alt="">
-					 			我的組合1
+					 			我的組合<%=customizedBean.getCusID()%>
 							</a>
 						</td>
 						<td>
 							<button type="button" class="glyphicon glyphicon-minus plus" aria-hidden="true"></button>
-							<input type="text" class="cart_quantity" value="1">
+							<input type="text" class="cart_quantity" name="productQuantity" value=<%=customizedBean.getQuantity()%>>
 							<button type="button" class="glyphicon glyphicon-plus plus" aria-hidden="true"></button>
 						</td>
-						<td></td>
+						<td><%=customizedBean.getTotalPrice()%>
+						</td>
 						<td>
-							<button type="button" class="icon_trash plus" onclick="">
+							<button type="button" class="icon_trash plus" onclick="doDelete3('<%=customizedBean.getCusID()%>','<%=memberAccount%>')">
 								<span class="glyphicon glyphicon-trash"></span>
 							</button>
 						</td>
@@ -157,6 +165,9 @@
 
 				</tbody>
 			</table>
+			<%
+				}//for
+			%>
 
 			<caption>
 				<h3 class="cart_h3">優惠組合區</h3>
@@ -230,6 +241,11 @@
 		<input type="hidden" name="combinationID" id="combinationID">
 		<input type="hidden" name="memberAccount" id="memberAccount">
 	</form>
+	
+	<form action="DelCartCustomerlizeServlet" method="post" id="delForm3">
+		<input type="hidden" name="cusID" id="cusID">
+		<input type="hidden" name="memberAccount" id="memberAccount">
+	</form>
 
 
 
@@ -272,6 +288,15 @@
 				$("#combinationID").val(combinationID);
 				$("#memberAccount").val(memberAccount);
 				$("#delForm").submit();
+			}
+		}
+		
+		function doDelete3(cusID, memberAccount) {
+			var r = confirm("是否刪除?");
+			if (r == true) {
+				$("#cusID").val(cusID);
+				$("#memberAccount").val(memberAccount);
+				$("#delForm3").submit();
 			}
 		}
 

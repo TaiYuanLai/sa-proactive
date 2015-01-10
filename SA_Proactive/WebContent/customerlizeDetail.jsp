@@ -36,7 +36,7 @@
 	String cusID = request.getParameter("ID");
 	CustomizedDB customizedDB = new CustomizedDB();
 	CustomizedBean customizedBean = customizedDB.getCustomized(cusID);
-	
+
 	String msg = "";
 %>
 
@@ -69,7 +69,7 @@
 					<li class="active"><a href="customerlize1.jsp">客製化組裝</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right navcolor">
-					<li class="active"><a href="cart.jsp"><span
+					<li><a href="cart.jsp"><span
 							class="glyphicon glyphicon-shopping-cart"></span>購物車</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"><%=session.getAttribute("memberName")%><b
@@ -85,9 +85,10 @@
 		</div>
 		<!-- /.container --> </nav>
 		<form action="AddCartCustomerlizeServlet" method="post" id="addForm">
-			<input type="hidden" id="msg" value="<%=msg%>"> 
-			<input type="hidden" name="CusID" value="<%=cusID%>">
-		</form>
+<%-- 			<input type="hidden" id="msg" value="<%=msg%>"> --%>
+				
+<%-- 				<input type="hidden" name="CusID" value="<%=cusID%>">    --%>
+	
 
 
 		<!-- Page Content -->
@@ -164,11 +165,12 @@
 							</tr>
 						</table>
 
-
-						<input class="detailbtn1" type="button" value="確定組裝" id="addBtn"
-							onclick="{ if(confirm('確定組裝?'))location.href='customerlize1.jsp'}">
-						<input class="detailbtn2" type="button" value="返回組裝"
-							onclick="location.href='customerlize1.jsp'">
+					<input type="submit"class="detailbtn1" value="加入購物車">
+					<input class="detailbtn2" type="button" value="返回組裝" onclick="location.href='customerlize1.jsp'"> 
+<!-- 						<input class="detailbtn1" type="button" value="確定組裝" id="addBtn" -->
+<!-- 							onclick="{ if(confirm('確定購買?'))location.href='customerlize1.jsp'}"> -->
+<!-- 						<input class="detailbtn2" type="button" value="返回組裝" -->
+<!-- 							onclick="location.href='customerlize1.jsp'"> -->
 
 
 
@@ -176,6 +178,7 @@
 				</div>
 			</div>
 		</div>
+			</form>
 		<!--end of Page Content -->
 
 		<!-- Footer -->
@@ -209,28 +212,31 @@
 	<script type="text/javascript" src="js/additional-methods.js"></script>
 	<script type="text/javascript" src="js/messages_zh_TW.js"></script>
 	<script type="text/javascript">
-		$(function() {
+	
+// 	$(function() {
+// 		$('#addBtn').click(function() {
+// 			var name = $('#ProductName').val();
+// 			var r = confirm("是否要加入「"+name+"」 ? ");
+// 			if (r == true) {
+// 				$.ajax({
+// 					type : "POST",
+// 					url : "AddCartCustomerlizeServlet",
+// 					data : $("#addForm").serialize(),
+// 					success : function() {
+// 						alert("加入成功");
+						
+// 					},
+// 					error : function() {
+// 						alert("加入失敗");
+// 					}
+// 				});
+// 			}
+// 			;
 
-			$('#addBtn').click(function() {
-				var name = $('#CusID').val();
-				var r = confirm("是否要加入「" + name + "」 ? ");
-				if (r == true) {
-					$.ajax({
-						type : "POST",
-						url : "AddCartCustomerlizeServlet",
-						data : $("#addForm").serialize(),
-						success : function() {
-							alert("加入成功");
-							location.reload();
-						},
-						error : function() {
-							alert("加入失敗");
-						}
-					});
-				}
-
-			});
-		});
+// 		});
+		
+// 	});
+	
 	</script>
 
 </body>

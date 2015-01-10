@@ -151,7 +151,7 @@
     <description></description>
     <display-name>AddCartCustomerlizeServlet</display-name>
     <servlet-name>AddCartCustomerlizeServlet</servlet-name>
-    <servlet-class>AddCartCustomerlizeServlet</servlet-class>
+    <servlet-class>servlet.AddCartCustomerlizeServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AddCartCustomerlizeServlet</servlet-name>
@@ -167,6 +167,17 @@
   <servlet-mapping>
     <servlet-name>AddOtherServlet</servlet-name>
     <url-pattern>/AddOtherServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>DelCartCustomerlizeServlet</display-name>
+    <servlet-name>DelCartCustomerlizeServlet</servlet-name>
+    <servlet-class>servlet.DelCartCustomerlizeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DelCartCustomerlizeServlet</servlet-name>
+    <url-pattern>/DelCartCustomerlizeServlet</url-pattern>
   </servlet-mapping>
   
   

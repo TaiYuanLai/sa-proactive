@@ -45,12 +45,12 @@ public class CartCustomerlizeDB {
 		return cartCustomerlizeList;
 	}
 	
-	public void delCartCustomerlize(String memberAccount, String CusID) throws Exception{
+	public void delCartCustomerlize(String memberAccount, String cusID) throws Exception{
 		String sql = "DELETE FROM cart_customerlize WHERE MemberAccount=? AND CusID=?";
 		conn = db.makeConnection();
 		smt=conn.prepareStatement(sql);
 		smt.setString(1,memberAccount);
-		smt.setString(2,CusID);
+		smt.setString(2,cusID);
 		smt.execute();
 		smt.close();
 		conn.close();
