@@ -76,13 +76,14 @@
 
 	<div class="container_reg">
 
-		<form action="">
+		<form action="../ModiCombinationServlet" method="post" id="modiCombinationForm">
 			<div class="container">
 				<div class="col-lg-12 orderbg modi">
 					<div class="detail">
 						<div class="row">
 							<div class="col-md-12 detailtitle">
 								 <h2><input type="text" id="combinationName" name="combinationName" class="col-md-12 detailtitle" maxlength="30" value="<%=combinationBean.getCombinationName()%>">
+								 <input type="hidden" name="combinationID" value="<%=combinationBean.getCombinationID() %>">
 								</h2>
 								<p><textarea id="combinationDescription" name="combinationDescription" class="col-md-12 detailtitle"><%=combinationBean.getCombinationDescription()%></textarea></p>
 							</div>
@@ -108,16 +109,16 @@
 										if(combinationDetialBean.getProductType().equals(productBean.getProductType())){	
 											if(productBean.getProductName().equals(combinationDetialBean.getProductName())){
 								%>
-										<option selected>
+										<option selected name="<%=productBean.getProductType() %>" value="<%=productBean.getProductID()%>">
 									 		<%=combinationDetialBean.getProductName() %>
 									 	</option>
 									<%
 										}
 									else{
 									%> 	
-									<option>
+									<option name="<%=productBean.getProductType() %>" value="<%=productBean.getProductID()%>">
 									 		<%=productBean.getProductName() %>
-									 </option>
+									 </option> 
 									 <%
 									 } 
 										}
@@ -132,7 +133,8 @@
 							%>
 									
 								</table>
-								<input class="detailbtn1 detailbtn1_re" type="button" value="修改">
+								
+								<button type="sumbit" class="detailbtn1 detailbtn1_re" onclick="doModiCombination('<%=combinationDetailBean.getProductID()%>')">修改</button>
 							</div>
 						</div>
 					</div>
@@ -159,6 +161,16 @@
 	<!-- Script to Activate the Carousel -->
 	<script>
 		$('.dropdown-toggle').dropdown();
+	</script>
+	
+	<script type="text/javascript">		
+		function doModiCombination(productID) {
+			var r = confirm("確定修改?");
+			if (r == true) {
+				$("#productID").val(productID);
+				$("#modiCombinationForm").submit();
+			}
+		}
 	</script>
 
 

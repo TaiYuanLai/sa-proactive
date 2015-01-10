@@ -98,5 +98,20 @@ public class CombinationDB {
 		conn.close();
 		return allcombination;
 	}
+	
+	public void updateCombination(String combinationName,String combinationDescription, String combinationID)throws Exception{
+		String sql = "UPDATE combination SET CombinationName=?, CombinationDescription=? WHERE CombinationID=? ";
+		conn = db.makeConnection();
+		smt=conn.prepareStatement(sql);
+		smt.setString(1,combinationName);
+		smt.setString(2,combinationDescription);
+		smt.setString(3,combinationID);
+		smt.execute();
+		smt.close();
+		conn.close();
+		
+	}
+	
+	
 
 }

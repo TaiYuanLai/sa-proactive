@@ -222,4 +222,15 @@
     <servlet-name>ModiProductServlet</servlet-name>
     <url-pattern>/ModiProductServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>ModiCombinationServlet</display-name>
+    <servlet-name>ModiCombinationServlet</servlet-name>
+    <servlet-class>servlet.ModiCombinationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModiCombinationServlet</servlet-name>
+    <url-pattern>/ModiCombinationServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
