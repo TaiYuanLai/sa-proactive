@@ -195,7 +195,7 @@
 				
 				rules : {
 					orderPhone : "required",
-					orderAddress: "require",
+					orderAddress: "required",
 					payway: "required",
 					check: "required"
 				},
