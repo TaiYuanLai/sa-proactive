@@ -89,5 +89,16 @@ public class CartDB {
 		conn.close();
 		return cartBeanList;
 	}
+	
+	public void delAllCartbyMemberAccount(String memberAccount)
+			throws Exception {
+		String sql = "DELETE FROM cart WHERE MemberAccount=?";
+		conn = db.makeConnection();
+		smt = conn.prepareStatement(sql);
+		smt.setString(1, memberAccount);
+		smt.execute();
+		smt.close();
+		conn.close();
+	}
 
 }

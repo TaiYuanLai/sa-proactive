@@ -78,7 +78,10 @@ public class AddOrderServlet extends HttpServlet{
 			orderBean.setOrderAddress(orderAddress);
 			orderBean.setOrderPhone(orderPhone);
 			orderBean.setPayway(payway);
+			
 			orderDB.addOrder(orderBean);
+			cartDB.delAllCartbyMemberAccount(memberAccount);
+			cartCombinationDB.delAllCartCombinationbyMemberAccount(memberAccount);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
