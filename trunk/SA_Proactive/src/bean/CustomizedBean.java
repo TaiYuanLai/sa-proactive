@@ -19,6 +19,8 @@ public class CustomizedBean {
 	private int TotalPrice;
 	
 	/*-----other-----*/
+	private int Quantity;//from cart_customerlized
+	
 	public int getCusID() {
 		return CusID;
 	}
@@ -96,6 +98,12 @@ public class CustomizedBean {
 	}
 	public void setTotalPrice(int totalPrice) {
 		TotalPrice = totalPrice;
+	}
+	public int getQuantity() {
+		return Quantity;
+	}
+	public void setQuantity(int quantity) {
+		Quantity = quantity;
 	}
 	
 	

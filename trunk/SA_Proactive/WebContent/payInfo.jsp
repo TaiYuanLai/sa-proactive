@@ -120,9 +120,9 @@
 				<h3 class="cart_h3">付款方式</h3>
 				<tr>
 					<td><label for="">取貨前預付</label></td>
-					<td><label class="radio"> <input type="radio" name="payway" id="payway1" value="代碼繳費FamiPort"> 代碼繳費FamiPort
+					<td><label class="radio"> <input type="radio" name="payway" id="payway1" value="FamiPort"> 代碼繳費FamiPort
 					</label></td>
-					<td><label class="radio"> <input type="radio" name="payway" id="payway2" value="代碼繳費Ibon"> 代碼繳費Ibon
+					<td><label class="radio"> <input type="radio" name="payway" id="payway2" value="Ibon"> 代碼繳費Ibon
 					</label></td>
 				</tr>
 				<tr>
