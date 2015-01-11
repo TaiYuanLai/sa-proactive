@@ -120,6 +120,14 @@
 		<caption>
 			<h3 class="cart_h3">客製化組裝區</h3>
 		</caption>
+		<%
+				CustomizedDB customizedDB=new CustomizedDB();
+				List<CustomizedBean> allcustomized = new ArrayList<CustomizedBean>();
+				allcustomized=customizedDB.getCustomizedListByMemberAccount(memberAccount);
+										
+				for(CustomizedBean customizedBean : allcustomized){
+				%>
+		
 		<table class="table table-hover cart_table">
 			<thead>
 				<tr>
@@ -132,12 +140,18 @@
 				<tr>
 					<td><a href=""> <img src="img/cusimg.jpg"
 							class="cart_product" alt="">
-					</a> 我的組合1</td>
-					<td>2</td>
-					<td>$16888</td>
+					</a> 我的組合<%=customizedBean.getCusID()%></td>
+					<td><%=customizedBean.getQuantity()%></td>
+					<td>$<%=customizedBean.getTotalPrice()%></td>
+					<%
+						totalPrice+=customizedBean.getQuantity()*customizedBean.getTotalPrice();
+					%>
 				</tr>
 			</tbody>
 		</table>
+		<%
+			}//for
+		%>
 		<caption>
 			<h3 class="cart_h3">優惠組合區</h3>
 		</caption>

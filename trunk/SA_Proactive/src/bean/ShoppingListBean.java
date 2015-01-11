@@ -7,6 +7,9 @@ public class ShoppingListBean {
 	private int UnitPrice;
 	private int Quantity;
 	/*-----other-----*/
+	private String ProductName;
+	private String Image;
+	
 	public int getOrderID() {
 		return OrderID;
 	}
@@ -30,6 +33,18 @@ public class ShoppingListBean {
 	}
 	public void setQuantity(int quantity) {
 		Quantity = quantity;
+	}
+	public String getProductName() {
+		return ProductName;
+	}
+	public void setProductName(String productName) {
+		ProductName = productName;
+	}
+	public String getImage() {
+		return Image;
+	}
+	public void setImage(String image) {
+		Image = image;
 	}
 	
 	

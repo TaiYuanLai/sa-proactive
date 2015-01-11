@@ -7,8 +7,9 @@ public class CartCustomerlizeBean {
 	private int CusID;
 	private String MemberAccount;
 	private int Quantity;
-	
 	/*-----other-----*/
+	private int UnitPrice;
+	
 	public int getCusID() {
 		return CusID;
 	}
@@ -26,6 +27,12 @@ public class CartCustomerlizeBean {
 	}
 	public void setQuantity(int quantity) {
 		Quantity = quantity;
+	}
+	public int getUnitPrice() {
+		return UnitPrice;
+	}
+	public void setUnitPrice(int unitPrice) {
+		UnitPrice = unitPrice;
 	}
 	
 	

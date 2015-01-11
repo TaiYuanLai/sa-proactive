@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import shared.JDBCUtil;
-
 import bean.CustomizedBean;
 
 
@@ -164,6 +163,18 @@ public class CustomizedDB {
 			smt.close();
 			conn.close();
 			return size;
+		}
+		
+		public void delCustomized(String memberAccount, int cusID)
+				throws Exception {
+			String sql = "DELETE FROM customized WHERE MemberAccount=? AND CusID=?";
+			conn = db.makeConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, memberAccount);
+			smt.setInt(2, cusID);
+			smt.execute();
+			smt.close();
+			conn.close();
 		}
 
 }

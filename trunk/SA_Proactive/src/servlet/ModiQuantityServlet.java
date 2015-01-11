@@ -11,7 +11,9 @@ import javax.servlet.http.HttpSession;
 
 import bean.CartBean;
 import bean.CartCombinationBean;
+import bean.CartCustomerlizeBean;
 import database.CartCombinationDB;
+import database.CartCustomerlizeDB;
 import database.CartDB;
 
 public class ModiQuantityServlet extends HttpServlet {
@@ -22,10 +24,15 @@ public class ModiQuantityServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		CartDB cartDB = new CartDB();
 		CartCombinationDB cartCombinationDB = new CartCombinationDB();
+		CartCustomerlizeDB cartCustomerlizeDB=new CartCustomerlizeDB();
 
 		ArrayList<CartBean> cartBeanList = new ArrayList<CartBean>();
 		ArrayList<CartCombinationBean> cartCombinationBeanList = new ArrayList<CartCombinationBean>();
+		ArrayList<CartCustomerlizeBean> cartCustomerlizeBeanList = new ArrayList<CartCustomerlizeBean>();
+		
 		String memberAccount = (String) session.getAttribute("memberAccount");
+		
+		//修改商品數量
 		if (req.getParameterValues("productID") != null) {
 			String productID[] = req.getParameterValues("productID");
 			String productQuantity[] = req.getParameterValues("productQuantity");
@@ -51,7 +58,7 @@ public class ModiQuantityServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
+		//修改優惠組合數量
 		if (req.getParameterValues("combinationID") != null) {
 			String combinationID[] = req.getParameterValues("combinationID");
 			String combinationQuantity[] = req.getParameterValues("combinationQuantity");
@@ -78,8 +85,36 @@ public class ModiQuantityServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			}
+		//修改客製化數量
+		if (req.getParameterValues("cusID") != null) {
+			String[] cusID = req.getParameterValues("cusID");
+			String customerlizeQuantity[] = req.getParameterValues("customerlizeQuantity");
 
+			if (cusID.length > 0) {
+				for (int i = 0; i < cusID.length; i++) {
+					CartCustomerlizeBean cartCustomerlizeBean = new CartCustomerlizeBean();
+					cartCustomerlizeBean.setCusID(Integer.parseInt(cusID[i]));
+					cartCustomerlizeBean.setMemberAccount(memberAccount);
+					cartCustomerlizeBean.setQuantity(Integer.parseInt(customerlizeQuantity[i]));
+					cartCustomerlizeBeanList.add(cartCustomerlizeBean);
+				}
+			}
+
+			try {
+				if (cartCustomerlizeBeanList.size() > 0) {
+					for (int i = 0; i < cartCustomerlizeBeanList.size(); i++) {
+						cartCustomerlizeDB.modiQuantityCustomized(cartCustomerlizeBeanList.get(i));
+					}
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		
+		
 
 		resp.sendRedirect("payCheck.jsp");
 

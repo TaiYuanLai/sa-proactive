@@ -107,7 +107,7 @@
 							</a></td>
 						<td>
 							<button type="button" class="glyphicon glyphicon-minus plus" aria-hidden="true"></button>
-							<input type="text" class="cart_quantity" name="productQuantity" value=<%=productBean.getQuantity()%>>
+							<input type="text" class="cart_quantity" name="productQuantity" onkeyup="value=this.value.replace(/\D+/g,'')" value=<%=productBean.getQuantity()%>>
 							<button type="button" class="glyphicon glyphicon-plus plus" aria-hidden="true"></button>
 						</td>
 						<td>$<%=productBean.getUnitPrice()%></td>
@@ -132,6 +132,8 @@
 										
 				for(CustomizedBean customizedBean : allcustomized){
 				%>
+				
+				<input type="hidden" name="cusID" value="<%=customizedBean.getCusID()%>">
 			<table class="table table-hover cart_table">
 				<thead>
 					<tr>
@@ -151,7 +153,7 @@
 						</td>
 						<td>
 							<button type="button" class="glyphicon glyphicon-minus plus" aria-hidden="true"></button>
-							<input type="text" class="cart_quantity" name="productQuantity" value=<%=customizedBean.getQuantity()%>>
+							<input type="text" class="cart_quantity" name="customerlizeQuantity" onkeyup="value=this.value.replace(/\D+/g,'')" value=<%=customizedBean.getQuantity()%>>
 							<button type="button" class="glyphicon glyphicon-plus plus" aria-hidden="true"></button>
 						</td>
 						<td><%=customizedBean.getTotalPrice()%>
@@ -199,7 +201,7 @@
 
 						<td>
 							<button type="button" class="glyphicon glyphicon-minus plus" aria-hidden="true"></button>
-							<input type="text" class="cart_quantity" name="combinationQuantity" value=<%=combinationBean.getQuantity()%>>
+							<input type="text" class="cart_quantity" name="combinationQuantity" onkeyup="value=this.value.replace(/\D+/g,'')" value=<%=combinationBean.getQuantity()%>>
 							<button type="button" class="glyphicon glyphicon-plus plus" aria-hidden="true"></button>
 						</td>
 
