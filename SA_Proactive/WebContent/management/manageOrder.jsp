@@ -59,62 +59,70 @@
 
 	</div>
 	<!-- /.container --> </nav>
-	<%
+	<%	
+		//int orderID=Integer.parseInt(request.getParameter("orderID"));
 		List<OrderBean> orderList = new ArrayList<OrderBean>();
 		OrderDB orderDB=new OrderDB();
 		orderList=orderDB.getOrderList();
 	%>
 	<div class="container_reg">
-
-
 		<div class="container">
-			<div class="col-lg-12 orderbg">
-				<div class="col-lg-12 orderhead">
-					<h1>
-						<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-						訂單管理
-					</h1>
-				</div>
-				<div class="col-lg-12">
-					<table class="table table-hover cart_table">
-						<thead>
-							<tr>
-								<td>訂單編號</td>
-								<td>會員帳號</td>
-								<td>下單日期</td>
-								<td>總金額</td>
-								<td>訂單狀態</td>
-								<td>地址</td>
-								<td>聯絡電話</td>
-								<td>付款方式</td>
-							</tr>
-						</thead>
-						<tbody>
-							<%
-								for(OrderBean orderBean : orderList){//簡化下方
-							%>
-							<tr>
-								<td><%=orderBean.getOrderID()%></td>
-								<td><%=orderBean.getMemberAccount()%></td>
-								<td><%=orderBean.getOrderDate()%></td>
-								<td>$<%=orderBean.getTotalPrice()%></td>
-								<td><select name="" id="">
-										<option value="0"<%=orderBean.getOrderState()==0?"selected":""%>>未付款</option>
-										<option value="1"<%=orderBean.getOrderState()==1?"selected":""%>>已付款</option>
-								</select></td>
-								<td><%=orderBean.getOrderAddress()%></td>
-								<td><%=orderBean.getOrderPhone()%></td>
-								<td><%=orderBean.getPayway()%></td>
-							</tr>
-							<%
-								}
-							%>
+			<form action="../ModiOrderStateServlet" method="post" id="modiForm">
+			
+				<div class="col-lg-12 orderbg">
+					<div class="col-lg-12 orderhead">
+						<h1>
+							<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+							訂單管理
+						</h1>
+					</div>
+					<div class="col-lg-12">
+					<%
+									for(OrderBean orderBean : orderList){//簡化下方
+								%>
+							<input type="hidden" name="orderID" value="<%=orderBean.getOrderID()%>"> 
+						<table class="table table-hover cart_table">
+							<thead>
+								<tr>
+									<td>訂單編號</td>
+									<td>會員帳號</td>
+									<td>下單日期</td>
+									<td>總金額</td>
+									<td>訂單狀態</td>
+									<td>地址</td>
+									<td>聯絡電話</td>
+									<td>付款方式</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><%=orderBean.getOrderID()%></td>
+									<td><%=orderBean.getMemberAccount()%></td>
+									<td><%=orderBean.getOrderDate()%></td>
+									<td>$<%=orderBean.getTotalPrice()%></td>
+									<td><select name="" id="">
+											<option value="0"
+												<%=orderBean.getOrderState()==0?"selected":""%>>未付款</option>
+											<option value="1"
+												<%=orderBean.getOrderState()==1?"selected":""%>>已付款</option>
+									</select></td>
+									<td><%=orderBean.getOrderAddress()%></td>
+									<td><%=orderBean.getOrderPhone()%></td>
+									<td><%=orderBean.getPayway()%></td>
+								</tr>
+								</tbody>
+						</table>
+						<%
+									}
+								%>
+					</div>
 
-						</tbody>
-					</table>
+					
+					<input type="submit" value="儲存" />
+
 				</div>
 
-			</div>
+			</form>
 		</div>
 
 		<div class="container">

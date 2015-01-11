@@ -69,7 +69,9 @@
 					MemberBean memberBean = new MemberBean();
 					MemberDB memberDB = new MemberDB();
 					memberBean = memberDB.getMember(memberAccount);
-			%>
+					ProductBean productBean=new ProductBean();
+					
+					%>
 			<ul class="nav navbar-nav navbar-right navcolor">
 				<li class="active"><a href="cart.jsp"><span
 						class="glyphicon glyphicon-shopping-cart"></span>購物車</a></li>
@@ -97,6 +99,7 @@
 		<div class="container productcontent">
 		<!-- BEGIN CONTACT FORM -->
 		<form id="sendForm" action="AddOrderServlet" method="post">
+		<input type="hidden" name="productID" value="<%=productBean.getProductID()%>">
 			<table class="table">
 				<h3 class="cart_h3">填寫收件人資訊</h3>
 				<tr>
@@ -144,6 +147,7 @@
 				<!--<br> <a class="btn btn-danger btn_cart" href="payOrder.jsp">下一步</a>-->
 				<input type="submit"class="btn btn-danger btn_cart">
 			</p>
+			
 		</form>
 		<!-- END CONTACT FORM -->
 		</div>

@@ -37,20 +37,7 @@ public class AddCartCustomerlizeServlet extends HttpServlet {
 		String fan = (String) req.getSession().getAttribute("FanID");
 		int charge=session.getAttribute("check")==null?0:Integer.parseInt(String.valueOf(session.getAttribute("check")));
 		int totalPrice = Integer.parseInt(String.valueOf(session.getAttribute("TotalPrice")));
-
-//		 customizedBean.setCusID(cusID);
-//		 customizedBean.setMemberAccount(memberAccount);
-//		 customizedBean.setCPU(CPU);
-//		 customizedBean.setHD(HD);
-//		 customizedBean.setMemory(Memory);
-//		 customizedBean.setVga(Vga);
-//		 customizedBean.setPower(Power);
-//		 customizedBean.setBox(Box);
-//		 customizedBean.setDVD(DVD);
-//		 customizedBean.setFan(Fan);
-//		 customizedBean.setCharge(Charge);
-//		 customizedBean.setTotalPrice(totalPrice);
-
+		
 		try {
 			int cusID=customizedDB.getCusID();
 			customizedBean.setCusID(cusID);

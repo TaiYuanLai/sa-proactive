@@ -18,7 +18,7 @@ public class CombinationDetailDB {
 	
 	public List<CombinationDetailBean> getCombinationDetailList(String productID) throws Exception{
 		List<CombinationDetailBean> combinationDetailList= new ArrayList<CombinationDetailBean>();
-		String sql = "SELECT combination.CombinationID, product.ProductType, product.ProductName, product.ProductID FROM combination_detail JOIN product ON combination_detail.ProductID=product.ProductID JOIN Combination  ON combination.CombinationID=combination_detail.CombinationID ;" ;
+		String sql = "SELECT combination.CombinationID, product.ProductType, product.ProductName, product.ProductID FROM combination_detail JOIN product ON combination_detail.ProductID=product.ProductID JOIN Combination  ON combination.CombinationID=combination_detail.CombinationID" ;
 		conn = db.makeConnection();
 		smt = conn.prepareStatement(sql);
 		rs = smt.executeQuery();

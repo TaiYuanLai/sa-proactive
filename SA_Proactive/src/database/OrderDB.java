@@ -74,7 +74,60 @@ public class OrderDB {
 		return orderList;
 	}
 	
+	public List<OrderBean> getOrderListbyMemberAccount(String memberAccount) throws Exception {
+		List<OrderBean> orderBeanList = new ArrayList<OrderBean>();
+		String sql = "SELECT * FROM `order` WHERE MemberAccount=?";
+		conn = db.makeConnection();
+		smt = conn.prepareStatement(sql);
+		smt.setString(1, memberAccount);
+		rs = smt.executeQuery();
+		while (rs.next()) {
+			OrderBean orderBean = new OrderBean();
+			orderBean.setOrderID(rs.getInt("OrderID"));
+			orderBean.setMemberAccount(rs.getString("MemberAccount"));
+			orderBean.setOrderDate(rs.getString("OrderDate"));
+			orderBean.setTotalPrice(rs.getInt("TotalPrice"));
+			orderBean.setOrderState(rs.getInt("OrderState"));
+			orderBean.setOrderAddress(rs.getString("OrderAddress"));
+			orderBean.setOrderPhone(rs.getString("OrderPhone"));
+			orderBean.setPayway(rs.getString("Payway"));
+			orderBeanList.add(orderBean);
+		}
+		rs.close();
+		smt.close();
+		conn.close();
+		return orderBeanList;
+	}
 	
+	public void modiOrderState(int orderState,int orderID)throws Exception{
+		String sql = "UPDATE order SET OrderState=? WHERE OrderID=? ";
+		conn = db.makeConnection();
+		smt=conn.prepareStatement(sql);
+		smt.setInt(1,orderState);
+		smt.setInt(2,orderID);
+		smt.execute();
+		smt.close();
+		conn.close();
+		
+	}
+	
+	public OrderBean getOrder(int orderID)throws Exception{
+		OrderBean orderBean = new OrderBean();
+		String sql = "SELECT * FROM order WHERE OrderID = ?";
+		conn = db.makeConnection();
+		smt = conn.prepareStatement(sql);
+		smt.setInt(1, orderID);
+		rs = smt.executeQuery();
+		if(rs.next()){
+			orderBean.setOrderID(orderID);
+			orderBean.setOrderState(rs.getInt("OrderState"));
+		}
+		rs.close();
+		smt.close();
+		conn.close();
+		return orderBean;
+		
+	}
 	
 	
 

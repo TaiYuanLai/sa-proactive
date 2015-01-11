@@ -83,9 +83,9 @@
 		</div>
 		<!-- /.container --> </nav>
 		<%
-			List<OrderBean> orderList = new ArrayList<OrderBean>();
+			List<OrderBean> orderBeanList = new ArrayList<OrderBean>();
 			OrderDB orderDB=new OrderDB();
-			orderList=orderDB.getOrderList();
+			orderBeanList=orderDB.getOrderListbyMemberAccount(memberAccount);
 		%>
 
 		<div class="container productslogan">
@@ -99,7 +99,7 @@
 			
 			<table class="table table-hover cart_table" >
 				<%
-					if(orderList.size()==0){
+					if(orderBeanList.size()==0){
 				%>
 
 				<p>尚未有任何購買紀錄</p>
@@ -117,10 +117,10 @@
 				</thead>
 				<tbody>
 					<%
-						for(OrderBean orderBean : orderList){//簡化下方
+						for(OrderBean orderBean : orderBeanList){//簡化下方
 					%>
 				
-					<tr data-href="orderHistory.jsp">
+					<tr data-href="orderHistory.jsp?ID=<%=orderBean.getOrderID()%>">
 						<td><%=orderBean.getOrderID()%></td>
 						<td><%=orderBean.getOrderDate()%></td>
 						<td>$<%=orderBean.getTotalPrice()%></td>

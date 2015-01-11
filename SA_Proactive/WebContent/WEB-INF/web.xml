@@ -233,4 +233,15 @@
     <servlet-name>ModiCombinationServlet</servlet-name>
     <url-pattern>/ModiCombinationServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>ModiOrderStateServlet</display-name>
+    <servlet-name>ModiOrderStateServlet</servlet-name>
+    <servlet-class>servlet.ModiOrderStateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModiOrderStateServlet</servlet-name>
+    <url-pattern>/ModiOrderStateServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

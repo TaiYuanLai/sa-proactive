@@ -12,14 +12,19 @@ import javax.servlet.http.HttpSession;
 
 import bean.CartBean;
 import bean.CartCombinationBean;
+import bean.CartCustomerlizeBean;
 import bean.OrderBean;
 import bean.ProductBean;
 import bean.ShoppingListBean;
 import bean.ShoppingListCombinationBean;
+import bean.ShoppingListCustomerlizeBean;
 import database.CartCombinationDB;
+import database.CartCustomerlizeDB;
 import database.CartDB;
 import database.OrderDB;
+import database.ProductDB;
 import database.ShoppingListCombinationDB;
+import database.ShoppingListCustomerlizeDB;
 import database.ShoppingListDB;
 
 
@@ -32,9 +37,11 @@ public class AddOrderServlet extends HttpServlet{
 		HttpSession session = req.getSession();
 		OrderDB orderDB = new OrderDB();
 		OrderBean orderBean = new OrderBean();
-	
+		
+		ProductDB productDB=new ProductDB();
 		ShoppingListDB shoppingListDB=new ShoppingListDB();
 		ShoppingListCombinationDB shoppingListCombinationDB=new ShoppingListCombinationDB();
+		ShoppingListCustomerlizeDB shoppingListCustomerlizeDB=new ShoppingListCustomerlizeDB();
 		
 		String memberAccount = (String) req.getSession().getAttribute("memberAccount");
 		int totalPrice=Integer.parseInt(String.valueOf(session.getAttribute("totalPrice")));
@@ -44,8 +51,9 @@ public class AddOrderServlet extends HttpServlet{
 		
 		CartDB cartDB=new CartDB();
 		CartCombinationDB cartCombinationDB=new CartCombinationDB();
+		CartCustomerlizeDB cartCustomerlizeDB=new CartCustomerlizeDB();
 		
-		
+//		ArrayList<ProductBean> productBeanList = new ArrayList<ProductBean>();
 		try {
 			int orderID=orderDB.getOrderID();
 			//零件商品
@@ -60,6 +68,7 @@ public class AddOrderServlet extends HttpServlet{
 				shoppingListDB.addShoppingList(shoppingListBean);
 			}
 			
+			
 			//優惠組合
 			List<CartCombinationBean> cartCombinationBeanList=new ArrayList<CartCombinationBean>();
 			cartCombinationBeanList=cartCombinationDB.getCartCombinationListbyMemberAccount(memberAccount);
@@ -72,6 +81,18 @@ public class AddOrderServlet extends HttpServlet{
 				shoppingListCombinationDB.addShoppingListCombination(shoppingListCombinationBean);
 			}
 			
+			//客製化
+			List<CartCustomerlizeBean> cartCustomerlizeBeanList=new ArrayList<CartCustomerlizeBean>();
+			cartCustomerlizeBeanList=cartCustomerlizeDB.getCartCustomerlizeListbyMemberAccount(memberAccount);		
+			for(CartCustomerlizeBean cartCustomerlizeBean:cartCustomerlizeBeanList){
+				ShoppingListCustomerlizeBean shoppingListCustomerlizeBean=new ShoppingListCustomerlizeBean();
+				shoppingListCustomerlizeBean.setOrderID(orderID);
+				shoppingListCustomerlizeBean.setCusID(cartCustomerlizeBean.getCusID());
+				shoppingListCustomerlizeBean.setQuantity(cartCustomerlizeBean.getQuantity());
+				shoppingListCustomerlizeBean.setUnitPrice(cartCustomerlizeBean.getUnitPrice());
+				shoppingListCustomerlizeDB.addShoppingListCustomerlize(shoppingListCustomerlizeBean);
+			}
+			
 			orderBean.setOrderID(orderID);
 			orderBean.setMemberAccount(memberAccount);
 			orderBean.setTotalPrice(totalPrice);
@@ -82,27 +103,32 @@ public class AddOrderServlet extends HttpServlet{
 			orderDB.addOrder(orderBean);
 			cartDB.delAllCartbyMemberAccount(memberAccount);
 			cartCombinationDB.delAllCartCombinationbyMemberAccount(memberAccount);
+			cartCustomerlizeDB.delAllCartCustomerlizebyMemberAccount(memberAccount);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		try {
-//			int orderID=orderDB.getOrderID();
-//			orderBean.setOrderID(orderID);
-//			orderBean.setMemberAccount(memberAccount);
-//			orderBean.setTotalPrice(totalPrice);
-//			orderBean.setOrderAddress(orderAddress);
-//			orderBean.setOrderPhone(orderPhone);
-//			orderBean.setPayway(payway);
-//			
-//			
-//			orderDB.addOrder(orderBean);
-//			
-//		} catch (Exception e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
 		
+		
+//		String productID[] = req.getParameterValues("productID");
+//		
+//		System.out.print(productID);
+//		ProductDB productDB=new ProductDB();
+//		String productID[] = req.getParameterValues("productID");
+//		for (int i = 0; i < productID.length; i++) {
+//			ProductBean productBean = new ProductBean();
+//			productBean.setProductID(productID[i]);
+//			productBeanList.add(productBean);
+//			
+//		}
+//		for (int i = 0; i < productBeanList.size(); i++) {
+//			try {
+//				productDB.minusInventorybyProduct(productBeanList.get(i));
+//			} catch (Exception e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
+//		}
 		
 		resp.sendRedirect("payOrder.jsp");
 	}

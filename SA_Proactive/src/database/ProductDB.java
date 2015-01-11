@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.CombinationBean;
 import bean.ProductBean;
 import shared.JDBCUtil;
 
@@ -171,6 +170,16 @@ public class ProductDB {
 		conn = db.makeConnection();
 		smt=conn.prepareStatement(sql);
 		smt.setString(1,productID);
+		smt.execute();
+		smt.close();
+		conn.close();
+	}
+	
+	public void minusInventorybyProduct(ProductBean productBean) throws Exception {
+		String sql = "UPDATE product a JOIN shoppinglist b ON a.ProductID=b.ProductID SET a.Inventory=a.Inventory-b.Quantity WHERE b.ProductID=?";
+		conn = db.makeConnection();
+		smt = conn.prepareStatement(sql);
+		smt.setString(1,productBean.getProductID());
 		smt.execute();
 		smt.close();
 		conn.close();

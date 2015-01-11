@@ -54,6 +54,7 @@
 						MemberBean memberBean = new MemberBean();
 						MemberDB memberDB = new MemberDB();
 						memberBean = memberDB.getMember(memberAccount);
+						int orderID = Integer.parseInt(request.getParameter("ID"));
 			%>
 			<ul class="nav navbar-nav navbar-right navcolor">
 				<li class="active"><a href="cart.jsp"><span
@@ -71,7 +72,12 @@
 		<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container --> </nav>
+		<%
 		
+		ShoppingListDB shoppingListDB=new ShoppingListDB();
+		List<ShoppingListBean> allshoppinglist = new ArrayList<ShoppingListBean>();
+		allshoppinglist=shoppingListDB.getShoppingListByMemberAccount(orderID);
+		%>
 		
 		<div class="container productslogan">
 		<h2 class="cart_h2">
@@ -80,14 +86,14 @@
 		</div>
 	<div class="container productcontent">		
 		<caption>		
-			<h3 class="cart_h3 cart_h3_chg">編號: </h3>
+			<h3 class="cart_h3 cart_h3_chg">編號:<%=orderID%></h3>
 		</caption>
 	
 		<caption>		
 			<h3 class="cart_h3 cart_h3_chg">零件區</h3>
 		</caption>
 		<%
-			
+			for(ShoppingListBean shoppingListBean:allshoppinglist){
 		%>
 		<table class="table table-hover cart_table">
 			<thead>
@@ -99,18 +105,21 @@
 			</thead>
 			<tbody>
 				<tr>  
-					<td><a href=""> <img src=""
-							class="shoppinglist_product" alt="">
-					</a></td>
-					<td></td>
-					<td>$</td>
+					<td>
+						<a href="productDetail.jsp?ID=<%=shoppingListBean.getProductID()%>">
+								<img src="<%=shoppingListBean.getImage()%>" class="cart_product" alt="">
+								<%=shoppingListBean.getProductName()%>
+						</a></td>
+					
+					<td><%=shoppingListBean.getQuantity()%></td>
+					<td>$<%=shoppingListBean.getUnitPrice()%></td>
 					
 				</tr>
 			</tbody>
 		</table>
 		<%
-			}//for
-		%>
+				}//for
+			%>
 		<caption>
 			<h3 class="cart_h3">客製化組裝區</h3>
 		</caption>
@@ -135,9 +144,7 @@
 		<caption>
 			<h3 class="cart_h3">優惠組合區</h3>
 		</caption>
-		<%
-			
-		%>
+		
 		<table class="table table-hover cart_table">
 			<thead>
 				<tr>
@@ -181,6 +188,11 @@
 		</footer>
 	</div>
 	</div>
+	<%
+		}//if
+		else
+			response.sendRedirect("login.jsp");
+	%>
 	
 
 	<!-- jQuery -->
