@@ -158,7 +158,7 @@
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="product">
-							<a href="">
+							<a href="productDetail.jsp?ID=<%=topCPU.get(0).getProductID()%>">
 								<div class="productimg">
 									<img src="<%=topCPU.get(0).getImage()%>" alt="">
 								</div>
@@ -171,7 +171,7 @@
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="product">
-							<a href="">
+							<a href="productDetail.jsp?ID=<%=topCPU.get(1).getProductID()%>">
 								<div class="productimg">
 									<img src="<%=topCPU.get(1).getImage()%>" alt="">
 								</div>
@@ -184,7 +184,7 @@
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="product">
-							<a href="">
+							<a href="productDetail.jsp?ID=<%=topCPU.get(2).getProductID()%>">
 								<div class="productimg">
 									<img src="<%=topCPU.get(2).getImage()%>" alt="">
 								</div>
@@ -197,6 +197,11 @@
 					</div>
 				</div>
 				<!-- 主機板 MD -->
+				<%
+					List<ProductBean> topMD = new ArrayList<ProductBean>();
+					String md="主機板";
+					topMD=productDB.getRank(md);
+				%>
 				<div class="row" id="hot_md">
 					<div class="col-sm-12 col-md-3">
 						<div class="hot_div">
@@ -205,45 +210,50 @@
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="product">
-							<a href="">
+							<a href="productDetail.jsp?ID=<%=topMD.get(0).getProductID()%>">
 								<div class="productimg">
-									<img src="img/B001.jpg" alt="">
+									<img src="<%=topMD.get(0).getImage()%>" alt="">
 								</div>
 								<div class="productname">
 									<span>NO1.</span>
-									<p>ASROCK 960GC-GS FX</p>
+									<p><%=topMD.get(0).getProductName()%></p>
 								</div>
 							</a>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="product">
-							<a href="">
-								<div class="productimg">
-									<img src="img/B002.jpg" alt="">
+							<a href="productDetail.jsp?ID=<%=topMD.get(1).getProductID()%>">								<div class="productimg">
+									<img src="<%=topMD.get(1).getImage()%>" alt="">
 								</div>
 								<div class="productname">
 									<span>NO2.</span>
-									<p>MSI 760GA-P43</p>
+									<p><%=topMD.get(1).getProductName()%></p>
 								</div>
 							</a>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="product">
-							<a href="">
+							<a href="productDetail.jsp?ID=<%=topMD.get(2).getProductID()%>">
 								<div class="productimg">
-									<img src="img/B003.jpg" alt="">
+									<img src="<%=topMD.get(2).getImage()%>" alt="">
 								</div>
 								<div class="productname">
 									<span>NO3.</span>
-									<p>ASUS M5A97</p>
+									<p><%=topMD.get(2).getProductName()%></p>
 								</div>
 							</a>
 						</div>
 					</div>
 				</div>
 				<!-- 硬碟/SSD HD -->
+				<%
+					List<ProductBean> topHD = new ArrayList<ProductBean>();
+					String hd="硬碟/SSD";
+					topHD=productDB.getRank(hd);
+				%>
+				
 				<div class="row" id="hot_ssdhd">
 					<div class="col-sm-12 col-md-3">
 						<div class="hot_div">
@@ -252,45 +262,50 @@
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="product">
-							<a href="">
+							<a href="productDetail.jsp?ID=<%=topHD.get(0).getProductID()%>">
 								<div class="productimg">
-									<img src="img/C001.jpg" alt="">
+									<img src="<%=topHD.get(0).getImage()%>" alt="">
 								</div>
 								<div class="productname">
 									<span>NO1.</span>
-									<p>WD 500G/SATAIII/64M/7200R RE企業級/5年硬碟</p>
+									<p><%=topHD.get(0).getProductName()%></p>
 								</div>
 							</a>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="product">
-							<a href="">
+							<a href="productDetail.jsp?ID=<%=topHD.get(1).getProductID()%>">
 								<div class="productimg">
-									<img src="img/C002.jpg" alt="">
+									<img src="<%=topHD.get(1).getImage()%>" alt="">
 								</div>
 								<div class="productname">
 									<span>NO2.</span>
-									<p>Seagate 1TB/SATAIII/64M影音監控/5900R/3年</p>
+									<p><%=topHD.get(1).getProductName()%></p>
 								</div>
 							</a>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="product">
-							<a href="">
+							<a href="productDetail.jsp?ID=<%=topHD.get(2).getProductID()%>">
 								<div class="productimg">
-									<img src="img/C003.jpg" alt="">
+									<img src="<%=topHD.get(2).getImage()%>" alt="">
 								</div>
 								<div class="productname">
 									<span>NO3.</span>
-									<p>TOSHIBA 1TB/SATA3/64M/Harrier企業級/5年硬碟</p>
+									<p><%=topHD.get(2).getProductName()%></p>
 								</div>
 							</a>
 						</div>
 					</div>
 				</div>
 				<!-- 記憶體 RAM -->
+				<%
+					List<ProductBean> topRAM = new ArrayList<ProductBean>();
+					String ram="記憶體";
+					topRAM=productDB.getRank(ram);
+				%>
 				<div class="row" id="hot_ram">
 					<div class="col-sm-12 col-md-3">
 						<div class="hot_div">
@@ -299,45 +314,50 @@
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="product">
-							<a href="">
+							<a href="productDetail.jsp?ID=<%=topRAM.get(0).getProductID()%>">
 								<div class="productimg">
-									<img src="img/D001.jpg" alt="">
+									<img src="<%=topRAM.get(0).getImage()%>" alt="">
 								</div>
 								<div class="productname">
 									<span>NO1.</span>
-									<p>Transcend DDR400 1G PC用</p>
+									<p><%=topRAM.get(0).getProductName()%></p>
 								</div>
 							</a>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="product">
-							<a href="">
+							<a href="productDetail.jsp?ID=<%=topRAM.get(1).getProductID()%>">
 								<div class="productimg">
-									<img src="img/D002.jpg" alt="">
+									<img src="<%=topRAM.get(1).getImage()%>" alt="">
 								</div>
 								<div class="productname">
 									<span>NO2.</span>
-									<p>Transcend DDR2 800 2G PC用</p>
+									<p><%=topRAM.get(1).getProductName()%></p>
 								</div>
 							</a>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="product">
-							<a href="">
+							<a href="productDetail.jsp?ID=<%=topRAM.get(2).getProductID()%>">
 								<div class="productimg">
-									<img src="img/D003.jpg" alt="">
+									<img src="<%=topRAM.get(2).getImage()%>" alt="">
 								</div>
 								<div class="productname">
 									<span>NO3.</span>
-									<p>Kingston DDR3 1333 2G PC用</p>
+									<p><%=topRAM.get(2).getProductName()%></p>
 								</div>
 							</a>
 						</div>
 					</div>
 				</div>
 				<!-- 顯示/繪圖卡 VGA -->
+				<%
+					List<ProductBean> topVGA = new ArrayList<ProductBean>();
+					String vga="顯示/繪圖卡";
+					topVGA=productDB.getRank(vga);
+				%>
 				<div class="row" id="hot_vga">
 					<div class="col-sm-12 col-md-3">
 						<div class="hot_div">
@@ -346,39 +366,39 @@
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="product">
-							<a href="">
+							<a href="productDetail.jsp?ID=<%=topVGA.get(0).getProductID()%>">
 								<div class="productimg">
-									<img src="img/E001.jpg" alt="">
+									<img src="<%=topVGA.get(0).getImage()%>" alt="">
 								</div>
 								<div class="productname">
 									<span>NO1.</span>
-									<p>GIGABYTE GV-R545-1GI</p>
+									<p><%=topVGA.get(0).getProductName()%></p>
 								</div>
 							</a>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="product">
-							<a href="">
+							<a href="productDetail.jsp?ID=<%=topVGA.get(1).getProductID()%>">
 								<div class="productimg">
-									<img src="img/E002.jpg" alt="">
+									<img src="<%=topVGA.get(1).getImage()%>" alt="">
 								</div>
 								<div class="productname">
 									<span>NO2.</span>
-									<p>MSI R7750-1GD5</p>
+									<p><%=topVGA.get(1).getProductName()%></p>
 								</div>
 							</a>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-3">
 						<div class="product">
-							<a href="">
+							<a href="productDetail.jsp?ID=<%=topVGA.get(2).getProductID()%>">
 								<div class="productimg">
-									<img src="img/E003.jpg" alt="">
+									<img src="<%=topVGA.get(2).getImage()%>" alt="">
 								</div>
 								<div class="productname">
 									<span>NO3.</span>
-									<p>ASUS R7240-2GD3-L 顯示卡</p>
+									<p><%=topVGA.get(2).getProductName()%></p>
 								</div>
 							</a>
 						</div>
