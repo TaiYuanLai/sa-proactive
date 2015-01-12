@@ -59,16 +59,16 @@
 
 	</div>
 	<!-- /.container --> </nav>
-	<%	
-		//int orderID=Integer.parseInt(request.getParameter("orderID"));
-		List<OrderBean> orderList = new ArrayList<OrderBean>();
-		OrderDB orderDB=new OrderDB();
-		orderList=orderDB.getOrderList();
+	<%
+		// 		int orderID=Integer.parseInt(request.getParameter("orderID"));
+			List<OrderBean> orderList = new ArrayList<OrderBean>();
+			OrderDB orderDB=new OrderDB();
+			orderList=orderDB.getOrderList();
 	%>
 	<div class="container_reg">
 		<div class="container">
 			<form action="../ModiOrderStateServlet" method="post" id="modiForm">
-			
+
 				<div class="col-lg-12 orderbg">
 					<div class="col-lg-12 orderhead">
 						<h1>
@@ -77,10 +77,6 @@
 						</h1>
 					</div>
 					<div class="col-lg-12">
-					<%
-									for(OrderBean orderBean : orderList){//簡化下方
-								%>
-							<input type="hidden" name="orderID" value="<%=orderBean.getOrderID()%>"> 
 						<table class="table table-hover cart_table">
 							<thead>
 								<tr>
@@ -94,13 +90,17 @@
 									<td>付款方式</td>
 								</tr>
 							</thead>
+							<%
+							for(OrderBean orderBean : orderList){//簡化下方
+						%>
+						<input type="hidden" name="orderID" value="<%=orderBean.getOrderID()%>">
 							<tbody>
 								<tr>
 									<td><%=orderBean.getOrderID()%></td>
 									<td><%=orderBean.getMemberAccount()%></td>
 									<td><%=orderBean.getOrderDate()%></td>
 									<td>$<%=orderBean.getTotalPrice()%></td>
-									<td><select name="" id="">
+									<td><select name="orderState">
 											<option value="0"
 												<%=orderBean.getOrderState()==0?"selected":""%>>未付款</option>
 											<option value="1"
@@ -110,14 +110,15 @@
 									<td><%=orderBean.getOrderPhone()%></td>
 									<td><%=orderBean.getPayway()%></td>
 								</tr>
-								</tbody>
+							</tbody>
+							<%
+							}
+						%>
 						</table>
-						<%
-									}
-								%>
+						
 					</div>
 
-					
+
 					<input type="submit" value="儲存" />
 
 				</div>
@@ -138,8 +139,8 @@
 
 	<%
 		}//if
-			else
-		response.sendRedirect("login.jsp");
+		else
+			response.sendRedirect("login.jsp");
 	%>
 
 	<!-- jQuery -->

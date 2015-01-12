@@ -7,6 +7,9 @@ public class ShoppingListCombinationBean {
 	private int UnitPrice;
 	private int Quantity;
 	/*-----other-----*/
+	private String CombinationName;
+	private String ComImage;
+	
 	public int getOrderID() {
 		return OrderID;
 	}
@@ -31,6 +34,19 @@ public class ShoppingListCombinationBean {
 	public void setQuantity(int quantity) {
 		Quantity = quantity;
 	}
+	public String getCombinationName() {
+		return CombinationName;
+	}
+	public void setCombinationName(String combinationName) {
+		CombinationName = combinationName;
+	}
+	public String getComImage() {
+		return ComImage;
+	}
+	public void setComImage(String comImage) {
+		ComImage = comImage;
+	}
+	
 	
 	
 }
