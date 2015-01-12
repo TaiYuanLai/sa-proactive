@@ -42,6 +42,7 @@
 					<li class="active"><a href="manageProduct.jsp">產品管理</a></li>
 					<li><a href="manageCombination.jsp">優惠組合管理</a></li>
 					<li><a href="manageHot.jsp">熱銷資訊管理</a></li>
+					<li><a href="sales.jsp">分析銷售量</a></li>
 				</ul>
 				
 				<ul class="nav navbar-nav navbar-right navcolor">

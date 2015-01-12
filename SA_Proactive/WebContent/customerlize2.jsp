@@ -233,14 +233,17 @@
 								%>
 
 							</select>
-							
+							<br>
+							<div style="font-size: 20px; font-weight: bold; margin: 50px 0;">
+								<input type="checkbox" name="check" id="check">是否組裝($400)
+							</div>
 						</div>
-						<input type="checkbox" name="check" id="check">是否組裝($400)
+						
 					</div>
 					<!-- Step3 -->
 				</div>
                 
-				<input type="submit" class="col-md-2 cus_next" value="完成" />
+				<input type="submit" class="col-md-2 detailbtn3" value="完成" />
 				<!-- 				<div class="col-md-2 cus_next2"> -->
 				<!-- 					<a href="customerlizeDetail.jsp"> -->
 				<!-- 						<p>完成</p> -->

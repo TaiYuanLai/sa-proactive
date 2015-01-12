@@ -35,7 +35,7 @@
 		if (session.getAttribute("memberAccount") != null) {
 	%>
 
-	<div class="cus_bg">
+	<div class="cus_bg clearfix">
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top navchg"
 			role="navigation">
@@ -171,7 +171,7 @@
 				</div>
 				
 				
-					<button type="submit" class="col-md-2 cus_next">下一步</button>
+					<button type="submit" class="col-md-2 detailbtn3">下一步</button>
 				
 				<!-- <div class="col-md-2 cus_next">
                 <a href="customerlize2.jsp">

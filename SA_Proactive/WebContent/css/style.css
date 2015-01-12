@@ -648,6 +648,15 @@ end of product.jsp
 .totalprice_div span{
 	color: #dc5c43 ;
 }
+.detailbtn3{
+	float: right;
+	margin: 10px 30px;
+	background: #272822;
+	color: #FFFFFF;
+	border: 1px solid #272822;
+	padding: 10px 10px;
+}
+
 /**********
 end of product.jsp
 **********/
