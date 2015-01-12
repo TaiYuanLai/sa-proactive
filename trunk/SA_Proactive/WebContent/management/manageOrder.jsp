@@ -60,7 +60,6 @@
 	</div>
 	<!-- /.container --> </nav>
 	<%
-		// 		int orderID=Integer.parseInt(request.getParameter("orderID"));
 			List<OrderBean> orderList = new ArrayList<OrderBean>();
 			OrderDB orderDB=new OrderDB();
 			orderList=orderDB.getOrderList();
