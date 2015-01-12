@@ -103,20 +103,21 @@
 									<%=combinationDetialBean.getProductType()%>
 								</td>
 								<td>
-									<select>
+							
+									<select name="<%=combinationDetialBean.getProductType() %>">
 								<%
-									for(ProductBean productBean : productList){	
+								for(ProductBean productBean : productList){
 										if(combinationDetialBean.getProductType().equals(productBean.getProductType())){	
 											if(productBean.getProductName().equals(combinationDetialBean.getProductName())){
 								%>
-										<option selected name="<%=productBean.getProductType() %>" value="<%=productBean.getProductID()%>">
+										<option selected  id="<%=productBean.getProductID()%>" value="<%=productBean.getProductID()%>">
 									 		<%=combinationDetialBean.getProductName() %>
 									 	</option>
 									<%
 										}
 									else{
 									%> 	
-									<option name="<%=productBean.getProductType() %>" value="<%=productBean.getProductID()%>">
+									<option  id="<%=productBean.getProductID()%>" value="<%=productBean.getProductID()%>">
 									 		<%=productBean.getProductName() %>
 									 </option> 
 									 <%
@@ -134,7 +135,7 @@
 									
 								</table>
 								
-								<button type="sumbit" class="detailbtn1 detailbtn1_re" onclick="doModiCombination('<%=combinationDetailBean.getProductID()%>')">修改</button>
+								<button type="sumbit" class="detailbtn1 detailbtn1_re" onclick="doModiCombination()">修改</button>
 							</div>
 						</div>
 					</div>
@@ -164,10 +165,10 @@
 	</script>
 	
 	<script type="text/javascript">		
-		function doModiCombination(productID) {
+		function doModiCombination() {
 			var r = confirm("確定修改?");
 			if (r == true) {
-				$("#productID").val(productID);
+				
 				$("#modiCombinationForm").submit();
 			}
 		}
