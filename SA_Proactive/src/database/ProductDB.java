@@ -175,14 +175,47 @@ public class ProductDB {
 		conn.close();
 	}
 	
-	public void minusInventorybyProduct(ProductBean productBean) throws Exception {
-		String sql = "UPDATE product a JOIN shoppinglist b ON a.ProductID=b.ProductID SET a.Inventory=a.Inventory-b.Quantity WHERE b.ProductID=?";
+	public void minusInventorybyProduct(String productID,int quantity) throws Exception {
+		String sql = "UPDATE product SET Inventory=Inventory-" + quantity + " WHERE ProductID=?";
 		conn = db.makeConnection();
 		smt = conn.prepareStatement(sql);
-		smt.setString(1,productBean.getProductID());
+		smt.setString(1,productID);
 		smt.execute();
 		smt.close();
 		conn.close();
 	}
+	public void addSalesbyProduct(String productID,int quantity) throws Exception {
+		String sql = "UPDATE product SET Sales=Sales+" + quantity + " WHERE ProductID=?";
+		conn = db.makeConnection();
+		smt = conn.prepareStatement(sql);
+		smt.setString(1,productID);
+		smt.execute();
+		smt.close();
+		conn.close();
+	}
+	
+	public List<ProductBean> getRank(String productType) throws Exception {
+
+		String sql = "SELECT ProductID FROM product WHERE ProductType='" + productType + "' ORDER BY Sales DESC LIMIT 3";
+		List<ProductBean> allproduct = new ArrayList<ProductBean>();
+		List<String> temp = new ArrayList<String>();
+		conn = db.makeConnection();
+		smt = conn.prepareStatement(sql);
+		ResultSet rs2 = smt.executeQuery();
+		while(rs2.next()){
+			temp.add(rs2.getString("ProductID"));
+		}
+		
+		for(int i=0;i<temp.size();i++){
+			allproduct.add(this.getProduct(temp.get(i)));
+		}
+		
+		
+		smt.close();
+		rs2.close();
+		conn.close();
+		return allproduct;
+	}
+	
 
 }

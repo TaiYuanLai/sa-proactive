@@ -112,6 +112,33 @@ public class CombinationDB {
 		
 	}
 	
+	public List<String> getProductIDbyCombination(String combinationID) throws Exception {
+		String sql = "SELECT ProductID FROM combination_detail WHERE CombinationID=?";
+		List<String> productIDbycombination = new ArrayList<String>();
+		conn = db.makeConnection();
+		smt = conn.prepareStatement(sql);
+		smt.setString(1,combinationID);
+		rs = smt.executeQuery();
+		while (rs.next()) {
+			productIDbycombination.add(rs.getString("ProductID"));
+		}
+		rs.close();
+		smt.close();
+		conn.close();
+		return productIDbycombination;
+	}
+	
+	
+//	public void addSalesbyCombination(String combinationID) throws Exception {
+//		String sql = "UPDATE product a JOIN shoppinglist_combination b ON a.ProductID=b.ProductID SET a.Sales=a.Sales+b.Quantity WHERE b.ProductID=?";
+//		conn = db.makeConnection();
+//		smt = conn.prepareStatement(sql);
+//		smt.setString(1,productID);
+//		smt.execute();
+//		smt.close();
+//		conn.close();
+//	}
+	
 	
 
 }

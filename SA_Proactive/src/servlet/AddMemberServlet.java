@@ -1,5 +1,6 @@
 package servlet;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -9,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import database.MemberDB;
 import bean.MemberBean;
+import shared.HtmlUtil;
 import shared.MD5;
+import shared.Mail;
 
 public class AddMemberServlet extends HttpServlet{
 	@Override
@@ -32,7 +35,22 @@ public class AddMemberServlet extends HttpServlet{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		resp.sendRedirect("index.jsp");
+		
+//		HtmlUtil htmlUtil = new HtmlUtil();
+//		String subject = "Proactive：會員註冊驗證";
+//		String message = "";
+//		try {
+//			message = htmlUtil.htmlToString(req.getServletContext().getRealPath("html/mail.html"));
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		Mail mail = new Mail();
+//		message = message.replaceAll("link_url", "http://www.proactive.tw/active?aid="+memberBean.getMemberAccount());
+//		message = message.replaceAll("user_name", memberBean.getMemberName());
+//		mail.sendMail(subject, memberBean.getMemberAccount(), message);
+		
+		resp.sendRedirect("login.jsp");
 	}
 
 }
