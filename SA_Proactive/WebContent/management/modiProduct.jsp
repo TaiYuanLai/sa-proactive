@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="database.*"%>
 <%@ page import="bean.*"%>
 <%@ page import="java.util.*"%>
@@ -20,14 +19,12 @@
 	String productID = request.getParameter("ID");
 	ProductDB productDB = new ProductDB();
 	ProductBean productBean = productDB.getProduct(productID);
-	String msg = "";
 %>
 <body>
 	<%
 		if (session.getAttribute("managerAccount") != null) {
 	%>
-   <nav class="navbar navbar-inverse navbar-fixed-top navchg"
-		role="navigation">
+   <nav class="navbar navbar-inverse navbar-fixed-top navchg" role="navigation">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<img src="img/logo3.jpg" class="navlogo">
@@ -64,17 +61,17 @@
         <!-- /.container -->
     </nav>
 
-
     <div class="container_reg">
 
-
+	<form action="../ModiProductServlet" method="post">
+		<input type="hidden" name="ProductID" value="<%=productBean.getProductID()%>">
         <div class="container">
             <div class="col-lg-12 orderbg modi">
                 <div class="detail">
                     <div class="row">
                         <div class="col-md-12 detailtitle">
                             <h2>
-                                <input type="text" class="addtxt" value="<%=productBean.getProductName()%>">
+                                <input type="text" class="addtxt" name="ProductName" value="<%=productBean.getProductName()%>">
                             </h2>
                         </div>
                     </div>
@@ -91,31 +88,31 @@
 							<table class="table table-hover cart_table">
 								<tr>
 									<td>廠牌</td>
-									<td><input type="text" class="addtxt1" value="<%=productBean.getProductBrand()%>"></td>
+									<td><input type="text" class="addtxt1" name="ProductBrand" value="<%=productBean.getProductBrand()%>"></td>
 								</tr>
 								<tr>
 									<td>Clock</td>
-									<td><input type="text" class="addtxt1" value="<%=productBean.getClock()%>"></td>
+									<td><input type="text" class="addtxt1" name="Clock" value="<%=productBean.getClock()%>"></td>
 								</tr>
 								<tr>
 									<td>ProcessorSocket</td>
-									<td><input type="text" class="addtxt1" value="<%=productBean.getProcessorSocket()%>"></td>
+									<td><input type="text" class="addtxt1" name="ProcessorSocket" value="<%=productBean.getProcessorSocket()%>"></td>
 								</tr>
 								<tr>
 									<td>核心數</td>
-									<td><input type="text" class="addtxt1" value="<%=productBean.getSpecifications()%>"></td>
+									<td><input type="text" class="addtxt1" name="Specifications" value="<%=productBean.getSpecifications()%>"></td>
 								</tr>
 								<tr>
 									<td>Cache</td>
-									<td><input type="text" class="addtxt1" value="<%=productBean.getCache()%>"></td>
+									<td><input type="text" class="addtxt1" name="Cache" value="<%=productBean.getCache()%>"></td>
 								</tr>
 								<tr>
 									<td>單價</td>
-									<td><input type="text" class="addtxt1" value="<%=productBean.getUnitPrice()%>"></td>
+									<td><input type="text" class="addtxt1" name="UnitPrice" value="<%=productBean.getUnitPrice()%>"></td>
 								</tr>
 								<tr>
 									<td>保固期</td>
-									<td><input type="text" class="addtxt1" value="<%=productBean.getWarranty()%>"></td>
+									<td><input type="text" class="addtxt1" name="Warranty" value="<%=productBean.getWarranty()%>"></td>
 								</tr>
 							</table>
 							<%
@@ -669,12 +666,13 @@
 								}
 							
 							%>
-                            <input class="detailbtn1 detailbtn1_re" type="button" value="確定修改">
+							<input type="submit" class="detailbtn1 detailbtn1_re" value="修改">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        </form>
 
         <div class="container">
             <footer class="footer_order">
@@ -698,10 +696,11 @@
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
     
-    <!-- Script to Activate the Carousel -->
+    
     <script>
-	$('.dropdown-toggle').dropdown();
+		$('.dropdown-toggle').dropdown();
 	</script>
+	
 
 </body>
 </html>

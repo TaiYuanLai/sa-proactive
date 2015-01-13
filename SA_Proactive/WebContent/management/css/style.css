@@ -1,5 +1,5 @@
 body{
-	font-family: "·L³n¥¿¶ÂÅé","Central Gothic","Arial";
+	font-family: "ï¿½Lï¿½nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","Central Gothic","Arial";
 }
 /**********
 index.jsp-start
@@ -307,11 +307,7 @@ order.jsp
 .orderhead{
 	text-align: center;
 	font-weight: bolder;
-	/*border-bottom: 3px solid #272822;*/
 	margin-bottom: 20px; 
-}
-.orderbg thead td{
-	/*border: 3px solid #272822 collapse;*/
 }
 .orderbg tbody tr{
 	border-top: 2px solid #272822;
@@ -519,4 +515,7 @@ end of manageCombination.jsp
 }
 .product_trash:hover{
 	opacity: 0.8;
+}
+.addproductnav ul.nav.nav-tabs{
+	width: 1201px;
 }
