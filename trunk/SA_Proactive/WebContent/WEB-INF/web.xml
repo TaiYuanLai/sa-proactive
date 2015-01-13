@@ -14,7 +14,6 @@
     <servlet-name>AddMemberServlet</servlet-name>
     <url-pattern>/AddMemberServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>CheckAccountServlet</display-name>
@@ -25,7 +24,6 @@
     <servlet-name>CheckAccountServlet</servlet-name>
     <url-pattern>/CheckAccountServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>LoginServlet</display-name>
@@ -36,7 +34,6 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>LogoutServlet</display-name>
@@ -47,7 +44,6 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AddCartServlet</display-name>
@@ -58,7 +54,6 @@
     <servlet-name>AddCartServlet</servlet-name>
     <url-pattern>/AddCartServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AddCartCombinationServlet</display-name>
@@ -69,7 +64,6 @@
     <servlet-name>AddCartCombinationServlet</servlet-name>
     <url-pattern>/AddCartCombinationServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>DelCartServlet</display-name>
@@ -80,7 +74,6 @@
     <servlet-name>DelCartServlet</servlet-name>
     <url-pattern>/DelCartServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>DelCartCombinationServlet</display-name>
@@ -91,7 +84,6 @@
     <servlet-name>DelCartCombinationServlet</servlet-name>
     <url-pattern>/DelCartCombinationServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>ModiPasswordServlet</display-name>
@@ -102,7 +94,6 @@
     <servlet-name>ModiPasswordServlet</servlet-name>
     <url-pattern>/ModiPasswordServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>ModiQuantityServlet</display-name>
@@ -113,8 +104,7 @@
     <servlet-name>ModiQuantityServlet</servlet-name>
     <url-pattern>/ModiQuantityServlet</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>AddOrderServlet</display-name>
     <servlet-name>AddOrderServlet</servlet-name>
@@ -124,7 +114,6 @@
     <servlet-name>AddOrderServlet</servlet-name>
     <url-pattern>/AddOrderServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AddPriceServlet</display-name>
@@ -135,7 +124,6 @@
     <servlet-name>AddPriceServlet</servlet-name>
     <url-pattern>/AddPriceServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AddCPUServlet</display-name>
@@ -146,7 +134,6 @@
     <servlet-name>AddCPUServlet</servlet-name>
     <url-pattern>/AddCPUServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AddCartCustomerlizeServlet</display-name>
@@ -157,7 +144,6 @@
     <servlet-name>AddCartCustomerlizeServlet</servlet-name>
     <url-pattern>/AddCartCustomerlizeServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AddOtherServlet</display-name>
@@ -168,7 +154,6 @@
     <servlet-name>AddOtherServlet</servlet-name>
     <url-pattern>/AddOtherServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>DelCartCustomerlizeServlet</display-name>
@@ -179,9 +164,6 @@
     <servlet-name>DelCartCustomerlizeServlet</servlet-name>
     <url-pattern>/DelCartCustomerlizeServlet</url-pattern>
   </servlet-mapping>
-  
-  
-  <!-- management  -->
   <servlet>
     <description></description>
     <display-name>MLoginServlet</display-name>
@@ -222,7 +204,6 @@
     <servlet-name>ModiProductServlet</servlet-name>
     <url-pattern>/ModiProductServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>ModiCombinationServlet</display-name>
@@ -233,7 +214,6 @@
     <servlet-name>ModiCombinationServlet</servlet-name>
     <url-pattern>/ModiCombinationServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>ModiOrderStateServlet</display-name>
@@ -243,5 +223,15 @@
   <servlet-mapping>
     <servlet-name>ModiOrderStateServlet</servlet-name>
     <url-pattern>/ModiOrderStateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddProductServlet</display-name>
+    <servlet-name>AddProductServlet</servlet-name>
+    <servlet-class>servlet.AddProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddProductServlet</servlet-name>
+    <url-pattern>/AddProductServlet</url-pattern>
   </servlet-mapping>
 </web-app>

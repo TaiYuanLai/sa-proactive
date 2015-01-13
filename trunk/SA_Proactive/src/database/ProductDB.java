@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import bean.MemberBean;
 import bean.ProductBean;
 import shared.JDBCUtil;
 
@@ -175,6 +176,27 @@ public class ProductDB {
 		conn.close();
 	}
 	
+	public void modiProduct(String productName,String productBrand,String clock,String processorSocket,String specifications,String cache,int unitPrice,String warranty,String productID)throws Exception{
+		String sql = "UPDATE product SET ProductName=?,ProductBrand=?,Clock=?,ProcessorSocket=?,Specifications=?,`Cache`=?,UnitPrice=?,Warranty=? WHERE ProductID = ?";
+		conn = db.makeConnection();
+		smt = conn.prepareStatement(sql);
+		
+		smt.setString(1, productName);
+		smt.setString(2, productBrand);
+		smt.setString(3, clock);
+		smt.setString(4, processorSocket);
+		
+		smt.setString(5, specifications);
+		smt.setString(6, cache);
+		smt.setInt(7, unitPrice);
+		smt.setString(8, warranty);
+		smt.setString(9, productID);
+		smt.execute();
+
+		smt.close();
+		conn.close();
+	}
+	
 	public void minusInventorybyProduct(String productID,int quantity) throws Exception {
 		String sql = "UPDATE product SET Inventory=Inventory-" + quantity + " WHERE ProductID=?";
 		conn = db.makeConnection();
@@ -184,6 +206,7 @@ public class ProductDB {
 		smt.close();
 		conn.close();
 	}
+	
 	public void addSalesbyProduct(String productID,int quantity) throws Exception {
 		String sql = "UPDATE product SET Sales=Sales+" + quantity + " WHERE ProductID=?";
 		conn = db.makeConnection();
@@ -215,6 +238,53 @@ public class ProductDB {
 		rs2.close();
 		conn.close();
 		return allproduct;
+	}
+	
+	public void addProduct(ProductBean productBean) throws Exception{
+		String sql = "INSERT INTO product(ProductID,ProductName,ProductType,ProductBrand,Clock,Chipset,ProcessorSocket,CPUSlot,MemorySlot,DriveSpecifications,Specifications,Cache,WRSpeed,Speed,GPU,PinNumber,MemorySize,Color,Size,Wattage,Noise,UnitPrice,Inventory,Sales,Warranty)" + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,0,?)"; 
+		conn = db.makeConnection();
+		
+		smt=conn.prepareStatement(sql);
+		smt.setString(1,productBean.getProductID());
+		smt.setString(2,productBean.getProductName());
+		smt.setString(3,productBean.getProductType());
+		
+		smt.setString(4,productBean.getProductBrand());
+		smt.setString(5,productBean.getClock());
+		
+		smt.setString(6,productBean.getChipset());
+		smt.setString(7,productBean.getProcessorSocket());
+		
+		smt.setString(8,productBean.getCPUSlot());
+		smt.setString(9,productBean.getMemorySlot());
+		
+		smt.setString(10,productBean.getDriveSpecifications());
+		smt.setString(11,productBean.getSpecifications());
+		
+		smt.setString(12,productBean.getCache());
+		smt.setString(13,productBean.getWRSpeed());
+		
+		smt.setString(14,productBean.getSpeed());
+		smt.setString(15,productBean.getGPU());
+		
+		smt.setInt(16,productBean.getPinNumber());
+		smt.setString(17,productBean.getMemorySize());
+		
+		smt.setString(18,productBean.getColor());
+		smt.setString(19,productBean.getSize());
+		
+		smt.setString(20,productBean.getWattage());
+		smt.setString(21,productBean.getNoise());
+		
+		smt.setInt(22,productBean.getUnitPrice());
+		smt.setInt(23,productBean.getInventory());
+
+		smt.setString(24,productBean.getWarranty());
+		
+		
+		smt.execute();
+		smt.close();
+		conn.close();
 	}
 	
 
